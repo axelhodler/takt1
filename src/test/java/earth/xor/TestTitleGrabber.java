@@ -1,7 +1,8 @@
 package earth.xor;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 public class TestTitleGrabber {
@@ -13,9 +14,15 @@ public class TestTitleGrabber {
 
     private String imageUrl = "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-star.svg.png";
 
+    private TitleGrabber tg;
+    
+    @Before
+    public void setUp() {
+	tg = new TitleGrabber();
+    }
+    
     @Test
     public void testGrabbingTheTitle() {
-	TitleGrabber tg = new TitleGrabber();
 
 	String grabbedTitle = tg.grabTitle(url);
 
@@ -24,7 +31,6 @@ public class TestTitleGrabber {
     
     @Test
     public void testGrabbingTheTitleWithAnImage() {
-	TitleGrabber tg = new TitleGrabber();
 	
 	String grabbedTitel = tg.grabTitle(imageUrl);
 	
@@ -33,7 +39,6 @@ public class TestTitleGrabber {
     
     @Test
     public void testGrabbingTheTitleOfANonExistingUrl() {
-	TitleGrabber tg = new TitleGrabber();
 	
 	String grabbedTitle = tg.grabTitle(nonExistingUrl);
 	
