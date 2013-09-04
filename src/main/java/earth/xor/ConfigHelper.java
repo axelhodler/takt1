@@ -28,4 +28,14 @@ public class ConfigHelper {
 	return prop.getProperty("botname");
     }
 
+    public String getServer() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    public String getChannel() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
 }
