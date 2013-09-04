@@ -11,9 +11,11 @@ public class UrlGrabber {
 	Pattern p = Pattern.compile(urlPattern);
 	Matcher m = p.matcher(sentence);
 	
-	m.find();
+	if (m.find()) {
+	    return m.group(1);
+	}
 	
-	return m.group(1);
+	return null;
     }
 
 }
