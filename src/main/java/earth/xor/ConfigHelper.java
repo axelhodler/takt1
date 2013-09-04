@@ -29,13 +29,11 @@ public class ConfigHelper {
     }
 
     public String getServer() {
-	// TODO Auto-generated method stub
-	return null;
+	return prop.getProperty("server");
     }
 
     public String getChannel() {
-	// TODO Auto-generated method stub
-	return null;
+	return prop.getProperty("channel");
     }
 
 }
