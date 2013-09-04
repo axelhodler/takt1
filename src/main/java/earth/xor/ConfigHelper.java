@@ -7,20 +7,25 @@ import java.util.Properties;
 
 public class ConfigHelper {
 
-    public String getBotName() {
-	Properties prop = new Properties();
-	
+    private Properties prop;
+    
+    public ConfigHelper() {
+	prop = new Properties();
+	tryToLoadTheConfigFile();
+    }
+    
+    private void tryToLoadTheConfigFile() {
 	try {
 	    prop.load(new FileInputStream("config.properties"));
-	    return prop.getProperty("botname");
 	} catch (FileNotFoundException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	} catch (IOException e) {
-	    // TODO Auto-generated catch block
 	    e.printStackTrace();
 	}
-	return null;
+    }
+    
+    public String getBotName() {
+	return prop.getProperty("botname");
     }
 
 }
