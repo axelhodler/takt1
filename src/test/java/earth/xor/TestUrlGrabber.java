@@ -12,6 +12,8 @@ public class TestUrlGrabber {
     private String testSentence = "foo " + testUrl + " bar baz";
     private String secondTestSentence= "foo bar " + secondTestUrl + " baz";
     
+    private String testSentenceWithoutUrl = "foo bar baz";
+    
     @Test
     public void testGettingTheUrl() {
 	
@@ -23,5 +25,14 @@ public class TestUrlGrabber {
 	
 	assertEquals(testUrl, url);
 	assertEquals(secondTestUrl, secondUrl);	
+    }
+    
+    @Test
+    public void dealWithNoUrlProvided() {
+	UrlGrabber ug = new UrlGrabber();
+	
+	String url = ug.grabUrl(testSentenceWithoutUrl);
+	
+	assertEquals(null, url);		
     }
 }
