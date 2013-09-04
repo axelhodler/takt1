@@ -1,10 +1,19 @@
 package earth.xor;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class UrlGrabber {
 
-    public String grabUrl(String secondTestSentence) {
-	// TODO Auto-generated method stub
-	return null;
+    private String urlPattern = "((https?):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
+    
+    public String grabUrl(String sentence) {
+	Pattern p = Pattern.compile(urlPattern);
+	Matcher m = p.matcher(sentence);
+	
+	m.find();
+	
+	return m.group(1);
     }
 
 }
