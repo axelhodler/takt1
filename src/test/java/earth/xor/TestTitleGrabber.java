@@ -8,6 +8,8 @@ public class TestTitleGrabber {
 
     private String title = "Regular expression - Wikipedia, the free encyclopedia";
     private String url = "http://en.wikipedia.org/wiki/Regex";
+    
+    private String nonExistingUrl = "http://www.test.test";
 
     private String imageUrl = "http://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-star.svg.png";
 
@@ -27,5 +29,14 @@ public class TestTitleGrabber {
 	String grabbedTitel = tg.grabTitle(imageUrl);
 	
 	assertEquals(null, grabbedTitel);
+    }
+    
+    @Test
+    public void testGrabbingTheTitleOfANonExistingUrl() {
+	TitleGrabber tg = new TitleGrabber();
+	
+	String grabbedTitle = tg.grabTitle(nonExistingUrl);
+	
+	assertEquals(null, grabbedTitle);
     }
 }
