@@ -1,9 +1,11 @@
-package earth.xor;
+package bot;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import bot.UrlGrabber;
 
 public class TestUrlGrabber {
 

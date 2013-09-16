@@ -1,4 +1,4 @@
-package earth.xor;
+package bot;
 
 import java.io.IOException;
 import java.net.UnknownHostException;

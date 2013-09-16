@@ -1,4 +1,4 @@
-package earth.xor;
+package bot;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.Listener;
