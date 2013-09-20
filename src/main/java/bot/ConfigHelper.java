@@ -44,4 +44,8 @@ public class ConfigHelper {
 	return prop.getProperty("password");
     }
 
+    public String getWebappUrl() {
+	return prop.getProperty("webappurl");
+    }
+
 }
