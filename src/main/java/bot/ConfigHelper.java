@@ -36,4 +36,14 @@ public class ConfigHelper {
 	return prop.getProperty("channel");
     }
 
+    public String getIdentName() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    public String getIdentifyPassword() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
 }

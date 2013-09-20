@@ -19,9 +19,13 @@ public class TestConfigHelper {
 	String botName = config.getBotName();
 	String serverName = config.getServer();
 	String channelName= config.getChannel();
+	String identName = config.getIdentName();
+	String identifyPassword = config.getIdentifyPassword();
 	
 	assertNotSame("", botName);
 	assertNotSame("", serverName);
 	assertNotSame("", channelName);
+	assertNotNull(identName);
+	assertNotNull(identifyPassword);
     }
 }
