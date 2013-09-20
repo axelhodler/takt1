@@ -37,13 +37,11 @@ public class ConfigHelper {
     }
 
     public String getIdentName() {
-	// TODO Auto-generated method stub
-	return null;
+	return prop.getProperty("ident");
     }
 
     public String getIdentifyPassword() {
-	// TODO Auto-generated method stub
-	return null;
+	return prop.getProperty("password");
     }
 
 }
