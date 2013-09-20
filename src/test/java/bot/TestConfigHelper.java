@@ -1,11 +1,9 @@
 package bot;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import bot.ConfigHelper;
 
 public class TestConfigHelper {
 
@@ -22,8 +20,8 @@ public class TestConfigHelper {
 	String serverName = config.getServer();
 	String channelName= config.getChannel();
 	
-	assertEquals("botname", botName);
-	assertEquals("irc.servername.org", serverName);
-	assertEquals("#channelname", channelName);
+	assertNotSame("", botName);
+	assertNotSame("", serverName);
+	assertNotSame("", channelName);
     }
 }
