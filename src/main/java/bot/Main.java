@@ -18,11 +18,16 @@ public class Main extends ListenerAdapter implements Listener {
 	PircBotX bot = new PircBotX();
 	
 	bot.setName(configHelper.getBotName());
+	bot.setLogin(configHelper.getIdentName());
 	bot.setVerbose(true);
 	
 	bot.getListenerManager().addListener(new Main());
 	
 	bot.connect(configHelper.getServer());
+	
+	bot.identify(configHelper.getIdentifyPassword());
+	// sleep 5secs before joining the channel
+	Thread.sleep(5000);
 	bot.joinChannel(configHelper.getChannel());
     }
     
