@@ -38,7 +38,7 @@ public class Bot extends ListenerAdapter implements Listener {
 
         pircBot.setVerbose(true);
 
-        pircBot.getListenerManager().addListener(new Bot());
+        pircBot.getListenerManager().addListener(this);
 
         pircBot.connect(configHelper.getServer());
 
