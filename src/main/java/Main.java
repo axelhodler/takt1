@@ -17,7 +17,7 @@ public class Main extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.getWriter().print(":)");
+        resp.getWriter().print("I'm just alive so the bot counts as a webapp :)");
     }
 
     public static void main(String[] args) throws Exception {
