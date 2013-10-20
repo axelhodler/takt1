@@ -4,6 +4,9 @@ The bot is based on the [PircBotX](https://code.google.com/p/pircbotx/)-Java IRC
 ## Config
 Edit the `config.properties` with your settings. The AUTH (ident/password) ist currently not implemented.
 
+## Running locally
+Run the script `run.sh`.
+
 ## Heroku
 The Bot contains a webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping the bot will access it once every 30 minutes. 
 
