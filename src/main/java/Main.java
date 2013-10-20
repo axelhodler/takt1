@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.pircbotx.PircBotX;
 
 import webapp.KeepWebappAliveThread;
 import bot.Bot;
@@ -19,13 +20,13 @@ public class Main extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.getWriter().print("I'm just alive so the bot counts as a webapp :)");
+        resp.getWriter().print(
+                "I'm just alive so the bot counts as a webapp :)");
     }
 
     public static void main(String[] args) throws Exception {
 
-        Bot bot = new Bot();
-        bot.launchBot();
+        Bot.getInstance().launchBot();
 
         new KeepWebappAliveThread();
 

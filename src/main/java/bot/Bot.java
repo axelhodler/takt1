@@ -1,6 +1,10 @@
 package bot;
 
+import java.io.IOException;
+
 import org.pircbotx.PircBotX;
+import org.pircbotx.exception.IrcException;
+import org.pircbotx.exception.NickAlreadyInUseException;
 import org.pircbotx.hooks.Listener;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
@@ -11,28 +15,39 @@ public class Bot extends ListenerAdapter implements Listener {
     private static ConfigHelper configHelper;
     private TitleGrabber titleGrabber = new TitleGrabber();
     private UrlGrabber urlGrabber = new UrlGrabber();
-    private PircBotX bot;
+    private static Bot bot = null;
 
-    public void launchBot() throws Exception {
+    private PircBotX pircBot;
 
+    private Bot() {
+        this.pircBot = new PircBotX();
+    };
+
+    public static Bot getInstance() {
+        if (bot == null) {
+            bot = new Bot();
+        }
+        return bot;
+    }
+
+    public void launchBot() throws NickAlreadyInUseException, IOException,
+            IrcException {
         configHelper = new ConfigHelper();
 
-        bot = new PircBotX();
+        pircBot.setName(configHelper.getBotName());
 
-        bot.setName(configHelper.getBotName());
+        pircBot.setVerbose(true);
 
-        bot.setVerbose(true);
+        pircBot.getListenerManager().addListener(new Bot());
 
-        bot.getListenerManager().addListener(new Bot());
+        pircBot.connect(configHelper.getServer());
 
-        bot.connect(configHelper.getServer());
-
-        bot.joinChannel(configHelper.getChannel());
+        pircBot.joinChannel(configHelper.getChannel());
     }
 
     // optional
     public void identifyWithServer(String password) throws InterruptedException {
-        bot.identify(configHelper.getIdentifyPassword());
+        pircBot.identify(configHelper.getIdentifyPassword());
         // sleep 5secs before joining the channel
         Thread.sleep(5000);
     }
