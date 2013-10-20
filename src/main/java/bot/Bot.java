@@ -31,7 +31,7 @@ public class Bot extends ListenerAdapter implements Listener {
         return bot;
     }
 
-    public void launchBot() throws NickAlreadyInUseException, IOException,
+    public void setPropertiesAndJoin() throws NickAlreadyInUseException, IOException,
             IrcException {
         pircBot.setName(configHelper.getBotName());
 
@@ -40,7 +40,6 @@ public class Bot extends ListenerAdapter implements Listener {
         pircBot.getListenerManager().addListener(this);
 
         pircBot.connect(configHelper.getServer());
-
         pircBot.joinChannel(configHelper.getChannel());
     }
 

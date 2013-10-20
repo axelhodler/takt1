@@ -26,7 +26,7 @@ public class Main extends HttpServlet {
 
     public static void main(String[] args) throws Exception {
 
-        Bot.getInstance().launchBot();
+        Bot.getInstance().setPropertiesAndJoin();
 
         new KeepWebappAliveThread();
 
