@@ -12,7 +12,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 @SuppressWarnings("rawtypes")
 public class Bot extends ListenerAdapter implements Listener {
 
-    private static ConfigHelper configHelper;
+    private ConfigHelper configHelper;
     private TitleGrabber titleGrabber = new TitleGrabber();
     private UrlGrabber urlGrabber = new UrlGrabber();
     private static Bot bot = null;
@@ -21,6 +21,7 @@ public class Bot extends ListenerAdapter implements Listener {
 
     private Bot() {
         this.pircBot = new PircBotX();
+        this.configHelper = new ConfigHelper();
     };
 
     public static Bot getInstance() {
@@ -32,8 +33,6 @@ public class Bot extends ListenerAdapter implements Listener {
 
     public void launchBot() throws NickAlreadyInUseException, IOException,
             IrcException {
-        configHelper = new ConfigHelper();
-
         pircBot.setName(configHelper.getBotName());
 
         pircBot.setVerbose(true);
