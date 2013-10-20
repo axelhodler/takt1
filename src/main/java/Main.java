@@ -27,7 +27,7 @@ public class Main extends HttpServlet {
         Bot bot = new Bot();
         bot.launchBot();
 
-        KeepWebappAliveThread t = new KeepWebappAliveThread();
+        new KeepWebappAliveThread();
 
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
         ServletContextHandler context = new ServletContextHandler(
