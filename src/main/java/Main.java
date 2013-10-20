@@ -14,6 +14,8 @@ import bot.Bot;
 
 public class Main extends HttpServlet {
 
+    private static final long serialVersionUID = -7490600326997334112L;
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
