@@ -9,8 +9,8 @@ import bot.ConfigHelper;
 
 public class KeepWebappAliveThread extends Thread {
 
-    public KeepWebappAliveThread(String name) {
-        super(name);
+    public KeepWebappAliveThread() {
+        super();
         start();
     }
 
