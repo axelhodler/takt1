@@ -8,44 +8,43 @@ import java.util.Properties;
 public class ConfigHelper {
 
     private Properties prop;
-    
+
     public ConfigHelper() {
-	prop = new Properties();
-	tryToLoadTheConfigFile();
+        prop = new Properties();
+        tryToLoadTheConfigFile();
     }
-    
+
     private void tryToLoadTheConfigFile() {
-	try {
-	    prop.load(new FileInputStream("config.properties"));
-	} catch (FileNotFoundException e) {
-	    e.printStackTrace();
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
+        try {
+            prop.load(new FileInputStream("config.properties"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
-    
+
     public String getBotName() {
-	return prop.getProperty("botname");
+        return prop.getProperty("botname");
     }
 
     public String getServer() {
-	return prop.getProperty("server");
+        return prop.getProperty("server");
     }
 
     public String getChannel() {
-	return prop.getProperty("channel");
+        return prop.getProperty("channel");
     }
 
     public String getIdentName() {
-	return prop.getProperty("ident");
+        return prop.getProperty("ident");
     }
 
     public String getIdentifyPassword() {
-	return prop.getProperty("password");
+        return prop.getProperty("password");
     }
 
     public String getWebappUrl() {
-	return prop.getProperty("webappurl");
+        return prop.getProperty("webappurl");
     }
-
 }
