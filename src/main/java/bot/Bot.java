@@ -31,8 +31,8 @@ public class Bot extends ListenerAdapter implements Listener {
         return bot;
     }
 
-    public void setPropertiesAndJoin() throws NickAlreadyInUseException, IOException,
-            IrcException {
+    public void setPropertiesAndJoin() throws NickAlreadyInUseException,
+            IOException, IrcException {
         pircBot.setName(configHelper.getBotName());
 
         pircBot.setVerbose(true);
@@ -43,23 +43,31 @@ public class Bot extends ListenerAdapter implements Listener {
         pircBot.joinChannel(configHelper.getChannel());
     }
 
-    // optional
     public void identifyWithServer(String password) throws InterruptedException {
         pircBot.identify(configHelper.getIdentifyPassword());
-        // sleep 5secs before joining the channel
         Thread.sleep(5000);
     }
 
     @Override
     public void onMessage(MessageEvent event) throws Exception {
-        String message = event.getMessage();
-        String url = urlGrabber.grabUrl(message);
+        String urlInMessage = urlGrabber.grabUrl(event.getMessage());
 
-        if (url != null) {
-            String title = titleGrabber.grabTitle(url);
-            if (title != null) {
-                event.getBot().sendMessage(event.getChannel(), title);
-            }
+        if (doesMessageContainUrl(urlInMessage)) {
+            sendTitleToChannel(event, titleGrabber.grabTitle(urlInMessage));
         }
+    }
+
+    private void sendTitleToChannel(MessageEvent event, String title) {
+        if (isTitleExtraced(title)) {
+            event.getBot().sendMessage(event.getChannel(), title);
+        }
+    }
+
+    private boolean isTitleExtraced(String title) {
+        return title != null;
+    }
+
+    private boolean doesMessageContainUrl(String url) {
+        return isTitleExtraced(url);
     }
 }
