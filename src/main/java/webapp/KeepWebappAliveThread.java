@@ -1,5 +1,6 @@
 package webapp;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -15,27 +16,40 @@ public class KeepWebappAliveThread extends Thread {
 
     @Override
     public void run() {
-
-        ConfigHelper configHelper = new ConfigHelper();
-
-        URL myurl = null;
         try {
-            myurl = new URL(configHelper.getWebappUrl());
-        } catch (MalformedURLException e1) {
-            e1.printStackTrace();
-        }
-        URLConnection myURLConnection;
-
-        try {
-            while (true) {
-                Thread.sleep(600000);
-                System.out.println("connect to the webapp then sleep 10min");
-                myURLConnection = myurl.openConnection();
-                myURLConnection.connect();
-                myURLConnection.getContentType();
-            }
+            keepWebappAlive();
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void keepWebappAlive() throws InterruptedException, IOException {
+        while (true) {
+            sleepForThirtyMinutes();
+            accessTheWebappUrl(tryToGetWebappUrl());
+        }
+    }
+
+    private void sleepForThirtyMinutes() throws InterruptedException {
+        Thread.sleep(600000 * 2);
+        System.out.println("connect to the webapp then sleep 10min");
+    }
+
+    private void accessTheWebappUrl(URL webappUrl) throws IOException {
+        URLConnection myURLConnection = webappUrl.openConnection();
+        myURLConnection.connect();
+        myURLConnection.getContentType();
+    }
+
+    private URL tryToGetWebappUrl() {
+        ConfigHelper configHelper = new ConfigHelper();
+
+        URL webappUrl = null;
+        try {
+            webappUrl = new URL(configHelper.getWebappUrl());
+        } catch (MalformedURLException e1) {
+            e1.printStackTrace();
+        }
+        return webappUrl;
     }
 }
