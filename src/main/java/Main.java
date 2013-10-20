@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
-import org.pircbotx.PircBotX;
 
 import webapp.KeepWebappAliveThread;
 import bot.Bot;
@@ -25,11 +24,12 @@ public class Main extends HttpServlet {
     }
 
     public static void main(String[] args) throws Exception {
-
         Bot.getInstance().setPropertiesAndJoin();
-
         new KeepWebappAliveThread();
+        launchServer();
+    }
 
+    private static void launchServer() throws Exception, InterruptedException {
         Server server = new Server(Integer.valueOf(System.getenv("PORT")));
         ServletContextHandler context = new ServletContextHandler(
                 ServletContextHandler.SESSIONS);
