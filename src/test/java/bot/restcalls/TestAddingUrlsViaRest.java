@@ -26,9 +26,11 @@ public class TestAddingUrlsViaRest {
                         + "\"url\":\"http://www.hello.de\", "
                         + "\"user\":\"pete\"}"));
 
+        Link link = new Link().setTitle("hello").setUrl("http://www.hello.de")
+                .setUser("pete");
+
         RestAccessor ra = new RestAccessor();
-        HttpResponse<JsonNode> jsonResponse = ra.addLink("hello",
-                "http://www.hello.de", "pete");
+        HttpResponse<JsonNode> jsonResponse = ra.addLink(link);
 
         assertEquals(200, jsonResponse.getCode());
     }
