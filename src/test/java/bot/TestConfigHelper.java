@@ -11,7 +11,7 @@ public class TestConfigHelper {
 
     @Before
     public void setUp() {
-        config = new ConfigHelper();
+        config = ConfigHelper.getInstance();
     }
 
     @Test

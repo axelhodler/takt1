@@ -42,7 +42,7 @@ public class KeepWebappAliveThread extends Thread {
     }
 
     private URL tryToGetWebappUrl() {
-        ConfigHelper configHelper = new ConfigHelper();
+        ConfigHelper configHelper = ConfigHelper.getInstance();
 
         URL webappUrl = null;
         try {

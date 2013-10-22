@@ -7,14 +7,21 @@ import java.util.Properties;
 
 public class ConfigHelper {
 
-    private Properties prop;
+    private static ConfigHelper uniqueInstance = null;
+    private static Properties prop;
 
-    public ConfigHelper() {
-        prop = new Properties();
-        tryToLoadTheConfigFile();
+    private ConfigHelper() {}
+
+    public static ConfigHelper getInstance() {
+        if (uniqueInstance == null) {
+            uniqueInstance = new ConfigHelper();
+            prop = new Properties();
+            tryToLoadTheConfigFile();
+        }
+        return uniqueInstance;
     }
 
-    private void tryToLoadTheConfigFile() {
+    private static void tryToLoadTheConfigFile() {
         try {
             prop.load(new FileInputStream("config.properties"));
         } catch (FileNotFoundException e) {

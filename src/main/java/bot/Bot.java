@@ -21,7 +21,7 @@ public class Bot extends ListenerAdapter implements Listener {
 
     private Bot() {
         this.pircBot = new PircBotX();
-        this.configHelper = new ConfigHelper();
+        this.configHelper = ConfigHelper.getInstance();
     };
 
     public static Bot getInstance() {
