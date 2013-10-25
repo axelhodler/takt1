@@ -3,7 +3,7 @@ package bot.restcalls;
 import static com.xebialabs.restito.builder.stub.StubHttp.whenHttp;
 import static com.xebialabs.restito.semantics.Action.status;
 import static com.xebialabs.restito.semantics.Action.stringContent;
-import static com.xebialabs.restito.semantics.Condition.post;
+import static com.xebialabs.restito.semantics.Condition.*;
 import static org.junit.Assert.assertEquals;
 
 import org.glassfish.grizzly.http.util.HttpStatus;
@@ -20,7 +20,8 @@ public class TestAddingUrlsViaRest {
     public void setUpStubServer() throws UnirestException {
         StubServer server = new StubServer().run();
 
-        whenHttp(server).match(post("/links")).then(
+        whenHttp(server).match(post("/links"),
+                parameter("pw", System.getenv("PASS"))).then(
                 status(HttpStatus.OK_200),
                 stringContent("{\"title\":\"hello\", "
                         + "\"url\":\"http://www.hello.de\", "

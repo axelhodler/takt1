@@ -29,10 +29,11 @@ public class RestAccessor {
             HttpResponse<JsonNode> jsonResponse) {
         try {
             jsonResponse = Unirest
-                    .post(ConfigHelper.getInstance().getWebappUrl() + "/links")
-                    .body("{\"title\":" + link.getTitle() + ", " + "\"url\":"
-                            + link.getUrl() + ", " + "\"user\":"
-                            + link.getUser() + "}").asJson();
+                    .post(ConfigHelper.getInstance().getWebappUrl()
+                            + "/links?pw=" + System.getenv("PASS"))
+                    .body("{\"title\":\"" + link.getTitle() + "\",\"url\":\""
+                            + link.getUrl() + "\",\"user\":\"" + link.getUser()
+                            + "\"}").asJson();
         } catch (UnirestException e) {
             e.printStackTrace();
         }
