@@ -9,6 +9,9 @@ import org.pircbotx.hooks.Listener;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
+import bot.restcalls.Link;
+import bot.restcalls.RestAccessor;
+
 @SuppressWarnings("rawtypes")
 public class Bot extends ListenerAdapter implements Listener {
 
@@ -51,23 +54,40 @@ public class Bot extends ListenerAdapter implements Listener {
     @Override
     public void onMessage(MessageEvent event) throws Exception {
         String urlInMessage = urlGrabber.grabUrl(event.getMessage());
+        String title = titleGrabber.grabTitle(urlInMessage);
 
-        if (doesMessageContainUrl(urlInMessage)) {
-            sendTitleToChannel(event, titleGrabber.grabTitle(urlInMessage));
+        sendTitleToChannelIfFound(event, title);
+        title = setTitleEmptyStringIfNotFound(title);
+
+        Link link = createLinkToSave(event, urlInMessage, title);
+        RestAccessor.getInstance().addLink(link);
+    }
+
+    private String setTitleEmptyStringIfNotFound(String title) {
+        if (title == null) {
+            title = "";
+        }
+        return title;
+    }
+
+    private void sendTitleToChannelIfFound(MessageEvent event, String title) {
+        if (isTitleExtraced(title)) {
+            sendTitleToChannel(event, title);
         }
     }
 
+    private Link createLinkToSave(MessageEvent event, String urlInMessage,
+            String title) {
+        Link link = new Link().setTitle(title).setUrl(urlInMessage)
+                .setUser(event.getUser().getNick());
+        return link;
+    }
+
     private void sendTitleToChannel(MessageEvent event, String title) {
-        if (isTitleExtraced(title)) {
-            event.getBot().sendMessage(event.getChannel(), title);
-        }
+        event.getBot().sendMessage(event.getChannel(), title);
     }
 
     private boolean isTitleExtraced(String title) {
         return title != null;
-    }
-
-    private boolean doesMessageContainUrl(String url) {
-        return isTitleExtraced(url);
     }
 }
