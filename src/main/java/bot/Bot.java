@@ -39,19 +39,15 @@ public class Bot extends ListenerAdapter implements Listener {
         pircBot.setName(configHelper.getBotName());
 
         pircBot.setVerbose(true);
-
+        pircBot.setLogin(configHelper.getIdentName());
         pircBot.getListenerManager().addListener(this);
 
         pircBot.connect(configHelper.getServer());
 
-        identifyWithServer();
-        pircBot.joinChannel(configHelper.getChannel());
-    }
-
-    private void identifyWithServer() throws InterruptedException {
-        pircBot.setLogin(configHelper.getIdentName());
         pircBot.identify(configHelper.getIdentifyPassword());
         Thread.sleep(5000);
+
+        pircBot.joinChannel(configHelper.getChannel());
     }
 
     @Override
