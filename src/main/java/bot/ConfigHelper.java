@@ -54,4 +54,8 @@ public class ConfigHelper {
     public String getWebappUrl() {
         return prop.getProperty("webappurl");
     }
+
+    public String getRestApiUrl() {
+        return prop.getProperty("restapiurl");
+    }
 }

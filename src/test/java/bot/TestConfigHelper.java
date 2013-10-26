@@ -22,6 +22,7 @@ public class TestConfigHelper {
         String identName = config.getIdentName();
         String identifyPassword = config.getIdentifyPassword();
         String webappUrl = config.getWebappUrl();
+        String restApiUrl = config.getRestApiUrl();
 
         assertFalse("".equals(botName));
         assertFalse("".equals(serverName));
@@ -29,5 +30,6 @@ public class TestConfigHelper {
         assertFalse("".equals(identName));
         assertFalse("".equals(identifyPassword));
         assertFalse("".equals(webappUrl));
+        assertFalse("".equals(restApiUrl));
     }
 }
