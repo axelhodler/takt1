@@ -29,7 +29,7 @@ public class RestAccessor {
             HttpResponse<JsonNode> jsonResponse) {
         try {
             jsonResponse = Unirest
-                    .post(ConfigHelper.getInstance().getWebappUrl()
+                    .post(ConfigHelper.getInstance().getRestApiUrl()
                             + "/links?pw=" + System.getenv("PASS"))
                     .body("{\"title\":\"" + link.getTitle() + "\",\"url\":\""
                             + link.getUrl() + "\",\"user\":\"" + link.getUser()
