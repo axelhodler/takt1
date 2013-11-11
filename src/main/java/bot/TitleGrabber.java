@@ -13,7 +13,7 @@ public class TitleGrabber {
 
         String title = null;
         try {
-            Document doc = Jsoup.connect(url).get();
+            Document doc = Jsoup.connect(url).userAgent("Mozilla").get();
             title = doc.title();
         } catch (UnsupportedMimeTypeException e) {
             System.out.println("The URL is not a html page");
