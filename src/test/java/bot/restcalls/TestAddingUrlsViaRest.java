@@ -3,10 +3,12 @@ package bot.restcalls;
 import static com.xebialabs.restito.builder.stub.StubHttp.whenHttp;
 import static com.xebialabs.restito.semantics.Action.status;
 import static com.xebialabs.restito.semantics.Action.stringContent;
-import static com.xebialabs.restito.semantics.Condition.*;
+import static com.xebialabs.restito.semantics.Condition.parameter;
+import static com.xebialabs.restito.semantics.Condition.post;
 import static org.junit.Assert.assertEquals;
 
 import org.glassfish.grizzly.http.util.HttpStatus;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.mashape.unirest.http.HttpResponse;
@@ -16,6 +18,7 @@ import com.xebialabs.restito.server.StubServer;
 
 public class TestAddingUrlsViaRest {
 
+    @Ignore
     @Test
     public void setUpStubServer() throws UnirestException {
         StubServer server = new StubServer().run();
