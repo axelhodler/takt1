@@ -1,22 +1,18 @@
 package bot;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import bot.UrlGrabber;
-
 public class TestUrlGrabber {
-
-    private String testUrl = "http://en.wikipedia.org/wiki/Regex";
-    private String testUrlTwo = "http://en.wikipedia.org/wiki/"
+    private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";
+    private final String TEST_URL_TWO = "http://en.wikipedia.org/wiki/"
             + "Regular_expression";
-
-    private String testSentence = "foo " + testUrl + " bar baz";
-    private String testSentenceTwo = "foo bar " + testUrlTwo + " baz";
-
-    private String testSentenceWithoutUrl = "foo bar baz";
+    private final String TEST_SENTENCE = "foo " + TEST_URL + " bar baz";
+    private final String TEST_SENTENCE_TWO = "foo bar " + TEST_URL_TWO + " baz";
+    private final String NOURL = "foo bar baz";
 
     private UrlGrabber ug;
 
@@ -27,15 +23,17 @@ public class TestUrlGrabber {
 
     @Test
     public void testGettingTheUrl() {
-        String url = ug.grabUrl(testSentence);
-        String secondUrl = ug.grabUrl(testSentenceTwo);
-        assertEquals(testUrl, url);
-        assertEquals(testUrlTwo, secondUrl);
+        String url = ug.grabUrl(TEST_SENTENCE);
+        String secondUrl = ug.grabUrl(TEST_SENTENCE_TWO);
+
+        assertEquals(TEST_URL, url);
+        assertEquals(TEST_URL_TWO, secondUrl);
     }
 
     @Test
     public void dealWithNoUrlProvided() {
-        String url = ug.grabUrl(testSentenceWithoutUrl);
-        assertEquals(null, url);
+        String url = ug.grabUrl(NOURL);
+
+        assertNull(url);
     }
 }
