@@ -15,12 +15,16 @@ public class TestBotHandler {
 
     @Mock
     GenericMessageEvent event;
+    @Mock
+    TitleGrabber tg;
+    @Mock
+    UrlGrabber ug;
 
     private BotHandler botHandler;
 
     @Before
     public void setUp() {
-        botHandler = new BotHandler();
+        botHandler = new BotHandler(tg, ug);
     }
 
     @Test
