@@ -9,13 +9,11 @@ import bot.TitleGrabber;
 
 public class TestTitleGrabber {
 
-    private String title = "Regular expression - Wikipedia, the "
+    private final String TITLE = "Regular expression - Wikipedia, the "
             + "free encyclopedia";
-    private String url = "http://en.wikipedia.org/wiki/Regex";
-
-    private String nonExistingUrl = "http://www.test.test";
-
-    private String imageUrl = "http://upload.wikimedia.org/wikipedia/commons"
+    private final String URL = "http://en.wikipedia.org/wiki/Regex";
+    private String NON_EXISTING_URL = "http://www.test.test";
+    private String IMAGE_URL = "http://upload.wikimedia.org/wikipedia/commons"
             + "/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-"
             + "star.svg.png";
 
@@ -28,19 +26,22 @@ public class TestTitleGrabber {
 
     @Test
     public void testGrabbingTheTitle() {
-        String grabbedTitle = tg.grabTitle(url);
-        assertEquals(title, grabbedTitle);
+        String grabbedTitle = tg.grabTitle(URL);
+
+        assertEquals(TITLE, grabbedTitle);
     }
 
     @Test
     public void testGrabbingTheTitleWithAnImage() {
-        String grabbedTitel = tg.grabTitle(imageUrl);
-        assertEquals(null, grabbedTitel);
+        String grabbedTitle = tg.grabTitle(IMAGE_URL);
+
+        assertEquals(null, grabbedTitle);
     }
 
     @Test
     public void testGrabbingTheTitleOfANonExistingUrl() {
-        String grabbedTitle = tg.grabTitle(nonExistingUrl);
+        String grabbedTitle = tg.grabTitle(NON_EXISTING_URL);
+
         assertEquals(null, grabbedTitle);
     }
 }
