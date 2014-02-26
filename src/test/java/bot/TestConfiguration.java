@@ -17,9 +17,8 @@ public class TestConfiguration {
     
     @Test
     public void configurationComplete() {
-        Listener listener = new Bot(pircbotx);
         BotConfig conf = new BotConfig();
-        Configuration configuration = conf.createConfig(listener);
+        Configuration configuration = conf.createConfig();
 
         assertEquals(System.getenv(EnvironmentVars.NAME),
                 configuration.getName());
