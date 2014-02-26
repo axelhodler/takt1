@@ -36,8 +36,6 @@ public class Main extends HttpServlet {
         Bot bot = new Bot(pircbotx);
 
         bot.start();
-        new KeepWebappAliveThread();
-        launchServer();
     }
 
     private static void launchServer() throws Exception, InterruptedException {
