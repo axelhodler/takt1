@@ -25,6 +25,7 @@ public class TestBotHandler {
     private BotHandler botHandler;
     private final String MESSAGE = "msg";
     private final String URL = "url";
+    private final String TITLE = "title";
 
     @Before
     public void setUp() {
@@ -53,9 +54,11 @@ public class TestBotHandler {
     @Test
     public void urlIsGrabbed() throws Exception {
         when(ug.grabUrl(MESSAGE)).thenReturn(URL);
+        when(tg.grabTitle(URL)).thenReturn(TITLE );
 
         botHandler.onGenericMessage(event);
 
         verify(tg, times(1)).grabTitle(URL);
+        verify(event, times(1)).respond(TITLE);        
     }
 }

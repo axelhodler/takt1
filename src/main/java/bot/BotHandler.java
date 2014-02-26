@@ -20,7 +20,9 @@ public class BotHandler extends ListenerAdapter {
     public void onGenericMessage(final GenericMessageEvent event)
             throws Exception {
         String url = ug.grabUrl(event.getMessage());
-        if (url != null)
-            tg.grabTitle(url);
+        if (url != null) {
+            String title = tg.grabTitle(url);
+            event.respond(title);
+        }
     }
 }
