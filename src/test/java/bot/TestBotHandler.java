@@ -1,7 +1,9 @@
 package bot;
 
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,10 +23,13 @@ public class TestBotHandler {
     UrlGrabber ug;
 
     private BotHandler botHandler;
+    private String message = "msg";
 
     @Before
     public void setUp() {
         botHandler = new BotHandler(tg, ug);
+
+        when(event.getMessage()).thenReturn(message);
     }
 
     @Test
@@ -32,5 +37,6 @@ public class TestBotHandler {
         botHandler.onGenericMessage(event);
 
         verify(event, times(1)).getMessage();
+        verify(ug, times(1)).grabUrl(message);
     }
 }

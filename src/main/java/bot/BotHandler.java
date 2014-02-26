@@ -19,6 +19,6 @@ public class BotHandler extends ListenerAdapter {
     @Override
     public void onGenericMessage(final GenericMessageEvent event)
             throws Exception {
-        event.getMessage();
+        ug.grabUrl(event.getMessage());
     }
 }
