@@ -1,6 +1,6 @@
 package bot;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.pircbotx.Configuration;
@@ -18,5 +18,7 @@ public class TestConfiguration {
                 configuration.getName());
         assertEquals(System.getenv(EnvironmentVars.SERVER),
                 configuration.getServerHostname());
+        assertEquals("{" + System.getenv(EnvironmentVars.CHANNEL) + "=}",
+                configuration.getAutoJoinChannels().toString());
     }
 }

@@ -9,6 +9,7 @@ public class BotConfig {
         Configuration config = new Configuration.Builder()
             .setName(System.getenv(EnvironmentVars.NAME))
             .setServerHostname(System.getenv(EnvironmentVars.SERVER))
+            .addAutoJoinChannel(System.getenv(EnvironmentVars.CHANNEL))
             .buildConfiguration();
         
         return config; 
