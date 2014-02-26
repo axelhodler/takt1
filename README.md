@@ -8,7 +8,7 @@ Edit the `config.properties` with your settings. The AUTH (ident/password) ist c
 Run the script `run.sh`.
 
 ## Heroku
-The Bot contains a webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping the bot will access it once every 30 minutes. 
+The Bot contains a webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping the bot will access it once every 30 minutes.
 
 For the Deployment see [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java). A `Procfile` and `system.properties` to tell the Plattform to use Java 1.7. already exists.
 
@@ -16,3 +16,7 @@ For the Deployment see [Getting Started with Java on Heroku](https://devcenter.h
 Use UTF-8 as LANG environment variable:
 
     heroku config:add LANG=en_US.UTF-8
+
+# License
+
+pircbotx is GPL so this project is GPL too
