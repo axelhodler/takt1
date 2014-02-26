@@ -8,10 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
+import org.pircbotx.PircBotX;
 
 import webapp.KeepWebappAliveThread;
 import bot.Bot;
 import bot.config.EnvironmentVars;
+import bot.di.Module;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class Main extends HttpServlet {
 
@@ -25,9 +30,10 @@ public class Main extends HttpServlet {
     }
 
     public static void main(String[] args) throws Exception {
-        Bot bot = new Bot();
-        bot.setPropertiesAndJoin();
+        Injector injector = Guice.createInjector(new Module());
+        Bot bot = new Bot(injector.getInstance(PircBotX.class));
 
+        bot.setPropertiesAndJoin();
         new KeepWebappAliveThread();
         launchServer();
     }
