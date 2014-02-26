@@ -43,13 +43,13 @@ public class Bot extends ListenerAdapter implements Listener {
 
     @Override
     public void onMessage(MessageEvent event) throws Exception {
-        String urlInMessage = urlGrabber.grabUrl(event.getMessage());
-        if (urlInMessage != null) {
-            String title = titleGrabber.grabTitle(urlInMessage);
+        String url = urlGrabber.grabUrl(event.getMessage());
+        if (url != null) {
+            String title = titleGrabber.grabTitle(url);
             sendTitleToChannelIfFound(event, title);
-            title = setTitleEmptyStringIfNotFound(title);
 
-            Link link = createLinkToSave(event, urlInMessage, title);
+            Link link = createLinkToSave(event, url,
+                    setTitleEmptyStringIfNotFound(title));
             RestAccessor.getInstance().addLink(link);
         }
     }
