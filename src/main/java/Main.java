@@ -11,6 +11,7 @@ import org.eclipse.jetty.servlet.ServletHolder;
 
 import webapp.KeepWebappAliveThread;
 import bot.Bot;
+import bot.config.EnvironmentVars;
 
 public class Main extends HttpServlet {
 
@@ -30,7 +31,8 @@ public class Main extends HttpServlet {
     }
 
     private static void launchServer() throws Exception, InterruptedException {
-        Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+        Server server = new Server(Integer.valueOf(System
+                .getenv(EnvironmentVars.PORT)));
         ServletContextHandler context = new ServletContextHandler(
                 ServletContextHandler.SESSIONS);
         context.setContextPath("/");
