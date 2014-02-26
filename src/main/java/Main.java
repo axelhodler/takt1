@@ -29,7 +29,7 @@ public class Main extends HttpServlet {
 
     public static void main(String[] args) throws Exception {
         BotConfig botConfig = new BotConfig();
-        Configuration config = botConfig.getConfigurationByEnvVars();
+        Configuration config = botConfig.createConfig();
 
         PircBotX pircbotx = new PircBotX(config);
 

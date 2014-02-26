@@ -12,7 +12,7 @@ public class TestConfiguration {
     @Test
     public void configurationComplete() {
         BotConfig conf = new BotConfig();
-        Configuration configuration = conf.getConfigurationByEnvVars();
+        Configuration configuration = conf.createConfig();
 
         assertEquals(System.getenv(EnvironmentVars.NAME),
                 configuration.getName());

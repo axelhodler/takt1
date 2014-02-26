@@ -5,7 +5,7 @@ import org.pircbotx.Configuration;
 import bot.config.EnvironmentVars;
 
 public class BotConfig {
-    public Configuration getConfigurationByEnvVars() {
+    public Configuration createConfig() {
         Configuration config = new Configuration.Builder()
             .setName(System.getenv(EnvironmentVars.NAME))
             .setServerHostname(System.getenv(EnvironmentVars.SERVER))

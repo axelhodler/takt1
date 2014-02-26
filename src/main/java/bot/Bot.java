@@ -38,6 +38,7 @@ public class Bot extends ListenerAdapter implements Listener {
 
     @Override
     public void onMessage(MessageEvent event) throws Exception {
+        event.getChannel().send().action(event.getMessage());
         String url = urlGrabber.grabUrl(event.getMessage());
         if (url != null) {
             String title = titleGrabber.grabTitle(url);
