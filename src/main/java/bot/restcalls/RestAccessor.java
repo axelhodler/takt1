@@ -1,6 +1,6 @@
 package bot.restcalls;
 
-import bot.ConfigHelper;
+import bot.config.EnvironmentVars;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;
@@ -29,8 +29,8 @@ public class RestAccessor {
             HttpResponse<JsonNode> jsonResponse) {
         try {
             jsonResponse = Unirest
-                    .post(ConfigHelper.getInstance().getRestApiUrl()
-                            + "/links?pw=" + System.getenv("PASS"))
+                    .post(System.getenv(EnvironmentVars.RESTAPIURL)
+                            + "/links?pw=" + System.getenv("PASS")) //TODO undocumented
                     .body("{\"title\":\"" + link.getTitle() + "\",\"url\":\""
                             + link.getUrl() + "\",\"user\":\"" + link.getUser()
                             + "\"}").asJson();

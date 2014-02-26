@@ -1,11 +1,10 @@
 package webapp;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import bot.ConfigHelper;
+import bot.config.EnvironmentVars;
 
 public class KeepWebappAliveThread extends Thread {
 
@@ -26,7 +25,7 @@ public class KeepWebappAliveThread extends Thread {
     private void keepWebappAlive() throws InterruptedException, IOException {
         while (true) {
             sleepForThirtyMinutes();
-            accessTheWebappUrl(tryToGetWebappUrl());
+            accessTheWebappUrl(new URL(System.getenv(EnvironmentVars.WEBAPPURL)));
         }
     }
 
@@ -39,17 +38,5 @@ public class KeepWebappAliveThread extends Thread {
         URLConnection myURLConnection = webappUrl.openConnection();
         myURLConnection.connect();
         myURLConnection.getContentType();
-    }
-
-    private URL tryToGetWebappUrl() {
-        ConfigHelper configHelper = ConfigHelper.getInstance();
-
-        URL webappUrl = null;
-        try {
-            webappUrl = new URL(configHelper.getWebappUrl());
-        } catch (MalformedURLException e1) {
-            e1.printStackTrace();
-        }
-        return webappUrl;
     }
 }
