@@ -9,13 +9,13 @@ import org.pircbotx.hooks.Listener;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
+import bot.config.EnvironmentVars;
 import bot.restcalls.Link;
 import bot.restcalls.RestAccessor;
 
 @SuppressWarnings("rawtypes")
 public class Bot extends ListenerAdapter implements Listener {
 
-    private ConfigHelper configHelper;
     private TitleGrabber titleGrabber = new TitleGrabber();
     private UrlGrabber urlGrabber = new UrlGrabber();
     private static Bot bot = null;
@@ -24,7 +24,6 @@ public class Bot extends ListenerAdapter implements Listener {
 
     private Bot() {
         this.pircBot = new PircBotX();
-        this.configHelper = ConfigHelper.getInstance();
     };
 
     public static Bot getInstance() {
@@ -36,18 +35,18 @@ public class Bot extends ListenerAdapter implements Listener {
 
     public void setPropertiesAndJoin() throws NickAlreadyInUseException,
             IOException, IrcException, InterruptedException {
-        pircBot.setName(configHelper.getBotName());
+        pircBot.setName(System.getenv(EnvironmentVars.NAME));
 
         pircBot.setVerbose(true);
-        pircBot.setLogin(configHelper.getIdentName());
+        pircBot.setLogin(System.getenv(EnvironmentVars.IDENT));
         pircBot.getListenerManager().addListener(this);
 
-        pircBot.connect(configHelper.getServer());
+        pircBot.connect(System.getenv(EnvironmentVars.SERVER));
 
-        pircBot.identify(configHelper.getIdentifyPassword());
+        pircBot.identify(System.getenv(EnvironmentVars.PASS));
         Thread.sleep(5000);
 
-        pircBot.joinChannel(configHelper.getChannel());
+        pircBot.joinChannel(System.getenv(EnvironmentVars.CHANNEL));
     }
 
     @Override
