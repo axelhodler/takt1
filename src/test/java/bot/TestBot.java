@@ -1,6 +1,6 @@
 package bot;
 
-import org.junit.Test;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -11,10 +11,11 @@ public class TestBot {
 
     @Mock
     PircBotX pircbot;
+    
+    private Bot bot;
 
-    @Test
-    public void testBot() {
-        Bot bot = new Bot(pircbot);
+    @Before
+    public void setUp() {
+        bot = new Bot(pircbot);
     }
-
 }
