@@ -23,13 +23,14 @@ public class TestBotHandler {
     UrlGrabber ug;
 
     private BotHandler botHandler;
-    private String message = "msg";
+    private final String MESSAGE = "msg";
+    private final String URL = "url";
 
     @Before
     public void setUp() {
         botHandler = new BotHandler(tg, ug);
 
-        when(event.getMessage()).thenReturn(message);
+        when(event.getMessage()).thenReturn(MESSAGE);
     }
 
     @Test
@@ -37,6 +38,24 @@ public class TestBotHandler {
         botHandler.onGenericMessage(event);
 
         verify(event, times(1)).getMessage();
-        verify(ug, times(1)).grabUrl(message);
+        verify(ug, times(1)).grabUrl(MESSAGE);
+    }
+
+    @Test
+    public void urlIsNotGrabbed() throws Exception {
+        when(ug.grabUrl(MESSAGE)).thenReturn(null);
+
+        botHandler.onGenericMessage(event);
+
+        verify(tg, times(0)).grabTitle(URL);
+    }
+
+    @Test
+    public void urlIsGrabbed() throws Exception {
+        when(ug.grabUrl(MESSAGE)).thenReturn(URL);
+
+        botHandler.onGenericMessage(event);
+
+        verify(tg, times(1)).grabTitle(URL);
     }
 }
