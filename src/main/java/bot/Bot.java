@@ -18,20 +18,12 @@ public class Bot extends ListenerAdapter implements Listener {
 
     private TitleGrabber titleGrabber = new TitleGrabber();
     private UrlGrabber urlGrabber = new UrlGrabber();
-    private static Bot bot = null;
 
     private PircBotX pircBot;
 
-    private Bot() {
+    public Bot() {
         this.pircBot = new PircBotX();
     };
-
-    public static Bot getInstance() {
-        if (bot == null) {
-            bot = new Bot();
-        }
-        return bot;
-    }
 
     public void setPropertiesAndJoin() throws NickAlreadyInUseException,
             IOException, IrcException, InterruptedException {
