@@ -22,7 +22,8 @@ public class BotHandler extends ListenerAdapter {
         String url = ug.grabUrl(event.getMessage());
         if (url != null) {
             String title = tg.grabTitle(url);
-            event.respond(title);
+            if (title != null)
+                event.respond(title);
         }
     }
 }

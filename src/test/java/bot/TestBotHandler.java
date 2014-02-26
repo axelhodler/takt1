@@ -54,11 +54,22 @@ public class TestBotHandler {
     @Test
     public void urlIsGrabbed() throws Exception {
         when(ug.grabUrl(MESSAGE)).thenReturn(URL);
-        when(tg.grabTitle(URL)).thenReturn(TITLE );
+        when(tg.grabTitle(URL)).thenReturn(TITLE);
 
         botHandler.onGenericMessage(event);
 
         verify(tg, times(1)).grabTitle(URL);
-        verify(event, times(1)).respond(TITLE);        
+        verify(event, times(1)).respond(TITLE);
+    }
+
+    @Test
+    public void titleNotFound() throws Exception {
+        when(ug.grabUrl(MESSAGE)).thenReturn(URL);
+        when(tg.grabTitle(URL)).thenReturn(null);
+
+        botHandler.onGenericMessage(event);
+
+        verify(tg, times(1)).grabTitle(URL);
+        verify(event, times(0)).respond(null);
     }
 }
