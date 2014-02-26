@@ -1,11 +1,10 @@
 package bot;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import bot.TitleGrabber;
 
 public class TestTitleGrabber {
 
@@ -35,13 +34,13 @@ public class TestTitleGrabber {
     public void testGrabbingTheTitleWithAnImage() {
         String grabbedTitle = tg.grabTitle(IMAGE_URL);
 
-        assertEquals(null, grabbedTitle);
+        assertNull(grabbedTitle);
     }
 
     @Test
     public void testGrabbingTheTitleOfANonExistingUrl() {
         String grabbedTitle = tg.grabTitle(NON_EXISTING_URL);
 
-        assertEquals(null, grabbedTitle);
+        assertNull(grabbedTitle);
     }
 }
