@@ -64,7 +64,7 @@ public class Bot extends ListenerAdapter implements Listener {
     }
 
     private void sendTitleToChannel(MessageEvent event, String title) {
-//        event.getBot().sendMessage(event.getChannel(), title);
+        event.getChannel().send().action(title);
     }
 
     private boolean isTitleExtraced(String title) {
