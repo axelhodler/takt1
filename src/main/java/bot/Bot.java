@@ -13,6 +13,8 @@ import bot.config.EnvironmentVars;
 import bot.restcalls.Link;
 import bot.restcalls.RestAccessor;
 
+import com.google.inject.Inject;
+
 @SuppressWarnings("rawtypes")
 public class Bot extends ListenerAdapter implements Listener {
 
@@ -21,8 +23,9 @@ public class Bot extends ListenerAdapter implements Listener {
 
     private PircBotX pircBot;
 
-    public Bot() {
-        this.pircBot = new PircBotX();
+    @Inject
+    public Bot(PircBotX pircbot) {
+        this.pircBot = pircbot;
     };
 
     public void setPropertiesAndJoin() throws NickAlreadyInUseException,
