@@ -4,12 +4,10 @@ import java.io.IOException;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
-import org.pircbotx.exception.NickAlreadyInUseException;
 import org.pircbotx.hooks.Listener;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 
-import bot.config.EnvironmentVars;
 import bot.restcalls.Link;
 import bot.restcalls.RestAccessor;
 
@@ -21,27 +19,15 @@ public class Bot extends ListenerAdapter implements Listener {
     private TitleGrabber titleGrabber = new TitleGrabber();
     private UrlGrabber urlGrabber = new UrlGrabber();
 
-    private PircBotX pircBot;
+    private PircBotX pircBotX;
 
     @Inject
-    public Bot(PircBotX pircbot) {
-        this.pircBot = pircbot;
+    public Bot(PircBotX pircbotx) {
+        this.pircBotX = pircbotx;
     };
 
-    public void setPropertiesAndJoin() throws NickAlreadyInUseException,
-            IOException, IrcException, InterruptedException {
-        pircBot.setName(System.getenv(EnvironmentVars.NAME));
-
-        pircBot.setVerbose(true);
-        pircBot.setLogin(System.getenv(EnvironmentVars.IDENT));
-        pircBot.getListenerManager().addListener(this);
-
-        pircBot.connect(System.getenv(EnvironmentVars.SERVER));
-
-        pircBot.identify(System.getenv(EnvironmentVars.PASS));
-        Thread.sleep(5000);
-
-        pircBot.joinChannel(System.getenv(EnvironmentVars.CHANNEL));
+    public void start() throws IOException, IrcException {
+        pircBotX.startBot();
     }
 
     @Override
@@ -78,7 +64,7 @@ public class Bot extends ListenerAdapter implements Listener {
     }
 
     private void sendTitleToChannel(MessageEvent event, String title) {
-        event.getBot().sendMessage(event.getChannel(), title);
+//        event.getBot().sendMessage(event.getChannel(), title);
     }
 
     private boolean isTitleExtraced(String title) {

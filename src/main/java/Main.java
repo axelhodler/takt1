@@ -33,7 +33,7 @@ public class Main extends HttpServlet {
         Injector injector = Guice.createInjector(new Module());
         Bot bot = new Bot(injector.getInstance(PircBotX.class));
 
-        bot.setPropertiesAndJoin();
+        bot.start();
         new KeepWebappAliveThread();
         launchServer();
     }
