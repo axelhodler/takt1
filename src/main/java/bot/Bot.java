@@ -26,8 +26,14 @@ public class Bot extends ListenerAdapter implements Listener {
         this.pircBotX = pircbotx;
     };
 
-    public void start() throws IOException, IrcException {
-        pircBotX.startBot();
+    public void start() {
+        try {
+            pircBotX.startBot();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (IrcException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
