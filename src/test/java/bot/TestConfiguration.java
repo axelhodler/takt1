@@ -6,7 +6,6 @@ import org.junit.Test;
 import org.mockito.Mock;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.pircbotx.hooks.Listener;
 
 import bot.config.EnvironmentVars;
 
@@ -18,7 +17,7 @@ public class TestConfiguration {
     @Test
     public void configurationComplete() {
         BotConfig conf = new BotConfig();
-        Configuration configuration = conf.createConfig();
+        Configuration<PircBotX> configuration = conf.createConfig();
 
         assertEquals(System.getenv(EnvironmentVars.NAME),
                 configuration.getName());
