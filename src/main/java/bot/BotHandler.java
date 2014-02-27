@@ -2,7 +2,7 @@ package bot;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
-import org.pircbotx.hooks.types.GenericMessageEvent;
+import org.pircbotx.hooks.events.MessageEvent;
 
 import com.google.inject.Inject;
 
@@ -18,7 +18,7 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
     }
 
     @Override
-    public void onGenericMessage(final GenericMessageEvent<PircBotX> event)
+    public void onMessage(MessageEvent<PircBotX> event)
             throws Exception {
         String url = ug.grabUrl(event.getMessage());
 
@@ -28,10 +28,10 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
         }
     }
 
-    private void checkIfRespondWithTitle(final GenericMessageEvent<PircBotX> event,
+    private void checkIfRespondWithTitle(MessageEvent<PircBotX> event,
             String title) {
         if (isNotNull(title))
-            event.respond(title);
+            event.getChannel().send().message(title);
     }
 
     private boolean isNotNull(String title) {
