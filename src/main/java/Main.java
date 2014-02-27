@@ -11,7 +11,6 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
-import webapp.KeepWebappAliveThread;
 import bot.Bot;
 import bot.BotConfig;
 import bot.config.EnvironmentVars;
@@ -29,7 +28,7 @@ public class Main extends HttpServlet {
 
     public static void main(String[] args) throws Exception {
         BotConfig botConfig = new BotConfig();
-        Configuration config = botConfig.createConfig();
+        Configuration<PircBotX> config = botConfig.createConfig();
 
         PircBotX pircbotx = new PircBotX(config);
 
