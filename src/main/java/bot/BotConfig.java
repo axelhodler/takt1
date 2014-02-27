@@ -12,14 +12,13 @@ import com.google.inject.Injector;
 public class BotConfig {
     public Configuration<PircBotX> createConfig() {
         Injector injector = Guice.createInjector(new Module());
-        TitleGrabber tg = injector.getInstance(TitleGrabber.class);
-        UrlGrabber ug = injector.getInstance(UrlGrabber.class);
+        BotHandler listener = injector.getInstance(BotHandler.class);
 
         Configuration<PircBotX> config = new Configuration.Builder<PircBotX>()
                 .setName(System.getenv(EnvironmentVars.NAME))
                 .setServerHostname(System.getenv(EnvironmentVars.SERVER))
                 .addAutoJoinChannel(System.getenv(EnvironmentVars.CHANNEL))
-                .addListener(new BotHandler(tg, ug)).buildConfiguration();
+                .addListener(listener).buildConfiguration();
 
         return config;
     }
