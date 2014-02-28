@@ -62,4 +62,11 @@ public class TestWebApp {
 
         verify(server, times(1)).start();
     }
+
+    @Test
+    public void serverIsJoined() throws Exception {
+        webApp.launchServer();
+
+        verify(server, times(1)).join();
+    }
 }
