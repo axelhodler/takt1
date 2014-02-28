@@ -1,8 +1,8 @@
-package org.xorrr.bot;
+package org.xorrr.bot.config;
 
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.xorrr.bot.config.EnvironmentVars;
+import org.xorrr.bot.BotHandler;
 
 import com.google.inject.Inject;
 
