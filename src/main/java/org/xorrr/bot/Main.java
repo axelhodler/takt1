@@ -30,16 +30,17 @@ public class Main extends HttpServlet {
     }
 
     public static void main(String[] args) throws Exception {
-        Injector injector = Guice.createInjector(new Module());
-        BotConfig botConfig = new BotConfig(injector.getInstance(BotHandler.class));
-
-        Configuration<PircBotX> config = botConfig.createConfig();
-
-        PircBotX pircbotx = new PircBotX(config);
-
+        PircBotX pircbotx = new PircBotX(createConfig());
         Bot bot = new Bot(pircbotx);
 
         bot.start();
+    }
+
+    private static Configuration<PircBotX> createConfig() {
+        Injector injector = Guice.createInjector(new Module());
+        BotConfig botConfig = new BotConfig(injector.getInstance(BotHandler.class));
+        Configuration<PircBotX> config = botConfig.createConfig();
+        return config;
     }
 
     private static void launchServer() throws Exception, InterruptedException {
