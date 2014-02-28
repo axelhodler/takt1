@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xorrr.bot.utils.UrlFinder;
 
-public class TestUrlGrabber {
+public class TestUrlFinder {
     private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";
     private final String TEST_URL_TWO = "http://en.wikipedia.org/wiki/"
             + "Regular_expression";

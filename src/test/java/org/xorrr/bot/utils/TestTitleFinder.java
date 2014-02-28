@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.xorrr.bot.utils.TitleFinder;
 
-public class TestTitleGrabber {
+public class TestTitleFinder {
 
     private final String TITLE = "Regular expression - Wikipedia, the "
             + "free encyclopedia";
