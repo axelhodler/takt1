@@ -11,9 +11,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
-import com.google.common.collect.ImmutableCollection;
-import com.google.common.collect.ImmutableList;
-
 import bot.config.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
