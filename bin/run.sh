@@ -4,7 +4,7 @@
 # only necessary when running locally
 export PORT=5000
 export NAME=takt1
-export SERVER=irc.freenode.org
+export SERVER=irc.quakenet.org
 export CHANNEL=#takt1
 export IDENT=test
 export PASSWORD=test
