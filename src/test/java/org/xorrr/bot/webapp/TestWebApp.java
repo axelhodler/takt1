@@ -52,7 +52,7 @@ public class TestWebApp {
     public void servletIsSet() {
         webApp.launchServer();
 
-        //TODO see PowerMock for mocking constructors
+        //TODO not properly tested
         verify(context, times(1)).addServlet(any(ServletHolder.class), anyString());
     }
 
