@@ -2,10 +2,10 @@
 The bot is based on the [PircBotX](https://code.google.com/p/pircbotx/)-Java IRC Framework. The only thing it currently does is scanning the channel for lines which contain a URL. The Bot will then retrieve and post the title of the Url in the channel. I found other bot functions and modules rather annoying and wanted to create one without these features for usage in a private channel.
 
 ## Config
-Edit the `config.properties` with your settings. The AUTH (ident/password) ist currently not implemented.
+WIP
 
 ## Running locally
-Run the script `run.sh`.
+Run the script `./bin/run.sh`.
 
 ## Heroku
 The Bot contains a webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping the bot will access it once every 30 minutes.
