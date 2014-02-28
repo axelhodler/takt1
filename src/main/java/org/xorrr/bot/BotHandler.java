@@ -20,6 +20,10 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
     @Override
     public void onMessage(MessageEvent<PircBotX> event)
             throws Exception {
+        ifUrlWasPostedGetAndPostItsTitle(event);
+    }
+
+    private void ifUrlWasPostedGetAndPostItsTitle(MessageEvent<PircBotX> event) {
         String url = ug.grabUrl(event.getMessage());
 
         if (isNotNull(url)) {
