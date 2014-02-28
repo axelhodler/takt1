@@ -13,7 +13,12 @@ import org.pircbotx.PircBotX;
 
 import bot.Bot;
 import bot.BotConfig;
+import bot.BotHandler;
 import bot.config.EnvironmentVars;
+import bot.di.Module;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 public class Main extends HttpServlet {
 
@@ -27,7 +32,9 @@ public class Main extends HttpServlet {
     }
 
     public static void main(String[] args) throws Exception {
-        BotConfig botConfig = new BotConfig();
+        Injector injector = Guice.createInjector(new Module());
+        BotConfig botConfig = new BotConfig(injector.getInstance(BotHandler.class));
+
         Configuration<PircBotX> config = botConfig.createConfig();
 
         PircBotX pircbotx = new PircBotX(config);
