@@ -4,16 +4,18 @@ import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
 import bot.config.EnvironmentVars;
-import bot.di.Module;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
+import com.google.inject.Inject;
 
 public class BotConfig {
-    public Configuration<PircBotX> createConfig() {
-        Injector injector = Guice.createInjector(new Module());
-        BotHandler listener = injector.getInstance(BotHandler.class);
+    private BotHandler listener;
 
+    @Inject
+    public BotConfig(BotHandler handler) {
+        this.listener = handler;
+    }
+
+    public Configuration<PircBotX> createConfig() {
         Configuration<PircBotX> config = new Configuration.Builder<PircBotX>()
                 .setName(System.getenv(EnvironmentVars.NAME))
                 .setServerHostname(System.getenv(EnvironmentVars.SERVER))
