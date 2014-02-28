@@ -1,4 +1,4 @@
-package org.xorrr.bot;
+package org.xorrr.bot.utils;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

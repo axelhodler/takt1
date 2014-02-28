@@ -14,8 +14,8 @@ import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
 import org.xorrr.bot.BotHandler;
-import org.xorrr.bot.TitleGrabber;
-import org.xorrr.bot.UrlGrabber;
+import org.xorrr.bot.utils.TitleGrabber;
+import org.xorrr.bot.utils.UrlGrabber;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBotHandler {
