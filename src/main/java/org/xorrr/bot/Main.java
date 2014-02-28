@@ -1,3 +1,4 @@
+package org.xorrr.bot;
 import java.io.IOException;
 
 import javax.servlet.ServletException;

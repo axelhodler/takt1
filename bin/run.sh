@@ -11,4 +11,4 @@ export PASSWORD=test
 export WEBAPPURL=test
 export RESTAPIURL=test
 
-mvn exec:java -Dexec.mainClass="Main"
+mvn exec:java -Dexec.mainClass="org.xorrr.bot.Main"
