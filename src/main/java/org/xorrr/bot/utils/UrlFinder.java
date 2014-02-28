@@ -8,17 +8,16 @@ public class UrlFinder {
     private String urlPattern = "((https?):((//)|(\\\\))+[\\w\\d:#@%/;$()"
             + "~_?\\+-=\\\\\\.&]*)";
 
-    public String findUrl(String sentence) {
+    public String findUrl(String message) {
         Pattern p = Pattern.compile(urlPattern);
-        Matcher m = p.matcher(sentence);
+        Matcher m = p.matcher(message);
 
-        String url = null;
-
-        url = ifMessageContainsUrl(m, url);
-        return url;
+        return getUrlIfFound(m);
     }
 
-    private String ifMessageContainsUrl(Matcher m, String url) {
+    private String getUrlIfFound(Matcher m) {
+        String url = null;
+
         if (m.find()) {
             url = m.group(1);
         }
