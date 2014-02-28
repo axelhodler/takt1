@@ -1,4 +1,4 @@
-package org.xorrr.bot;
+package org.xorrr.bot.utils;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
