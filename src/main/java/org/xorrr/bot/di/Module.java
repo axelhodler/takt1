@@ -1,4 +1,4 @@
-package bot.di;
+package org.xorrr.bot.di;
 
 import com.google.inject.AbstractModule;
 

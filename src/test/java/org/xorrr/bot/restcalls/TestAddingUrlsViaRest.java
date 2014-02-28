@@ -1,4 +1,4 @@
-package bot.restcalls;
+package org.xorrr.bot.restcalls;
 
 import static com.xebialabs.restito.builder.stub.StubHttp.whenHttp;
 import static com.xebialabs.restito.semantics.Action.status;
@@ -10,6 +10,8 @@ import static org.junit.Assert.assertEquals;
 import org.glassfish.grizzly.http.util.HttpStatus;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.xorrr.bot.restcalls.Link;
+import org.xorrr.bot.restcalls.RestAccessor;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;

@@ -1,4 +1,4 @@
-package bot;
+package org.xorrr.bot;
 
 import java.io.IOException;
 import java.net.UnknownHostException;

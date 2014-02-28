@@ -1,4 +1,4 @@
-package bot;
+package org.xorrr.bot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -10,8 +10,9 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-
-import bot.config.EnvironmentVars;
+import org.xorrr.bot.BotConfig;
+import org.xorrr.bot.BotHandler;
+import org.xorrr.bot.config.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestConfiguration {

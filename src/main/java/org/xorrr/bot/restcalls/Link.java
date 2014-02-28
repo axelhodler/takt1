@@ -1,4 +1,4 @@
-package bot.restcalls;
+package org.xorrr.bot.restcalls;
 
 public class Link {
 

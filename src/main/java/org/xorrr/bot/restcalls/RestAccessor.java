@@ -1,6 +1,6 @@
-package bot.restcalls;
+package org.xorrr.bot.restcalls;
 
-import bot.config.EnvironmentVars;
+import org.xorrr.bot.config.EnvironmentVars;
 
 import com.mashape.unirest.http.HttpResponse;
 import com.mashape.unirest.http.JsonNode;

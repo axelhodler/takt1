@@ -1,4 +1,4 @@
-package bot.config;
+package org.xorrr.bot.config;
 
 public abstract class EnvironmentVars {
 

@@ -1,8 +1,9 @@
-package bot.config;
+package org.xorrr.bot.config;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.xorrr.bot.config.EnvironmentVars;
 
 public class TestConfig {
 

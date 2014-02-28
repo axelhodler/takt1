@@ -1,4 +1,4 @@
-package bot;
+package org.xorrr.bot;
 
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -13,6 +13,9 @@ import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
+import org.xorrr.bot.BotHandler;
+import org.xorrr.bot.TitleGrabber;
+import org.xorrr.bot.UrlGrabber;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBotHandler {

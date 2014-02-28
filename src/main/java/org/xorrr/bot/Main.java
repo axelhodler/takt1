@@ -11,12 +11,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-
-import bot.Bot;
-import bot.BotConfig;
-import bot.BotHandler;
-import bot.config.EnvironmentVars;
-import bot.di.Module;
+import org.xorrr.bot.config.EnvironmentVars;
+import org.xorrr.bot.di.Module;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

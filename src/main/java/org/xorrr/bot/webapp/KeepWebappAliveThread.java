@@ -1,10 +1,10 @@
-package webapp;
+package org.xorrr.bot.webapp;
 
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
-import bot.config.EnvironmentVars;
+import org.xorrr.bot.config.EnvironmentVars;
 
 public class KeepWebappAliveThread extends Thread {
 

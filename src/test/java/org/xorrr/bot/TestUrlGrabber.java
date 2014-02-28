@@ -1,10 +1,11 @@
-package bot;
+package org.xorrr.bot;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.xorrr.bot.UrlGrabber;
 
 public class TestUrlGrabber {
     private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";

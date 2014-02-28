@@ -1,4 +1,4 @@
-package bot;
+package org.xorrr.bot;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
