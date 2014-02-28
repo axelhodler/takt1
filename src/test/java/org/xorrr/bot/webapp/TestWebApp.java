@@ -12,20 +12,25 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.powermock.api.mockito.PowerMockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
 
-@RunWith(MockitoJUnitRunner.class)
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(Server.class)
 public class TestWebApp {
 
-    @Mock
     Server server;
+
     @Mock
     ServletContextHandler context;
 
     private WebApp webApp;
 
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+        server = PowerMockito.mock(Server.class);
+
         webApp = new WebApp(server, context);
     }
 
@@ -49,5 +54,12 @@ public class TestWebApp {
 
         //TODO see PowerMock for mocking constructors
         verify(context, times(1)).addServlet(any(ServletHolder.class), anyString());
+    }
+
+    @Test
+    public void serverIsStarted() throws Exception {
+        webApp.launchServer();
+
+        verify(server, times(1)).start();
     }
 }
