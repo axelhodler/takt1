@@ -7,9 +7,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
 
-public class TitleGrabber {
+public class TitleFinder {
 
-    public String grabTitle(String url) {
+    public String findTitle(String url) {
 
         String title = null;
         try {

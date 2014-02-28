@@ -3,18 +3,18 @@ package org.xorrr.bot;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
-import org.xorrr.bot.utils.TitleGrabber;
+import org.xorrr.bot.utils.TitleFinder;
 import org.xorrr.bot.utils.UrlGrabber;
 
 import com.google.inject.Inject;
 
 public class BotHandler extends ListenerAdapter<PircBotX> {
 
-    private TitleGrabber tg;
+    private TitleFinder tg;
     private UrlGrabber ug;
 
     @Inject
-    public BotHandler(TitleGrabber tg, UrlGrabber ug) {
+    public BotHandler(TitleFinder tg, UrlGrabber ug) {
         this.tg = tg;
         this.ug = ug;
     }
@@ -29,7 +29,7 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
         String url = ug.grabUrl(event.getMessage());
 
         if (isNotNull(url)) {
-            String title = tg.grabTitle(url);
+            String title = tg.findTitle(url);
             checkIfRespondWithTitle(event, title);
         }
     }

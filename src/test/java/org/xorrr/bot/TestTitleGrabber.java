@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.xorrr.bot.utils.TitleGrabber;
+import org.xorrr.bot.utils.TitleFinder;
 
 public class TestTitleGrabber {
 
@@ -17,30 +17,30 @@ public class TestTitleGrabber {
             + "/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-"
             + "star.svg.png";
 
-    private TitleGrabber tg;
+    private TitleFinder tg;
 
     @Before
     public void setUp() {
-        tg = new TitleGrabber();
+        tg = new TitleFinder();
     }
 
     @Test
     public void testGrabbingTheTitle() {
-        String grabbedTitle = tg.grabTitle(URL);
+        String grabbedTitle = tg.findTitle(URL);
 
         assertEquals(TITLE, grabbedTitle);
     }
 
     @Test
     public void testGrabbingTheTitleWithAnImage() {
-        String grabbedTitle = tg.grabTitle(IMAGE_URL);
+        String grabbedTitle = tg.findTitle(IMAGE_URL);
 
         assertNull(grabbedTitle);
     }
 
     @Test
     public void testGrabbingTheTitleOfANonExistingUrl() {
-        String grabbedTitle = tg.grabTitle(NON_EXISTING_URL);
+        String grabbedTitle = tg.findTitle(NON_EXISTING_URL);
 
         assertNull(grabbedTitle);
     }
