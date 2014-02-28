@@ -4,17 +4,17 @@ import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.xorrr.bot.utils.TitleFinder;
-import org.xorrr.bot.utils.UrlGrabber;
+import org.xorrr.bot.utils.UrlFinder;
 
 import com.google.inject.Inject;
 
 public class BotHandler extends ListenerAdapter<PircBotX> {
 
     private TitleFinder tg;
-    private UrlGrabber ug;
+    private UrlFinder ug;
 
     @Inject
-    public BotHandler(TitleFinder tg, UrlGrabber ug) {
+    public BotHandler(TitleFinder tg, UrlFinder ug) {
         this.tg = tg;
         this.ug = ug;
     }
@@ -26,7 +26,7 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
     }
 
     private void ifUrlWasPostedGetAndPostItsTitle(MessageEvent<PircBotX> event) {
-        String url = ug.grabUrl(event.getMessage());
+        String url = ug.findUrl(event.getMessage());
 
         if (isNotNull(url)) {
             String title = tg.findTitle(url);

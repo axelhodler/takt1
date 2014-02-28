@@ -5,7 +5,7 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.xorrr.bot.utils.UrlGrabber;
+import org.xorrr.bot.utils.UrlFinder;
 
 public class TestUrlGrabber {
     private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";
@@ -15,17 +15,17 @@ public class TestUrlGrabber {
     private final String TEST_SENTENCE_TWO = "foo bar " + TEST_URL_TWO + " baz";
     private final String NOURL = "foo bar baz";
 
-    private UrlGrabber ug;
+    private UrlFinder ug;
 
     @Before
     public void setUpTests() {
-        ug = new UrlGrabber();
+        ug = new UrlFinder();
     }
 
     @Test
     public void testGettingTheUrl() {
-        String url = ug.grabUrl(TEST_SENTENCE);
-        String secondUrl = ug.grabUrl(TEST_SENTENCE_TWO);
+        String url = ug.findUrl(TEST_SENTENCE);
+        String secondUrl = ug.findUrl(TEST_SENTENCE_TWO);
 
         assertEquals(TEST_URL, url);
         assertEquals(TEST_URL_TWO, secondUrl);
@@ -33,7 +33,7 @@ public class TestUrlGrabber {
 
     @Test
     public void dealWithNoUrlProvided() {
-        String url = ug.grabUrl(NOURL);
+        String url = ug.findUrl(NOURL);
 
         assertNull(url);
     }

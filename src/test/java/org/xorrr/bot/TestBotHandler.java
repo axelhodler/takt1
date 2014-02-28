@@ -15,7 +15,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
 import org.xorrr.bot.BotHandler;
 import org.xorrr.bot.utils.TitleFinder;
-import org.xorrr.bot.utils.UrlGrabber;
+import org.xorrr.bot.utils.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBotHandler {
@@ -25,7 +25,7 @@ public class TestBotHandler {
     @Mock
     TitleFinder tg;
     @Mock
-    UrlGrabber ug;
+    UrlFinder ug;
     @Mock
     Channel channel;
     @Mock
@@ -48,12 +48,12 @@ public class TestBotHandler {
         botHandler.onMessage(event);
 
         verify(event, times(1)).getMessage();
-        verify(ug, times(1)).grabUrl(MESSAGE);
+        verify(ug, times(1)).findUrl(MESSAGE);
     }
 
     @Test
     public void urlIsNotGrabbed() throws Exception {
-        when(ug.grabUrl(MESSAGE)).thenReturn(null);
+        when(ug.findUrl(MESSAGE)).thenReturn(null);
 
         botHandler.onMessage(event);
 
@@ -62,7 +62,7 @@ public class TestBotHandler {
 
     @Test
     public void urlIsGrabbed() throws Exception {
-        when(ug.grabUrl(MESSAGE)).thenReturn(URL);
+        when(ug.findUrl(MESSAGE)).thenReturn(URL);
 
         botHandler.onMessage(event);
 
@@ -71,7 +71,7 @@ public class TestBotHandler {
 
     @Test
     public void titleFound() throws Exception {
-        when(ug.grabUrl(MESSAGE)).thenReturn(URL);
+        when(ug.findUrl(MESSAGE)).thenReturn(URL);
         when(tg.findTitle(URL)).thenReturn(TITLE);
         
         when(event.getChannel()).thenReturn(channel);
@@ -86,7 +86,7 @@ public class TestBotHandler {
 
     @Test
     public void titleNotFound() throws Exception {
-        when(ug.grabUrl(MESSAGE)).thenReturn(URL);
+        when(ug.findUrl(MESSAGE)).thenReturn(URL);
         when(tg.findTitle(URL)).thenReturn(null);
 
         botHandler.onMessage(event);
