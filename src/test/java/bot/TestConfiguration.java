@@ -11,6 +11,9 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 
+import com.google.common.collect.ImmutableCollection;
+import com.google.common.collect.ImmutableList;
+
 import bot.config.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -41,8 +44,8 @@ public class TestConfiguration {
 
     @Test
     public void channelIsSet() {
-        assertEquals("{" + System.getenv(EnvironmentVars.CHANNEL) + "=}",
-                configuration.getAutoJoinChannels().toString());
+        assertTrue(configuration.getAutoJoinChannels().asMultimap()
+                .containsKey(System.getenv(EnvironmentVars.CHANNEL)));
     }
 
     @Test
