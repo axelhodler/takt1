@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 import org.xorrr.bot.config.EnvironmentVars;
 
-public class TestConfig {
+public class TestEnvVars {
 
     @Test
     public void constantsForConfigEnvVars() {
