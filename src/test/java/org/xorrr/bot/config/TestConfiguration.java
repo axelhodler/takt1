@@ -50,4 +50,16 @@ public class TestConfiguration {
     public void listenerIsSet() {
         assertTrue(configuration.getListenerManager().listenerExists(handler));
     }
+
+    @Test
+    public void loginIsSet() {
+        assertEquals(System.getenv(EnvironmentVars.IDENT),
+                configuration.getLogin());
+    }
+
+    @Test
+    public void nickservPasswordIsSet() {
+        assertEquals(System.getenv(EnvironmentVars.PASSWORD),
+                configuration.getNickservPassword());
+    }
 }

@@ -19,7 +19,10 @@ public class BotConfig {
                 .setName(System.getenv(EnvironmentVars.NAME))
                 .setServerHostname(System.getenv(EnvironmentVars.SERVER))
                 .addAutoJoinChannel(System.getenv(EnvironmentVars.CHANNEL))
-                .addListener(listener).buildConfiguration();
+                .addListener(listener)
+                .setLogin(System.getenv(EnvironmentVars.IDENT))
+                .setNickservPassword(System.getenv(EnvironmentVars.IDENT))
+                .buildConfiguration();
 
         return config;
     }
