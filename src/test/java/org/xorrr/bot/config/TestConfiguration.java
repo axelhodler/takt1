@@ -22,6 +22,10 @@ public class TestConfiguration {
 
     private Configuration<PircBotX> configuration;
 
+    private String get(String var) {
+        return System.getenv(var);
+    }
+
     @Before
     public void setUp() {
         BotConfig conf = new BotConfig(handler);
@@ -30,20 +34,20 @@ public class TestConfiguration {
 
     @Test
     public void nameIsSet() {
-        assertEquals(System.getenv(EnvironmentVars.NAME),
+        assertEquals(get(EnvironmentVars.NAME),
                 configuration.getName());
     }
 
     @Test
     public void serverHostnameIsSet() {
-        assertEquals(System.getenv(EnvironmentVars.SERVER),
+        assertEquals(get(EnvironmentVars.SERVER),
                 configuration.getServerHostname());
     }
 
     @Test
     public void channelIsSet() {
         assertTrue(configuration.getAutoJoinChannels().asMultimap()
-                .containsKey(System.getenv(EnvironmentVars.CHANNEL)));
+                .containsKey(get(EnvironmentVars.CHANNEL)));
     }
 
     @Test
@@ -53,13 +57,13 @@ public class TestConfiguration {
 
     @Test
     public void loginIsSet() {
-        assertEquals(System.getenv(EnvironmentVars.IDENT),
+        assertEquals(get(EnvironmentVars.IDENT),
                 configuration.getLogin());
     }
 
     @Test
     public void nickservPasswordIsSet() {
-        assertEquals(System.getenv(EnvironmentVars.PASSWORD),
+        assertEquals(get(EnvironmentVars.PASSWORD),
                 configuration.getNickservPassword());
     }
 }
