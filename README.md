@@ -7,10 +7,8 @@ WIP
 ## Running locally
 Run the script `./bin/run.sh`.
 
-## Heroku
-The Bot contains a webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping the bot will access it once every 30 minutes.
-
-For the Deployment see [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java). A `Procfile` and `system.properties` to tell the Plattform to use Java 1.7. already exists.
+## Deploy
+The Bot contains a simple webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping you can for example use [uptimerobot](http://uptimerobot.com/) or any of the other multiple solutions.
 
 ### Deal with german umlauts etc in the title-tag of the HTML page
 Use UTF-8 as LANG environment variable:
