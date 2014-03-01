@@ -1,9 +1,18 @@
 package org.xorrr.bot.webapp;
 
+import static org.junit.Assert.*;
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
@@ -22,6 +31,12 @@ public class TestWebApp {
 
     Server server;
 
+    @Mock
+    HttpServletRequest req;
+    @Mock
+    HttpServletResponse resp;
+    @Mock
+    PrintWriter pw;
     @Mock
     ServletContextHandler context;
 
@@ -68,5 +83,14 @@ public class TestWebApp {
         webApp.launchServer();
 
         verify(server, times(1)).join();
+    }
+
+    @Test
+    public void getRequestReturnsSomething() throws Exception {
+        when(resp.getWriter()).thenReturn(pw);
+
+        webApp.doGet(req, resp);
+
+        verify(pw, times(1)).print(":)");
     }
 }
