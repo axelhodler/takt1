@@ -15,7 +15,13 @@ Run the tests via:
     ./bin/run_tests.sh
 
 # Deploy
-The Bot contains a simple webapp so it can be deployed on [heroku](https://heroku.com). To prevent the webapp from sleeping you can for example use [uptimerobot](http://uptimerobot.com/) or any of the other multiple solutions.
+The Bot contains a simple webapp so it can be deployed on [heroku](https://heroku.com).
+
+To set the necessary env vars for heroku invoke the script:
+
+    ./bin/set_heroku_env_vars.sh
+
+To prevent the webapp from sleeping you can for example use [uptimerobot](http://uptimerobot.com/) or any of the other multiple solutions.
 
 # Troubleshooting
 ## Deal with german umlauts etc in the title-tag of the HTML page
