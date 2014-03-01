@@ -15,7 +15,6 @@ public class TestEnvVars {
         assertNotNull(EnvironmentVars.CHANNEL);
         assertNotNull(EnvironmentVars.IDENT);
         assertNotNull(EnvironmentVars.PASS);
-        assertNotNull(EnvironmentVars.WEBAPPURL);
         assertNotNull(EnvironmentVars.RESTAPIURL);
     }
 
