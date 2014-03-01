@@ -1,4 +1,4 @@
-package bot;
+package org.xorrr.bot.utils;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -7,9 +7,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
 
-public class TitleGrabber {
+public class TitleFinder {
 
-    public String grabTitle(String url) {
+    public String findTitle(String url) {
 
         String title = null;
         try {
