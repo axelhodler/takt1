@@ -16,18 +16,34 @@ import com.google.inject.Injector;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        Server server = new Server(Integer.valueOf(System
-                .getenv(EnvironmentVars.PORT)));
+        createWebAppThread().start();
+
+        createBot().start();
+    }
+
+    private static Bot createBot() {
+        Bot bot = new Bot(createPircBotXWithConfig());
+        return bot;
+    }
+
+    private static PircBotX createPircBotXWithConfig() {
+        PircBotX pircbotx = new PircBotX(createConfig());
+        return pircbotx;
+    }
+
+    private static Thread createWebAppThread() {
+        Server server = new Server(getPort());
         ServletContextHandler context = new ServletContextHandler(
                 ServletContextHandler.SESSIONS);
         WebApp webapp = new WebApp(server, context);
 
         Thread thread = new Thread(new WebAppThread(webapp));
-        thread.start();
+        return thread;
+    }
 
-        PircBotX pircbotx = new PircBotX(createConfig());
-        Bot bot = new Bot(pircbotx);
-        bot.start();
+    private static Integer getPort() {
+        return Integer.valueOf(System
+                .getenv(EnvironmentVars.PORT));
     }
 
     private static Configuration<PircBotX> createConfig() {
