@@ -16,14 +16,18 @@ public class BotConfig {
 
     public Configuration<PircBotX> createConfig() {
         Configuration<PircBotX> config = new Configuration.Builder<PircBotX>()
-                .setName(System.getenv(EnvironmentVars.NAME))
-                .setServerHostname(System.getenv(EnvironmentVars.SERVER))
-                .addAutoJoinChannel(System.getenv(EnvironmentVars.CHANNEL))
+                .setName(get(EnvironmentVars.NAME))
+                .setServerHostname(get(EnvironmentVars.SERVER))
+                .addAutoJoinChannel(get(EnvironmentVars.CHANNEL))
                 .addListener(listener)
-                .setLogin(System.getenv(EnvironmentVars.IDENT))
-                .setNickservPassword(System.getenv(EnvironmentVars.IDENT))
+                .setLogin(get(EnvironmentVars.IDENT))
+                .setNickservPassword(get(EnvironmentVars.IDENT))
                 .buildConfiguration();
 
         return config;
+    }
+
+    private String get(String var) {
+        return System.getenv(var);
     }
 }
