@@ -12,7 +12,5 @@ public class TestEnvVars {
         assertNotNull(EnvironmentVars.NAME);
         assertNotNull(EnvironmentVars.SERVER);
         assertNotNull(EnvironmentVars.CHANNEL);
-        assertNotNull(EnvironmentVars.IDENT);
-        assertNotNull(EnvironmentVars.PASS);
     }
 }
