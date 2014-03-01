@@ -8,7 +8,7 @@ import org.xorrr.bot.config.BotConfig;
 import org.xorrr.bot.config.EnvironmentVars;
 import org.xorrr.bot.di.Module;
 import org.xorrr.bot.webapp.WebApp;
-import org.xorrr.bot.webapp.WebAppThread;
+import org.xorrr.bot.webapp.WebAppRunnable;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -37,7 +37,7 @@ public class Main {
                 ServletContextHandler.SESSIONS);
         WebApp webapp = new WebApp(server, context);
 
-        Thread thread = new Thread(new WebAppThread(webapp));
+        Thread thread = new Thread(new WebAppRunnable(webapp));
         return thread;
     }
 

@@ -9,14 +9,14 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestWebAppThread {
+public class TestWebAppRunnable {
 
     @Mock
     WebApp app;
 
     @Test
     public void test() {
-        WebAppThread thread = new WebAppThread(app);
+        WebAppRunnable thread = new WebAppRunnable(app);
 
         thread.run();
 
