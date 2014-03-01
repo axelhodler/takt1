@@ -8,6 +8,5 @@ export SERVER=irc.quakenet.org
 export CHANNEL=#takt1
 export IDENT=test
 export PASSWORD=test
-export RESTAPIURL=test
 
 mvn exec:java -Dexec.mainClass="org.xorrr.bot.Main"

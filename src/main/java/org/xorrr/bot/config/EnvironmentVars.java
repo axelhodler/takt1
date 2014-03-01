@@ -8,5 +8,4 @@ public abstract class EnvironmentVars {
     public static final String CHANNEL = "CHANNEL";
     public static final String IDENT = "IDENT";
     public static final String PASS = "PASS";
-    public static final String RESTAPIURL = "RESTAPIURL";
 }

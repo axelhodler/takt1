@@ -6,6 +6,5 @@ export SERVER=test
 export CHANNEL=test
 export IDENT=test
 export PASSWORD=test
-export RESTAPIURL=test
 
 mvn test

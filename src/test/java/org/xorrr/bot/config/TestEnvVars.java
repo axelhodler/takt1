@@ -1,9 +1,8 @@
 package org.xorrr.bot.config;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
-import org.xorrr.bot.config.EnvironmentVars;
 
 public class TestEnvVars {
 
@@ -15,7 +14,5 @@ public class TestEnvVars {
         assertNotNull(EnvironmentVars.CHANNEL);
         assertNotNull(EnvironmentVars.IDENT);
         assertNotNull(EnvironmentVars.PASS);
-        assertNotNull(EnvironmentVars.RESTAPIURL);
     }
-
 }
