@@ -18,10 +18,10 @@ echo "Set value for the CHANNEL"
 read channel
 heroku config:set CHANNEL=$channel
 
-echo "Set value for the IDENT"
+echo "Set value for the IDENT (optional)"
 read ident
 heroku config:set IDENT=$ident
 
-echo "Set value for the PASSWORD to the ident"
+echo "Set value for the PASSWORD to ident (optional)"
 read pw
 heroku config:set PASSWORD=$pw
