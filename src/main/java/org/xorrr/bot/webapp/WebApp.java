@@ -6,8 +6,6 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-import com.google.inject.Inject;
-
 public class WebApp extends HttpServlet {
 
     private static final long serialVersionUID = -7961354394795268555L;
@@ -15,7 +13,6 @@ public class WebApp extends HttpServlet {
     private Server server;
     private ServletContextHandler context;
 
-    @Inject
     public WebApp(Server server, ServletContextHandler context) {
         this.server = server;
         this.context = context;
