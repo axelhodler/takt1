@@ -1,2 +1,1 @@
-web:    java -cp target/dependency/*:target/classes Main
-
+web:    java -cp target/classes:target/dependency/* org.xorrr.bot.Main
