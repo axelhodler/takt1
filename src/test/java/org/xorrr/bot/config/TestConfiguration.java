@@ -47,7 +47,7 @@ public class TestConfiguration {
     }
 
     @Test
-    public void listenerSet() {
+    public void listenerIsSet() {
         assertTrue(configuration.getListenerManager().listenerExists(handler));
     }
 }
