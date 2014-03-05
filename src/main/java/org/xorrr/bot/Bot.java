@@ -18,9 +18,7 @@ public class Bot {
     public void start() {
         try {
             pircBotX.startBot();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (IrcException e) {
+        } catch (IOException | IrcException e) {
             e.printStackTrace();
         }
     }
