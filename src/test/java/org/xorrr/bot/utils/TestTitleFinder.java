@@ -6,7 +6,7 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.xorrr.helpers.IntegrationTest;
+import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)
 public class TestTitleFinder {

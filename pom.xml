@@ -116,7 +116,7 @@
           <includes>
             <include>**/*.class</include>
           </includes>
-          <excludedGroups>org.xorrr.helpers.IntegrationTest</excludedGroups>
+          <excludedGroups>org.xorrr.bot.helpers.IntegrationTest</excludedGroups>
         </configuration>
       </plugin>
       <plugin>

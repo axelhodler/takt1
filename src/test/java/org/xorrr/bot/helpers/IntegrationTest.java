@@ -1,4 +1,4 @@
-package org.xorrr.helpers;
+package org.xorrr.bot.helpers;
 
 /**
  * Used to exclude the integration-tests when just invoking
