@@ -5,8 +5,10 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.xorrr.bot.utils.TitleFinder;
+import org.junit.experimental.categories.Category;
+import org.xorrr.helpers.IntegrationTest;
 
+@Category(IntegrationTest.class)
 public class TestTitleFinder {
 
     private final String TITLE = "Regular expression - Wikipedia, the "

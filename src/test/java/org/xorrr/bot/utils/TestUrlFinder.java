@@ -5,8 +5,10 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.xorrr.bot.utils.UrlFinder;
+import org.junit.experimental.categories.Category;
+import org.xorrr.helpers.IntegrationTest;
 
+@Category(IntegrationTest.class)
 public class TestUrlFinder {
     private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";
     private final String TEST_URL_TWO = "http://en.wikipedia.org/wiki/"
