@@ -25,6 +25,15 @@ To set the necessary env vars for heroku invoke the script:
 
 To prevent the webapp from sleeping you can for example use [uptimerobot](http://uptimerobot.com/) or any of the other multiple solutions.
 
+## Release
+Source the environment variables for testing
+
+    . ./bin/set_testing_env_vars.sh
+
+Invoke the maven-release-plugin
+
+    maven release:prepare-with-pom
+
 ## Troubleshooting
 ### Deal with german umlauts etc in the title-tag of the HTML page
 Use UTF-8 as LANG environment variable:
