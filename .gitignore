@@ -9,3 +9,7 @@ target/
 # Dont track the emacs backup files
 *\#*
 # ====
+
+# maven-release-plugin
+pom.xml.releaseBackup
+release.properties
