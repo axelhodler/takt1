@@ -4,7 +4,17 @@
 The bot is based on the [PircBotX](https://code.google.com/p/pircbotx/)-Java IRC Framework. The only thing it currently does is scanning the channel for lines which contain a URL. The Bot will then retrieve and post the title of the Url in the channel. I found other bot functions and modules rather annoying and wanted to create one without these features for usage in a private channel.
 
 ## Config
-WIP
+The values are set in `/bin/run.sh` and the other scripts if used
+
+Required values:
+* PORT          The port in which to run the bot
+* NAME          The name of the bot
+* SERVER        The irc-server on which to connect (e.g. irc.freenode.org)
+* CHANNEL       The channel which to join (e.g. #foobar)
+
+Optional:
+* IDENT         The nickserv ident
+* PASSWORD      The password for the nickserv ident
 
 ## Execute
 To run locally:
