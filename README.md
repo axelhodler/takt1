@@ -7,14 +7,14 @@ The bot is based on the [PircBotX](https://code.google.com/p/pircbotx/)-Java IRC
 The values are set in `/bin/run.sh` and the other scripts if used
 
 Required values:
-* PORT          The port in which to run the bot
-* NAME          The name of the bot
-* SERVER        The irc-server on which to connect (e.g. irc.freenode.org)
-* CHANNEL       The channel which to join (e.g. #foobar)
+* `PORT`          The port in which to run the bot
+* `NAME`          The name of the bot
+* `SERVER`        The irc-server on which to connect (e.g. irc.freenode.org)
+* `CHANNEL`       The channel which to join (e.g. #foobar)
 
 Optional:
-* IDENT         The nickserv ident
-* PASSWORD      The password for the nickserv ident
+* `IDENT`         The nickserv ident
+* `PASSWORD`      The password for the nickserv ident
 
 ## Execute
 To run locally:
