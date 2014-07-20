@@ -29,24 +29,36 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
     @Override
     public void onMessage(MessageEvent<PircBotX> event)
             throws Exception {
-        ifUrlWasPostedGetAndPostItsTitle(event);
-        String trackUri = trackUriFinder.findUri(event.getMessage());
+        checkForUrls(event);
+        checkForTrackUris(event);
+    }
+
+    private void checkForTrackUris(MessageEvent<PircBotX> event) {
+        String trackUri = trackUriFinder.findUri(getMessage(event));
+        respondWithTitle(event, trackUri);
+    }
+
+    private String getMessage(MessageEvent<PircBotX> event) {
+        return event.getMessage();
+    }
+
+    private void respondWithTitle(MessageEvent<PircBotX> event, String trackUri) {
         if (isNotNull(trackUri)) {
             String title = trackTitleFinder.findTitle(trackUri);
-            checkIfRespondWithTitle(event, title);
+            checkIfToRespondWithTitle(event, title);
         }
     }
 
-    private void ifUrlWasPostedGetAndPostItsTitle(MessageEvent<PircBotX> event) {
-        String url = ug.findUrl(event.getMessage());
+    private void checkForUrls(MessageEvent<PircBotX> event) {
+        String url = ug.findUrl(getMessage(event));
 
         if (isNotNull(url)) {
             String title = tg.findTitle(url);
-            checkIfRespondWithTitle(event, title);
+            checkIfToRespondWithTitle(event, title);
         }
     }
 
-    private void checkIfRespondWithTitle(MessageEvent<PircBotX> event,
+    private void checkIfToRespondWithTitle(MessageEvent<PircBotX> event,
             String title) {
         if (isNotNull(title))
             event.getChannel().send().message(title);
