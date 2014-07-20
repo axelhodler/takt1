@@ -3,7 +3,10 @@ package org.xorrr.bot.utils;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.xorrr.bot.helpers.IntegrationTest;
 
+@Category(IntegrationTest.class)
 public class SpotifyTrackTitleFinderTest {
 
     private final String URI_TRACK = "spotify:track:47vFyxAv24QxAOfdMuE3oV";
