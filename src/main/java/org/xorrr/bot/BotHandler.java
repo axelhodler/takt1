@@ -3,6 +3,8 @@ package org.xorrr.bot;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
+import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
+import org.xorrr.bot.finder.SpotifyUriFinder;
 import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.finder.UrlFinder;
 
@@ -12,17 +14,27 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
 
     private TitleFinder tg;
     private UrlFinder ug;
+    private SpotifyTrackTitleFinder trackTitleFinder;
+    private SpotifyUriFinder trackUriFinder;
 
     @Inject
-    public BotHandler(TitleFinder tg, UrlFinder ug) {
+    public BotHandler(TitleFinder tg, UrlFinder ug,
+            SpotifyTrackTitleFinder ttf, SpotifyUriFinder uf) {
         this.tg = tg;
         this.ug = ug;
+        this.trackTitleFinder = ttf;
+        this.trackUriFinder = uf;
     }
 
     @Override
     public void onMessage(MessageEvent<PircBotX> event)
             throws Exception {
         ifUrlWasPostedGetAndPostItsTitle(event);
+        String trackUri = trackUriFinder.findUri(event.getMessage());
+        if (isNotNull(trackUri)) {
+            String title = trackTitleFinder.findTitle(trackUri);
+            checkIfRespondWithTitle(event, title);
+        }
     }
 
     private void ifUrlWasPostedGetAndPostItsTitle(MessageEvent<PircBotX> event) {

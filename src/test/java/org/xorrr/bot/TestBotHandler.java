@@ -13,7 +13,8 @@ import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
-import org.xorrr.bot.BotHandler;
+import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
+import org.xorrr.bot.finder.SpotifyUriFinder;
 import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.finder.UrlFinder;
 
@@ -27,6 +28,10 @@ public class TestBotHandler {
     @Mock
     UrlFinder ug;
     @Mock
+    SpotifyTrackTitleFinder trackTitleFinder;
+    @Mock
+    SpotifyUriFinder uriFinder;
+    @Mock
     Channel channel;
     @Mock
     OutputChannel outputChannel;
@@ -35,10 +40,11 @@ public class TestBotHandler {
     private final String MESSAGE = "msg";
     private final String URL = "url";
     private final String TITLE = "title";
+    private final String TRACK_URI = "uri";
 
     @Before
     public void setUp() {
-        botHandler = new BotHandler(tg, ug);
+        botHandler = new BotHandler(tg, ug, trackTitleFinder, uriFinder);
 
         when(event.getMessage()).thenReturn(MESSAGE);
     }
@@ -47,7 +53,7 @@ public class TestBotHandler {
     public void messageAccessed() throws Exception {
         botHandler.onMessage(event);
 
-        verify(event, times(1)).getMessage();
+        verify(event, times(2)).getMessage();
         verify(ug, times(1)).findUrl(MESSAGE);
     }
 
@@ -73,7 +79,7 @@ public class TestBotHandler {
     public void titleFound() throws Exception {
         when(ug.findUrl(MESSAGE)).thenReturn(URL);
         when(tg.findTitle(URL)).thenReturn(TITLE);
-        
+
         when(event.getChannel()).thenReturn(channel);
         when(channel.send()).thenReturn(outputChannel);
 
@@ -93,5 +99,18 @@ public class TestBotHandler {
 
         verify(tg, times(1)).findTitle(URL);
         verify(event, times(0)).getChannel();
+    }
+
+    @Test
+    public void trackTitleFound() throws Exception {
+        when(uriFinder.findUri(MESSAGE)).thenReturn(TRACK_URI);
+        when(tg.findTitle(URL)).thenReturn(TITLE);
+        when(event.getChannel()).thenReturn(channel);
+        when(channel.send()).thenReturn(outputChannel);
+
+        botHandler.onMessage(event);
+
+        verify(uriFinder, times(1)).findUri(MESSAGE);
+        verify(trackTitleFinder, times(1)).findTitle(TRACK_URI);
     }
 }
