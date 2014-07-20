@@ -7,8 +7,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
 
-public class TitleFinder {
+public class TitleFinder implements Finder{
 
+    @Override
     public String findTitle(String url) {
         String title = null;
         try {
