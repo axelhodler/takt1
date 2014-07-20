@@ -12,16 +12,16 @@ import com.google.inject.Inject;
 
 public class BotHandler extends ListenerAdapter<PircBotX> {
 
-    private TitleFinder tg;
-    private UrlFinder ug;
+    private TitleFinder titleFinder;
+    private UrlFinder urlFinder;
     private SpotifyTrackTitleFinder trackTitleFinder;
     private SpotifyUriFinder trackUriFinder;
 
     @Inject
     public BotHandler(TitleFinder tg, UrlFinder ug,
             SpotifyTrackTitleFinder ttf, SpotifyUriFinder uf) {
-        this.tg = tg;
-        this.ug = ug;
+        this.titleFinder = tg;
+        this.urlFinder = ug;
         this.trackTitleFinder = ttf;
         this.trackUriFinder = uf;
     }
@@ -50,10 +50,10 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
     }
 
     private void checkForUrls(MessageEvent<PircBotX> event) {
-        String url = ug.findUrl(getMessage(event));
+        String url = urlFinder.findUrl(getMessage(event));
 
         if (isNotNull(url)) {
-            String title = tg.findTitle(url);
+            String title = titleFinder.findTitle(url);
             checkIfToRespondWithTitle(event, title);
         }
     }
