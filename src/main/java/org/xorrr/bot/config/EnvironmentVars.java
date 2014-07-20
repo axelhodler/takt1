@@ -1,6 +1,9 @@
 package org.xorrr.bot.config;
 
-public abstract class EnvironmentVars {
+public final class EnvironmentVars {
+
+    private EnvironmentVars() {
+    }
 
     public static final String PORT = "PORT";
     public static final String NAME = "NAME";
