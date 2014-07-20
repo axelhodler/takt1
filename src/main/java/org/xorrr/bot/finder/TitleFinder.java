@@ -10,11 +10,9 @@ import org.jsoup.nodes.Document;
 public class TitleFinder {
 
     public String findTitle(String url) {
-
         String title = null;
         try {
-            Document doc = Jsoup.connect(url).userAgent("Mozilla").get();
-            title = doc.title();
+            title = getTitle(url);
         } catch (UnsupportedMimeTypeException e) {
             System.out.println("The URL is not a html page");
         } catch (UnknownHostException e) {
@@ -23,5 +21,10 @@ public class TitleFinder {
             e.printStackTrace();
         }
         return title;
+    }
+
+    private String getTitle(String url) throws IOException {
+        Document doc = Jsoup.connect(url).userAgent("Mozilla").get();
+        return doc.title();
     }
 }

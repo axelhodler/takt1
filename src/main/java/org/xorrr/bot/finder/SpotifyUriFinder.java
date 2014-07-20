@@ -17,11 +17,18 @@ public class SpotifyUriFinder {
     private String getMatch(Matcher m) {
         String uri = null;
 
-        if (m.find()) {
-            uri = m.group(0);
-        }
+        if (foundUri(m))
+            uri = getFoundUri(m);
 
         return uri;
+    }
+
+    private String getFoundUri(Matcher m) {
+        return m.group(0);
+    }
+
+    private boolean foundUri(Matcher m) {
+        return m.find();
     }
 
 }
