@@ -12,7 +12,7 @@ import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.BotHandler;
 import org.xorrr.bot.config.BotConfig;
-import org.xorrr.bot.config.EnvironmentVars;
+import org.xorrr.bot.util.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestConfiguration {

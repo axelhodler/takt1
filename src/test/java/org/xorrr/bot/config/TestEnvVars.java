@@ -3,6 +3,7 @@ package org.xorrr.bot.config;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
+import org.xorrr.bot.util.EnvironmentVars;
 
 public class TestEnvVars {
 

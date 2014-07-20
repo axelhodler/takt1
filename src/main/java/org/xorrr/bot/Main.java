@@ -5,8 +5,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.config.BotConfig;
-import org.xorrr.bot.config.EnvironmentVars;
 import org.xorrr.bot.di.Module;
+import org.xorrr.bot.util.EnvironmentVars;
 import org.xorrr.bot.webapp.WebApp;
 import org.xorrr.bot.webapp.WebAppRunnable;
 

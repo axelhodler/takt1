@@ -3,6 +3,7 @@ package org.xorrr.bot.config;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.BotHandler;
+import org.xorrr.bot.util.EnvironmentVars;
 
 import com.google.inject.Inject;
 
