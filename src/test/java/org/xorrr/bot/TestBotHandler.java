@@ -13,9 +13,10 @@ import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
-import org.xorrr.bot.BotHandler;
-import org.xorrr.bot.utils.TitleFinder;
-import org.xorrr.bot.utils.UrlFinder;
+import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
+import org.xorrr.bot.finder.SpotifyUriFinder;
+import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBotHandler {
@@ -23,9 +24,13 @@ public class TestBotHandler {
     @Mock
     MessageEvent<PircBotX> event;
     @Mock
-    TitleFinder tg;
+    TitleFinder titleFinder;
     @Mock
-    UrlFinder ug;
+    UrlFinder urlFinder;
+    @Mock
+    SpotifyTrackTitleFinder trackTitleFinder;
+    @Mock
+    SpotifyUriFinder uriFinder;
     @Mock
     Channel channel;
     @Mock
@@ -35,10 +40,11 @@ public class TestBotHandler {
     private final String MESSAGE = "msg";
     private final String URL = "url";
     private final String TITLE = "title";
+    private final String TRACK_URI = "uri";
 
     @Before
     public void setUp() {
-        botHandler = new BotHandler(tg, ug);
+        botHandler = new BotHandler(titleFinder, urlFinder, trackTitleFinder, uriFinder);
 
         when(event.getMessage()).thenReturn(MESSAGE);
     }
@@ -47,35 +53,32 @@ public class TestBotHandler {
     public void messageAccessed() throws Exception {
         botHandler.onMessage(event);
 
-        verify(event, times(1)).getMessage();
-        verify(ug, times(1)).findUrl(MESSAGE);
+        verify(event, times(2)).getMessage();
+        verify(urlFinder, times(1)).findUrl(MESSAGE);
     }
 
     @Test
     public void urlIsNotGrabbed() throws Exception {
-        when(ug.findUrl(MESSAGE)).thenReturn(null);
+        when(urlFinder.findUrl(MESSAGE)).thenReturn(null);
 
         botHandler.onMessage(event);
 
-        verify(tg, times(0)).findTitle(URL);
+        verify(titleFinder, times(0)).findTitle(URL);
     }
 
     @Test
     public void urlIsGrabbed() throws Exception {
-        when(ug.findUrl(MESSAGE)).thenReturn(URL);
+        when(urlFinder.findUrl(MESSAGE)).thenReturn(URL);
 
         botHandler.onMessage(event);
 
-        verify(tg, times(1)).findTitle(URL);
+        verify(titleFinder, times(1)).findTitle(URL);
     }
 
     @Test
     public void titleFound() throws Exception {
-        when(ug.findUrl(MESSAGE)).thenReturn(URL);
-        when(tg.findTitle(URL)).thenReturn(TITLE);
-        
-        when(event.getChannel()).thenReturn(channel);
-        when(channel.send()).thenReturn(outputChannel);
+        urlAndTitleAreFound();
+        titleSentToCorrectChannel();
 
         botHandler.onMessage(event);
 
@@ -86,12 +89,38 @@ public class TestBotHandler {
 
     @Test
     public void titleNotFound() throws Exception {
-        when(ug.findUrl(MESSAGE)).thenReturn(URL);
-        when(tg.findTitle(URL)).thenReturn(null);
+        when(urlFinder.findUrl(MESSAGE)).thenReturn(URL);
+        when(titleFinder.findTitle(URL)).thenReturn(null);
 
         botHandler.onMessage(event);
 
-        verify(tg, times(1)).findTitle(URL);
+        verify(titleFinder, times(1)).findTitle(URL);
         verify(event, times(0)).getChannel();
+    }
+
+    @Test
+    public void trackTitleFound() throws Exception {
+        uriAndTitleAreFound();
+        titleSentToCorrectChannel();
+
+        botHandler.onMessage(event);
+
+        verify(uriFinder, times(1)).findUri(MESSAGE);
+        verify(trackTitleFinder, times(1)).findTitle(TRACK_URI);
+    }
+
+    private void uriAndTitleAreFound() {
+        when(uriFinder.findUri(MESSAGE)).thenReturn(TRACK_URI);
+        when(titleFinder.findTitle(URL)).thenReturn(TITLE);
+    }
+
+    private void titleSentToCorrectChannel() {
+        when(event.getChannel()).thenReturn(channel);
+        when(channel.send()).thenReturn(outputChannel);
+    }
+
+    private void urlAndTitleAreFound() {
+        when(urlFinder.findUrl(MESSAGE)).thenReturn(URL);
+        when(titleFinder.findTitle(URL)).thenReturn(TITLE);
     }
 }
