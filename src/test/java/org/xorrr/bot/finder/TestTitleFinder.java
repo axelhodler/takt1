@@ -1,4 +1,4 @@
-package org.xorrr.bot.utils;
+package org.xorrr.bot.finder;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)

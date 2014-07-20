@@ -1,8 +1,9 @@
-package org.xorrr.bot.utils;
+package org.xorrr.bot.finder;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
+import org.xorrr.bot.finder.SpotifyUriFinder;
 
 public class SpotifyUriFinderTest {
 

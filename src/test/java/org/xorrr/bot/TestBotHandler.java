@@ -14,8 +14,8 @@ import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
 import org.xorrr.bot.BotHandler;
-import org.xorrr.bot.utils.TitleFinder;
-import org.xorrr.bot.utils.UrlFinder;
+import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TestBotHandler {

@@ -1,4 +1,4 @@
-package org.xorrr.bot.utils;
+package org.xorrr.bot.finder;
 
 import java.io.IOException;
 

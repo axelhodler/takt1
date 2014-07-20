@@ -1,9 +1,10 @@
-package org.xorrr.bot.utils;
+package org.xorrr.bot.finder;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)

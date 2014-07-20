@@ -3,8 +3,8 @@ package org.xorrr.bot;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
-import org.xorrr.bot.utils.TitleFinder;
-import org.xorrr.bot.utils.UrlFinder;
+import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.UrlFinder;
 
 import com.google.inject.Inject;
 
