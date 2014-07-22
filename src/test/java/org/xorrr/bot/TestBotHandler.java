@@ -36,7 +36,7 @@ public class TestBotHandler {
     @Mock
     OutputChannel outputChannel;
 
-    private BotHandler botHandler;
+    private MessageHandler botHandler;
     private final String MESSAGE = "msg";
     private final String URL = "url";
     private final String TITLE = "title";
@@ -44,7 +44,7 @@ public class TestBotHandler {
 
     @Before
     public void setUp() {
-        botHandler = new BotHandler(titleFinder, urlFinder, trackTitleFinder, uriFinder);
+        botHandler = new MessageHandler(titleFinder, urlFinder, trackTitleFinder, uriFinder);
 
         when(event.getMessage()).thenReturn(MESSAGE);
     }

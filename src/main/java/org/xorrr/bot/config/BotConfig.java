@@ -2,16 +2,16 @@ package org.xorrr.bot.config;
 
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.xorrr.bot.BotHandler;
+import org.xorrr.bot.MessageHandler;
 import org.xorrr.bot.util.EnvironmentVars;
 
 import com.google.inject.Inject;
 
 public class BotConfig {
-    private BotHandler listener;
+    private MessageHandler listener;
 
     @Inject
-    public BotConfig(BotHandler handler) {
+    public BotConfig(MessageHandler handler) {
         this.listener = handler;
     }
 

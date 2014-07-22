@@ -10,7 +10,7 @@ import org.xorrr.bot.finder.UrlFinder;
 
 import com.google.inject.Inject;
 
-public class BotHandler extends ListenerAdapter<PircBotX> {
+public class MessageHandler extends ListenerAdapter<PircBotX> {
 
     private TitleFinder titleFinder;
     private UrlFinder urlFinder;
@@ -18,7 +18,7 @@ public class BotHandler extends ListenerAdapter<PircBotX> {
     private SpotifyUriFinder trackUriFinder;
 
     @Inject
-    public BotHandler(TitleFinder tg, UrlFinder ug,
+    public MessageHandler(TitleFinder tg, UrlFinder ug,
             SpotifyTrackTitleFinder ttf, SpotifyUriFinder uf) {
         this.titleFinder = tg;
         this.urlFinder = ug;
