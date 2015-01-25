@@ -1,5 +1,6 @@
 package org.xorrr.bot;
 
+import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -63,7 +64,7 @@ public class TestBotHandler {
 
         botHandler.onMessage(event);
 
-        verify(titleFinder, times(0)).findTitle(URL);
+        verify(titleFinder, never()).findTitle(URL);
     }
 
     @Test
@@ -95,7 +96,7 @@ public class TestBotHandler {
         botHandler.onMessage(event);
 
         verify(titleFinder).findTitle(URL);
-        verify(event, times(0)).getChannel();
+        verify(event, never()).getChannel();
     }
 
     @Test
