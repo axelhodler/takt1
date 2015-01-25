@@ -8,6 +8,7 @@ public class WebAppRunnable implements Runnable {
         this.app = app;
     }
 
+    @Override
     public void run() {
         app.launchServer();
     }
