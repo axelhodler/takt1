@@ -1,6 +1,5 @@
 package org.xorrr.bot.webapp;
 
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
@@ -20,7 +19,7 @@ public class TestWebAppRunnable {
 
         thread.run();
 
-        verify(app, times(1)).launchServer();
+        verify(app).launchServer();
     }
 
 }

@@ -54,7 +54,7 @@ public class TestBotHandler {
         botHandler.onMessage(event);
 
         verify(event, times(2)).getMessage();
-        verify(urlFinder, times(1)).findUrl(MESSAGE);
+        verify(urlFinder).findUrl(MESSAGE);
     }
 
     @Test
@@ -72,7 +72,7 @@ public class TestBotHandler {
 
         botHandler.onMessage(event);
 
-        verify(titleFinder, times(1)).findTitle(URL);
+        verify(titleFinder).findTitle(URL);
     }
 
     @Test
@@ -82,9 +82,9 @@ public class TestBotHandler {
 
         botHandler.onMessage(event);
 
-        verify(event, times(1)).getChannel();
-        verify(channel, times(1)).send();
-        verify(outputChannel, times(1)).message(TITLE);
+        verify(event).getChannel();
+        verify(channel).send();
+        verify(outputChannel).message(TITLE);
     }
 
     @Test
@@ -94,7 +94,7 @@ public class TestBotHandler {
 
         botHandler.onMessage(event);
 
-        verify(titleFinder, times(1)).findTitle(URL);
+        verify(titleFinder).findTitle(URL);
         verify(event, times(0)).getChannel();
     }
 
@@ -105,8 +105,8 @@ public class TestBotHandler {
 
         botHandler.onMessage(event);
 
-        verify(uriFinder, times(1)).findUri(MESSAGE);
-        verify(trackTitleFinder, times(1)).findTitle(TRACK_URI);
+        verify(uriFinder).findUri(MESSAGE);
+        verify(trackTitleFinder).findTitle(TRACK_URI);
     }
 
     private void uriAndTitleAreFound() {

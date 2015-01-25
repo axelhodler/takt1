@@ -2,7 +2,6 @@ package org.xorrr.bot.webapp;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyString;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -50,14 +49,14 @@ public class TestWebApp {
     public void contextPathIsSet() {
         webApp.launchServer();
 
-        verify(context, times(1)).setContextPath("/");
+        verify(context).setContextPath("/");
     }
 
     @Test
     public void handlerIsSet() {
         webApp.launchServer();
 
-        verify(server, times(1)).setHandler(context);
+        verify(server).setHandler(context);
     }
 
     @Test
@@ -65,21 +64,21 @@ public class TestWebApp {
         webApp.launchServer();
 
         //TODO not properly tested
-        verify(context, times(1)).addServlet(any(ServletHolder.class), anyString());
+        verify(context).addServlet(any(ServletHolder.class), anyString());
     }
 
     @Test
     public void serverIsStarted() throws Exception {
         webApp.launchServer();
 
-        verify(server, times(1)).start();
+        verify(server).start();
     }
 
     @Test
     public void serverIsJoined() throws Exception {
         webApp.launchServer();
 
-        verify(server, times(1)).join();
+        verify(server).join();
     }
 
     @Test
@@ -88,6 +87,6 @@ public class TestWebApp {
 
         webApp.doGet(req, resp);
 
-        verify(pw, times(1)).print(":)");
+        verify(pw).print(":)");
     }
 }
