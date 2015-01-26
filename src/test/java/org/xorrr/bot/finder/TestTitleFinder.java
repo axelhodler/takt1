@@ -1,12 +1,12 @@
 package org.xorrr.bot.finder;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNull;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
-import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)
@@ -20,31 +20,31 @@ public class TestTitleFinder {
             + "/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-"
             + "star.svg.png";
 
-    private TitleFinder tg;
+    private TitleFinder finder;
 
     @Before
     public void setUp() {
-        tg = new TitleFinder();
+        finder = new TitleFinder();
     }
 
     @Test
-    public void testGrabbingTheTitle() {
-        String grabbedTitle = tg.findTitle(URL);
+    public void can_find_html_title() {
+        String grabbedTitle = finder.findTitle(URL);
 
-        assertEquals(TITLE, grabbedTitle);
+        assertThat(TITLE, equalTo(grabbedTitle));
     }
 
     @Test
-    public void testGrabbingTheTitleWithAnImage() {
-        String grabbedTitle = tg.findTitle(IMAGE_URL);
+    public void image_url_does_not_have_html_title() {
+        String title = finder.findTitle(IMAGE_URL);
 
-        assertNull(grabbedTitle);
+        assertNull(title);
     }
 
     @Test
     public void testGrabbingTheTitleOfANonExistingUrl() {
-        String grabbedTitle = tg.findTitle(NON_EXISTING_URL);
+        String title = finder.findTitle(NON_EXISTING_URL);
 
-        assertNull(grabbedTitle);
+        assertNull(title);
     }
 }
