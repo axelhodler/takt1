@@ -1,4 +1,6 @@
-# takt1 IRC-bot [![Build Status](https://travis-ci.org/xorrr/takt1.svg)](https://travis-ci.org/xorrr/takt1)
+# takt1 IRC-bot
+[![Build Status](https://travis-ci.org/xorrr/takt1.svg)](https://travis-ci.org/xorrr/takt1)
+[![Coverage Status](https://img.shields.io/coveralls/xorrr/takt1.svg)](https://coveralls.io/r/xorrr/takt1)
 
 The bot is based on the [PircBotX](https://code.google.com/p/pircbotx/)-Java IRC Framework. The only thing it currently does is to scan the channel for lines which contain a URL or a spotify uri. The Bot will then retrieve and post the title of the resource in the channel.
 I found other bot functions and modules rather annoying and wanted to create one without these features for usage in a private channel.
