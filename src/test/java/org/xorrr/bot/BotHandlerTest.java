@@ -20,7 +20,7 @@ import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestBotHandler {
+public class BotHandlerTest {
 
     @Mock
     MessageEvent<PircBotX> event;

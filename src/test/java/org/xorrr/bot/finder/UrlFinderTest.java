@@ -10,7 +10,7 @@ import org.xorrr.bot.finder.UrlFinder;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)
-public class TestUrlFinder {
+public class UrlFinderTest {
     private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";
     private final String TEST_URL_TWO = "http://en.wikipedia.org/wiki/"
             + "Regular_expression";

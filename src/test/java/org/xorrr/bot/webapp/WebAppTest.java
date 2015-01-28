@@ -23,7 +23,7 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(Server.class)
-public class TestWebApp {
+public class WebAppTest {
 
     Server server;
 

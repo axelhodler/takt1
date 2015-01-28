@@ -10,7 +10,7 @@ import org.junit.experimental.categories.Category;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)
-public class TestTitleFinder {
+public class TitleFinderTest {
 
     private final String TITLE = "Regular expression - Wikipedia, the "
             + "free encyclopedia";

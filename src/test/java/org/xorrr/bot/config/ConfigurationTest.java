@@ -15,7 +15,7 @@ import org.xorrr.bot.config.BotConfig;
 import org.xorrr.bot.util.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestConfiguration {
+public class ConfigurationTest {
 
     @Mock
     MessageHandler handler;
