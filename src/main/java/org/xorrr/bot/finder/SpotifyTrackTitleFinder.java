@@ -1,10 +1,9 @@
 package org.xorrr.bot.finder;
 
-public class SpotifyTrackTitleFinder implements TitleFetcher {
+public class SpotifyTrackTitleFinder {
 
     private final String URL_BASE = "http://open.spotify.com/track/";
 
-    @Override
     public String fetchTitleFrom(String uriTrack) {
         String id = getTrackId(uriTrack);
         HtmlTitleFetcher tf = new HtmlTitleFetcher();
