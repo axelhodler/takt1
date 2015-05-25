@@ -49,7 +49,7 @@ public class Main {
     private static Configuration<PircBotX> createConfig() {
         Injector injector = Guice.createInjector(new Module());
         BotConfig botConfig = new BotConfig(
-                injector.getInstance(MessageHandler.class));
+                injector.getInstance(HandleChannelMessages.class));
         Configuration<PircBotX> config = botConfig.createConfig();
         return config;
     }

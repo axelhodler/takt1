@@ -10,7 +10,7 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
-import org.xorrr.bot.MessageHandler;
+import org.xorrr.bot.HandleChannelMessages;
 import org.xorrr.bot.config.BotConfig;
 import org.xorrr.bot.util.EnvironmentVars;
 
@@ -18,7 +18,7 @@ import org.xorrr.bot.util.EnvironmentVars;
 public class ConfigurationTest {
 
     @Mock
-    MessageHandler handler;
+    HandleChannelMessages handler;
 
     private Configuration<PircBotX> configuration;
 
