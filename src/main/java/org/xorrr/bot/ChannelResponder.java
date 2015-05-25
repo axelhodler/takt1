@@ -8,6 +8,6 @@ import org.pircbotx.Channel;
 public class ChannelResponder {
 
   public void respondWith(Channel channel, String message) {
-    throw new UnsupportedOperationException();
+    channel.send().message(message);
   }
 }
