@@ -16,6 +16,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
     private UrlFinder urlFinder;
     private SpotifyTrackTitleFinder trackTitleFinder;
     private SpotifyUriFinder trackUriFinder;
+    private RelayMessage messageRelais;
 
     @Inject
     public HandleChannelMessages(TitleFinder tg, UrlFinder ug,
@@ -26,11 +27,19 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
         this.trackUriFinder = uf;
     }
 
+    public HandleChannelMessages(RelayMessage messageRelais) {
+      this.messageRelais = messageRelais;
+    }
+
     @Override
     public void onMessage(MessageEvent<PircBotX> event)
             throws Exception {
         checkForUrls(event);
         checkForTrackUris(event);
+    }
+
+    public void onMessageReplacement(MessageEvent<PircBotX> messageEvent) {
+      messageRelais.relay(messageEvent.getMessage());
     }
 
     private void checkForTrackUris(MessageEvent<PircBotX> event) {
