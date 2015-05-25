@@ -17,7 +17,7 @@ public class ShouldRelayMessagesToFilter {
   @Mock
   MessageEvent<PircBotX> messageEvent;
   @Mock
-  RelayMessage messageFilter;
+  BotResponse messageFilter;
 
   @Test
   public void filterChoosesWhatToDoWithTheMessage() throws Exception {
@@ -27,6 +27,6 @@ public class ShouldRelayMessagesToFilter {
 
     onMessageHandler.onMessageReplacement(messageEvent);
 
-    verify(messageFilter).relay(messageByUser);
+    verify(messageFilter).decideResponseTo(messageByUser);
   }
 }

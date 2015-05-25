@@ -13,23 +13,23 @@ import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
-public class RelayMessageTest {
+public class BotResponseTest {
 
   @Mock
   UrlFinder urlFinder;
   @Mock
   TitleFinder titleFinder;
 
-  private RelayMessage messageRelais;
+  private BotResponse messageRelais;
 
   @Before
   public void initialize() {
-    messageRelais = new RelayMessage(urlFinder, titleFinder);
+    messageRelais = new BotResponse(urlFinder, titleFinder);
   }
 
   @Test
   public void checksForHttpUrls() {
-    messageRelais.relay("message");
+    messageRelais.decideResponseTo("message");
 
     verify(urlFinder).extractUrlIn("message");
   }
@@ -39,7 +39,7 @@ public class RelayMessageTest {
     String messageContainingAUrl = "Hi, check this out www.foobar.org";
     given(urlFinder.extractUrlIn(messageContainingAUrl)).willReturn("www.foobar.org");
 
-    messageRelais.relay(messageContainingAUrl);
+    messageRelais.decideResponseTo(messageContainingAUrl);
 
     verify(titleFinder).findTitle("www.foobar.org");
   }
