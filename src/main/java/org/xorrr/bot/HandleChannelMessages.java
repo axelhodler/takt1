@@ -21,11 +21,13 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
 
     @Inject
     public HandleChannelMessages(HtmlTitleFetcher tg, UrlFinder ug,
-            SpotifyTrackTitleFinder ttf, SpotifyUriFinder uf) {
+            SpotifyTrackTitleFinder ttf, SpotifyUriFinder uf,
+            ChannelResponder channelResponder) {
         this.titleFinder = tg;
         this.urlFinder = ug;
         this.trackTitleFinder = ttf;
         this.trackUriFinder = uf;
+        this.channelResponder = channelResponder;
     }
 
     public HandleChannelMessages(ResponseFinder messageRelais, ChannelResponder channelResponder) {
@@ -76,7 +78,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
     private void checkIfToRespondWithTitle(MessageEvent<PircBotX> event,
             String title) {
         if (isNotNull(title))
-            event.getChannel().send().message(title);
+            channelResponder.respondWith(event.getChannel(), title);
     }
 
     private boolean isNotNull(String title) {

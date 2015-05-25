@@ -7,7 +7,7 @@ import org.junit.experimental.categories.Category;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)
-public class SpotifyTrackTitleFinderTest {
+public class SpotifyTrackTitleFinderIT {
 
     private final String URI_TRACK = "spotify:track:47vFyxAv24QxAOfdMuE3oV";
     private final String TITLE = "Unearthed by E.S. Posthumus on Spotify";

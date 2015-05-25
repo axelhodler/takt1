@@ -33,9 +33,9 @@ public class BotHandlerTest {
     @Mock
     SpotifyUriFinder uriFinder;
     @Mock
-    Channel channel;
+    Channel channelWhereMessageWasSentFrom;
     @Mock
-    OutputChannel outputChannel;
+    ChannelResponder channelResponder;
 
     private HandleChannelMessages botHandler;
     private final String MESSAGE = "msg";
@@ -45,7 +45,7 @@ public class BotHandlerTest {
 
     @Before
     public void setUp() {
-        botHandler = new HandleChannelMessages(titleFinder, urlFinder, trackTitleFinder, uriFinder);
+        botHandler = new HandleChannelMessages(titleFinder, urlFinder, trackTitleFinder, uriFinder, channelResponder);
 
         when(event.getMessage()).thenReturn(MESSAGE);
     }
@@ -84,8 +84,7 @@ public class BotHandlerTest {
         botHandler.onMessage(event);
 
         verify(event).getChannel();
-        verify(channel).send();
-        verify(outputChannel).message(TITLE);
+        verify(channelResponder).respondWith(channelWhereMessageWasSentFrom, TITLE);
     }
 
     @Test
@@ -116,8 +115,7 @@ public class BotHandlerTest {
     }
 
     private void titleSentToCorrectChannel() {
-        when(event.getChannel()).thenReturn(channel);
-        when(channel.send()).thenReturn(outputChannel);
+        when(event.getChannel()).thenReturn(channelWhereMessageWasSentFrom);
     }
 
     private void urlAndTitleAreFound() {
