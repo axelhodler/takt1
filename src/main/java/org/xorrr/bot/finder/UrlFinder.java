@@ -8,9 +8,14 @@ public class UrlFinder {
     private String urlPattern = "((https?):((//)|(\\\\))+[\\w\\d:#@%/;$()"
             + "~_?\\+-=\\\\\\.&]*)";
 
+    public boolean urlExtractableIn(String message) {
+      Matcher matcher = calculateMatches(message);
+
+      return urlFound(matcher);
+    }
+
     public String extractUrlIn(String message) {
-        Pattern p = Pattern.compile(urlPattern);
-        Matcher m = p.matcher(message);
+        Matcher m = calculateMatches(message);
 
         String url = null;
 
@@ -27,6 +32,12 @@ public class UrlFinder {
 
     private boolean urlFound(Matcher m) {
       return m.find();
+    }
+
+    private Matcher calculateMatches(String message) {
+      Pattern pattern = Pattern.compile(urlPattern);
+      Matcher matcher = pattern.matcher(message);
+      return matcher;
     }
 
 }
