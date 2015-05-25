@@ -10,7 +10,7 @@ import org.junit.experimental.categories.Category;
 import org.xorrr.bot.helpers.IntegrationTest;
 
 @Category(IntegrationTest.class)
-public class TitleFinderTest {
+public class HtmlTitleFetcherTest {
 
     private final String TITLE = "Regular expression - Wikipedia, the "
             + "free encyclopedia";
@@ -20,30 +20,30 @@ public class TitleFinderTest {
             + "/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-"
             + "star.svg.png";
 
-    private TitleFinder finder;
+    private HtmlTitleFetcher finder;
 
     @Before
     public void setUp() {
-        finder = new TitleFinder();
+        finder = new HtmlTitleFetcher();
     }
 
     @Test
     public void can_find_html_title() {
-        String grabbedTitle = finder.findTitle(URL);
+        String grabbedTitle = finder.fetchTitleFrom(URL);
 
         assertThat(TITLE, equalTo(grabbedTitle));
     }
 
     @Test
     public void image_url_does_not_have_html_title() {
-        String title = finder.findTitle(IMAGE_URL);
+        String title = finder.fetchTitleFrom(IMAGE_URL);
 
         assertNull(title);
     }
 
     @Test
     public void testGrabbingTheTitleOfANonExistingUrl() {
-        String title = finder.findTitle(NON_EXISTING_URL);
+        String title = finder.fetchTitleFrom(NON_EXISTING_URL);
 
         assertNull(title);
     }

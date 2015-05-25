@@ -1,6 +1,6 @@
 package org.xorrr.bot;
 
-import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.HtmlTitleFetcher;
 import org.xorrr.bot.finder.UrlFinder;
 
 import com.google.inject.Inject;
@@ -8,10 +8,10 @@ import com.google.inject.Inject;
 public class ResponseFinder {
 
   private UrlFinder urlFinder;
-  private TitleFinder titleFinder;
+  private HtmlTitleFetcher titleFinder;
 
   @Inject
-  public ResponseFinder(UrlFinder urlFinder, TitleFinder titleFinder) {
+  public ResponseFinder(UrlFinder urlFinder, HtmlTitleFetcher titleFinder) {
     this.urlFinder = urlFinder;
     this.titleFinder = titleFinder;
   }
@@ -19,7 +19,7 @@ public class ResponseFinder {
   public String decideResponseTo(String message) {
     String extractedUrl = urlFinder.extractUrlIn(message);
     if (extractedUrl != null) {
-      titleFinder.findTitle(extractedUrl);
+      titleFinder.fetchTitleFrom(extractedUrl);
     };
     return null;
   }

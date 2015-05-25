@@ -1,14 +1,14 @@
 package org.xorrr.bot.finder;
 
-public class SpotifyTrackTitleFinder implements Finder {
+public class SpotifyTrackTitleFinder implements TitleFetcher {
 
     private final String URL_BASE = "http://open.spotify.com/track/";
 
     @Override
-    public String findTitle(String uriTrack) {
+    public String fetchTitleFrom(String uriTrack) {
         String id = getTrackId(uriTrack);
-        TitleFinder tf = new TitleFinder();
-        return tf.findTitle(URL_BASE + id);
+        HtmlTitleFetcher tf = new HtmlTitleFetcher();
+        return tf.fetchTitleFrom(URL_BASE + id);
     }
 
     private String getTrackId(String uriTrack) {

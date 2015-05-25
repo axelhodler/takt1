@@ -9,7 +9,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.BDDMockito.given;
 
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.HtmlTitleFetcher;
 import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -18,7 +18,7 @@ public class ResponseFinderTest {
   @Mock
   UrlFinder urlFinder;
   @Mock
-  TitleFinder titleFinder;
+  HtmlTitleFetcher titleFinder;
 
   private ResponseFinder messageRelais;
 
@@ -41,6 +41,6 @@ public class ResponseFinderTest {
 
     messageRelais.decideResponseTo(messageContainingAUrl);
 
-    verify(titleFinder).findTitle("www.foobar.org");
+    verify(titleFinder).fetchTitleFrom("www.foobar.org");
   }
 }

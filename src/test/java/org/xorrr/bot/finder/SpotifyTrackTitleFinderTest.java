@@ -16,7 +16,7 @@ public class SpotifyTrackTitleFinderTest {
     public void canGetTrackId() {
         SpotifyTrackTitleFinder finder = new SpotifyTrackTitleFinder();
 
-        String title = finder.findTitle(URI_TRACK);
+        String title = finder.fetchTitleFrom(URI_TRACK);
 
         assertEquals(TITLE, title);
     }

@@ -7,10 +7,10 @@ import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
 
-public class TitleFinder implements Finder{
+public class HtmlTitleFetcher implements TitleFetcher{
 
     @Override
-    public String findTitle(String url) {
+    public String fetchTitleFrom(String url) {
         String title = null;
         try {
             title = getTitle(url);

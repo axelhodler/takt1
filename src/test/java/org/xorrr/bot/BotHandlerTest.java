@@ -16,7 +16,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 import org.pircbotx.output.OutputChannel;
 import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
 import org.xorrr.bot.finder.SpotifyUriFinder;
-import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.HtmlTitleFetcher;
 import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -25,7 +25,7 @@ public class BotHandlerTest {
     @Mock
     MessageEvent<PircBotX> event;
     @Mock
-    TitleFinder titleFinder;
+    HtmlTitleFetcher titleFinder;
     @Mock
     UrlFinder urlFinder;
     @Mock
@@ -64,7 +64,7 @@ public class BotHandlerTest {
 
         botHandler.onMessage(event);
 
-        verify(titleFinder, never()).findTitle(URL);
+        verify(titleFinder, never()).fetchTitleFrom(URL);
     }
 
     @Test
@@ -73,7 +73,7 @@ public class BotHandlerTest {
 
         botHandler.onMessage(event);
 
-        verify(titleFinder).findTitle(URL);
+        verify(titleFinder).fetchTitleFrom(URL);
     }
 
     @Test
@@ -91,11 +91,11 @@ public class BotHandlerTest {
     @Test
     public void titleNotFound() throws Exception {
         when(urlFinder.extractUrlIn(MESSAGE)).thenReturn(URL);
-        when(titleFinder.findTitle(URL)).thenReturn(null);
+        when(titleFinder.fetchTitleFrom(URL)).thenReturn(null);
 
         botHandler.onMessage(event);
 
-        verify(titleFinder).findTitle(URL);
+        verify(titleFinder).fetchTitleFrom(URL);
         verify(event, never()).getChannel();
     }
 
@@ -107,12 +107,12 @@ public class BotHandlerTest {
         botHandler.onMessage(event);
 
         verify(uriFinder).findUri(MESSAGE);
-        verify(trackTitleFinder).findTitle(TRACK_URI);
+        verify(trackTitleFinder).fetchTitleFrom(TRACK_URI);
     }
 
     private void uriAndTitleAreFound() {
         when(uriFinder.findUri(MESSAGE)).thenReturn(TRACK_URI);
-        when(titleFinder.findTitle(URL)).thenReturn(TITLE);
+        when(titleFinder.fetchTitleFrom(URL)).thenReturn(TITLE);
     }
 
     private void titleSentToCorrectChannel() {
@@ -122,6 +122,6 @@ public class BotHandlerTest {
 
     private void urlAndTitleAreFound() {
         when(urlFinder.extractUrlIn(MESSAGE)).thenReturn(URL);
-        when(titleFinder.findTitle(URL)).thenReturn(TITLE);
+        when(titleFinder.fetchTitleFrom(URL)).thenReturn(TITLE);
     }
 }

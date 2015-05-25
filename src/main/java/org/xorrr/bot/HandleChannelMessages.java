@@ -5,14 +5,14 @@ import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
 import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
 import org.xorrr.bot.finder.SpotifyUriFinder;
-import org.xorrr.bot.finder.TitleFinder;
+import org.xorrr.bot.finder.HtmlTitleFetcher;
 import org.xorrr.bot.finder.UrlFinder;
 
 import com.google.inject.Inject;
 
 public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
 
-    private TitleFinder titleFinder;
+    private HtmlTitleFetcher titleFinder;
     private UrlFinder urlFinder;
     private SpotifyTrackTitleFinder trackTitleFinder;
     private SpotifyUriFinder trackUriFinder;
@@ -20,7 +20,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
     private ChannelResponder channelResponder;
 
     @Inject
-    public HandleChannelMessages(TitleFinder tg, UrlFinder ug,
+    public HandleChannelMessages(HtmlTitleFetcher tg, UrlFinder ug,
             SpotifyTrackTitleFinder ttf, SpotifyUriFinder uf) {
         this.titleFinder = tg;
         this.urlFinder = ug;
@@ -59,7 +59,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
 
     private void respondWithTitle(MessageEvent<PircBotX> event, String trackUri) {
         if (isNotNull(trackUri)) {
-            String title = trackTitleFinder.findTitle(trackUri);
+            String title = trackTitleFinder.fetchTitleFrom(trackUri);
             checkIfToRespondWithTitle(event, title);
         }
     }
@@ -68,7 +68,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
         String url = urlFinder.extractUrlIn(getMessage(event));
 
         if (isNotNull(url)) {
-            String title = titleFinder.findTitle(url);
+            String title = titleFinder.fetchTitleFrom(url);
             checkIfToRespondWithTitle(event, title);
         }
     }
