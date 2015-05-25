@@ -59,7 +59,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
     }
 
     private void checkForUrls(MessageEvent<PircBotX> event) {
-        String url = urlFinder.findUrl(getMessage(event));
+        String url = urlFinder.extractUrlIn(getMessage(event));
 
         if (isNotNull(url)) {
             String title = titleFinder.findTitle(url);

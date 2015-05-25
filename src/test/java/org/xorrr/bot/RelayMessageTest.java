@@ -18,6 +18,6 @@ public class RelayMessageTest {
 
     messageRelais.relay("message");
 
-    urlFinder.findUrl("message");
+    urlFinder.extractUrlIn("message");
   }
 }

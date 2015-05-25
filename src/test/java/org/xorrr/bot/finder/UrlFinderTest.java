@@ -27,8 +27,8 @@ public class UrlFinderTest {
 
     @Test
     public void testGettingTheUrl() {
-        String url = ug.findUrl(TEST_SENTENCE);
-        String secondUrl = ug.findUrl(TEST_SENTENCE_TWO);
+        String url = ug.extractUrlIn(TEST_SENTENCE);
+        String secondUrl = ug.extractUrlIn(TEST_SENTENCE_TWO);
 
         assertEquals(TEST_URL, url);
         assertEquals(TEST_URL_TWO, secondUrl);
@@ -36,7 +36,7 @@ public class UrlFinderTest {
 
     @Test
     public void dealWithNoUrlProvided() {
-        String url = ug.findUrl(NOURL);
+        String url = ug.extractUrlIn(NOURL);
 
         assertNull(url);
     }

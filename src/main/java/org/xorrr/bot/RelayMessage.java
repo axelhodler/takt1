@@ -16,7 +16,7 @@ public class RelayMessage {
   }
 
   public void relay(String message) {
-    urlFinder.findUrl(message);
+    urlFinder.extractUrlIn(message);
   }
 
 }

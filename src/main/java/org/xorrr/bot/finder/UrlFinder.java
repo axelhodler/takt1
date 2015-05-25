@@ -8,19 +8,25 @@ public class UrlFinder {
     private String urlPattern = "((https?):((//)|(\\\\))+[\\w\\d:#@%/;$()"
             + "~_?\\+-=\\\\\\.&]*)";
 
-    public String findUrl(String message) {
+    public String extractUrlIn(String message) {
         Pattern p = Pattern.compile(urlPattern);
         Matcher m = p.matcher(message);
 
-        return getUrlIfFound(m);
-    }
-
-    private String getUrlIfFound(Matcher m) {
         String url = null;
 
-        if (m.find()) {
-            url = m.group(1);
+        if (urlFound(m)) {
+            url = extractUrl(m);
         }
+
         return url;
     }
+
+    private String extractUrl(Matcher m) {
+      return m.group(1);
+    }
+
+    private boolean urlFound(Matcher m) {
+      return m.find();
+    }
+
 }

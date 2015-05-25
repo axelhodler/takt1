@@ -55,12 +55,12 @@ public class BotHandlerTest {
         botHandler.onMessage(event);
 
         verify(event, times(2)).getMessage();
-        verify(urlFinder).findUrl(MESSAGE);
+        verify(urlFinder).extractUrlIn(MESSAGE);
     }
 
     @Test
     public void urlIsNotGrabbed() throws Exception {
-        when(urlFinder.findUrl(MESSAGE)).thenReturn(null);
+        when(urlFinder.extractUrlIn(MESSAGE)).thenReturn(null);
 
         botHandler.onMessage(event);
 
@@ -69,7 +69,7 @@ public class BotHandlerTest {
 
     @Test
     public void urlIsGrabbed() throws Exception {
-        when(urlFinder.findUrl(MESSAGE)).thenReturn(URL);
+        when(urlFinder.extractUrlIn(MESSAGE)).thenReturn(URL);
 
         botHandler.onMessage(event);
 
@@ -90,7 +90,7 @@ public class BotHandlerTest {
 
     @Test
     public void titleNotFound() throws Exception {
-        when(urlFinder.findUrl(MESSAGE)).thenReturn(URL);
+        when(urlFinder.extractUrlIn(MESSAGE)).thenReturn(URL);
         when(titleFinder.findTitle(URL)).thenReturn(null);
 
         botHandler.onMessage(event);
@@ -121,7 +121,7 @@ public class BotHandlerTest {
     }
 
     private void urlAndTitleAreFound() {
-        when(urlFinder.findUrl(MESSAGE)).thenReturn(URL);
+        when(urlFinder.extractUrlIn(MESSAGE)).thenReturn(URL);
         when(titleFinder.findTitle(URL)).thenReturn(TITLE);
     }
 }
