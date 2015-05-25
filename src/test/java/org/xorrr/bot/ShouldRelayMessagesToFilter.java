@@ -25,7 +25,7 @@ public class ShouldRelayMessagesToFilter {
   @Mock
   Channel channelWhereMessageWasSentFrom;
   @Mock
-  BotResponse messageFilter;
+  ResponseFinder messageFilter;
   @Mock
   ChannelResponder channelResponder;
 

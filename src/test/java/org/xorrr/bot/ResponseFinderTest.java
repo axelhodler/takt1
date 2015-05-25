@@ -13,18 +13,18 @@ import org.xorrr.bot.finder.TitleFinder;
 import org.xorrr.bot.finder.UrlFinder;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BotResponseTest {
+public class ResponseFinderTest {
 
   @Mock
   UrlFinder urlFinder;
   @Mock
   TitleFinder titleFinder;
 
-  private BotResponse messageRelais;
+  private ResponseFinder messageRelais;
 
   @Before
   public void initialize() {
-    messageRelais = new BotResponse(urlFinder, titleFinder);
+    messageRelais = new ResponseFinder(urlFinder, titleFinder);
   }
 
   @Test

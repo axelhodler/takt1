@@ -16,7 +16,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
     private UrlFinder urlFinder;
     private SpotifyTrackTitleFinder trackTitleFinder;
     private SpotifyUriFinder trackUriFinder;
-    private BotResponse messageRelais;
+    private ResponseFinder messageRelais;
     private ChannelResponder channelResponder;
 
     @Inject
@@ -28,7 +28,7 @@ public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
         this.trackUriFinder = uf;
     }
 
-    public HandleChannelMessages(BotResponse messageRelais, ChannelResponder channelResponder) {
+    public HandleChannelMessages(ResponseFinder messageRelais, ChannelResponder channelResponder) {
       this.messageRelais = messageRelais;
       this.channelResponder = channelResponder;
     }
