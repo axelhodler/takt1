@@ -8,27 +8,25 @@ import org.xorrr.bot.util.EnvironmentVars;
 import com.google.inject.Inject;
 
 public class BotConfig {
-    private HandleChannelMessages listener;
+  private HandleChannelMessages listener;
 
-    @Inject
-    public BotConfig(HandleChannelMessages handler) {
-        this.listener = handler;
-    }
+  @Inject
+  public BotConfig(HandleChannelMessages handler) {
+    this.listener = handler;
+  }
 
-    public Configuration<PircBotX> createConfig() {
-        Configuration<PircBotX> config = new Configuration.Builder<PircBotX>()
-                .setName(get(EnvironmentVars.NAME))
-                .setServerHostname(get(EnvironmentVars.SERVER))
-                .addAutoJoinChannel(get(EnvironmentVars.CHANNEL))
-                .addListener(listener)
-                .setLogin(get(EnvironmentVars.IDENT))
-                .setNickservPassword(get(EnvironmentVars.IDENT))
-                .buildConfiguration();
+  public Configuration<PircBotX> createConfig() {
+    Configuration<PircBotX> config = new Configuration.Builder<PircBotX>()
+        .setName(get(EnvironmentVars.NAME))
+        .setServerHostname(get(EnvironmentVars.SERVER))
+        .addAutoJoinChannel(get(EnvironmentVars.CHANNEL)).addListener(listener)
+        .setLogin(get(EnvironmentVars.IDENT))
+        .setNickservPassword(get(EnvironmentVars.IDENT)).buildConfiguration();
 
-        return config;
-    }
+    return config;
+  }
 
-    private String get(String var) {
-        return System.getenv(var);
-    }
+  private String get(String var) {
+    return System.getenv(var);
+  }
 }

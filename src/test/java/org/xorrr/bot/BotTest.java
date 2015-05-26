@@ -15,20 +15,20 @@ import org.pircbotx.exception.IrcException;
 @RunWith(MockitoJUnitRunner.class)
 public class BotTest {
 
-    @Mock
-    PircBotX pircbotx;
+  @Mock
+  PircBotX pircbotx;
 
-    private Bot bot;
+  private Bot bot;
 
-    @Before
-    public void setUp() {
-        bot = new Bot(pircbotx);
-    }
+  @Before
+  public void setUp() {
+    bot = new Bot(pircbotx);
+  }
 
-    @Test
-    public void botStars() throws IOException, IrcException {
-        bot.start();
+  @Test
+  public void botStars() throws IOException, IrcException {
+    bot.start();
 
-        verify(pircbotx).startBot();
-    }
+    verify(pircbotx).startBot();
+  }
 }

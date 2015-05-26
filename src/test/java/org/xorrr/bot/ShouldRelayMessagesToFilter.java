@@ -31,7 +31,8 @@ public class ShouldRelayMessagesToFilter {
 
   @Before
   public void setUp() {
-    onMessageHandler = new HandleChannelMessages(messageFilter, channelResponder);
+    onMessageHandler = new HandleChannelMessages(messageFilter,
+        channelResponder);
   }
 
   @Test
@@ -41,7 +42,8 @@ public class ShouldRelayMessagesToFilter {
 
     onMessageHandler.onMessage(messageEvent);
 
-    verify(channelResponder).respondWith(channelWhereMessageWasSentFrom, "response");
+    verify(channelResponder).respondWith(channelWhereMessageWasSentFrom,
+        "response");
   }
 
   @Test
@@ -51,7 +53,8 @@ public class ShouldRelayMessagesToFilter {
 
     onMessageHandler.onMessage(messageEvent);
 
-    verify(channelResponder, never()).respondWith(isA(Channel.class), anyString());
+    verify(channelResponder, never()).respondWith(isA(Channel.class),
+        anyString());
   }
 
   private String prepareMessageEventFromChannel() {

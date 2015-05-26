@@ -5,42 +5,42 @@ import java.util.regex.Pattern;
 
 public class SpotifyUriFinder {
 
-    private String urlPattern = "spotify:track:\\w{22}";
+  private String urlPattern = "spotify:track:\\w{22}";
 
-    public boolean isUriExtractableIn(String message) {
-      Matcher m = findMatchesIn(message);
+  public boolean isUriExtractableIn(String message) {
+    Matcher m = findMatchesIn(message);
 
-      return foundUri(m);
-    }
+    return foundUri(m);
+  }
 
-    public String findUri(String message) {
-      Matcher m = findMatchesIn(message);
+  public String findUri(String message) {
+    Matcher m = findMatchesIn(message);
 
-      return getMatch(m);
-    }
+    return getMatch(m);
+  }
 
-    private Matcher findMatchesIn(String message) {
-      Pattern p = Pattern.compile(urlPattern);
-      Matcher m = p.matcher(message);
+  private Matcher findMatchesIn(String message) {
+    Pattern p = Pattern.compile(urlPattern);
+    Matcher m = p.matcher(message);
 
-      return m;
-    }
+    return m;
+  }
 
-    private String getMatch(Matcher m) {
-        String uri = null;
+  private String getMatch(Matcher m) {
+    String uri = null;
 
-        if (foundUri(m))
-            uri = getFoundUri(m);
+    if (foundUri(m))
+      uri = getFoundUri(m);
 
-        return uri;
-    }
+    return uri;
+  }
 
-    private String getFoundUri(Matcher m) {
-        return m.group(0);
-    }
+  private String getFoundUri(Matcher m) {
+    return m.group(0);
+  }
 
-    private boolean foundUri(Matcher m) {
-        return m.find();
-    }
+  private boolean foundUri(Matcher m) {
+    return m.find();
+  }
 
 }

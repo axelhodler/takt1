@@ -16,7 +16,8 @@ public class ResponseFinder {
 
   @Inject
   public ResponseFinder(UrlFinder urlFinder, HtmlTitleFetcher titleFinder,
-      SpotifyUriFinder spotifyUriFinder, SpotifyTrackTitleFinder trackTitleFinder) {
+      SpotifyUriFinder spotifyUriFinder,
+      SpotifyTrackTitleFinder trackTitleFinder) {
     this.urlFinder = urlFinder;
     this.titleFinder = titleFinder;
     this.spotifyUriFinder = spotifyUriFinder;
@@ -29,7 +30,7 @@ public class ResponseFinder {
     if (urlFinder.urlExtractableIn(message)) {
       String extractedUrl = urlFinder.extractUrlIn(message);
       channelResponse = titleFinder.fetchTitleFrom(extractedUrl);
-    } else if (spotifyUriFinder.isUriExtractableIn(message)){
+    } else if (spotifyUriFinder.isUriExtractableIn(message)) {
       String foundUri = spotifyUriFinder.findUri(message);
       channelResponse = trackTitleFinder.fetchTitleFrom(foundUri);
     }

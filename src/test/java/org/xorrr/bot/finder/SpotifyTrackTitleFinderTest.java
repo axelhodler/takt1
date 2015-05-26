@@ -19,7 +19,8 @@ public class SpotifyTrackTitleFinderTest {
 
   @Test
   public void usesHtmlTitleFetcherToFetchTitle() {
-    SpotifyTrackTitleFinder trackNameFinder = new SpotifyTrackTitleFinder(titleFetcher);
+    SpotifyTrackTitleFinder trackNameFinder = new SpotifyTrackTitleFinder(
+        titleFetcher);
 
     trackNameFinder.fetchTitleFrom(SPOTIFY_TRACK_URI);
 

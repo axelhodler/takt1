@@ -10,16 +10,16 @@ import org.mockito.runners.MockitoJUnitRunner;
 @RunWith(MockitoJUnitRunner.class)
 public class WebAppRunnableTest {
 
-    @Mock
-    WebApp app;
+  @Mock
+  WebApp app;
 
-    @Test
-    public void test() {
-        WebAppRunnable thread = new WebAppRunnable(app);
+  @Test
+  public void test() {
+    WebAppRunnable thread = new WebAppRunnable(app);
 
-        thread.run();
+    thread.run();
 
-        verify(app).launchServer();
-    }
+    verify(app).launchServer();
+  }
 
 }

@@ -29,7 +29,8 @@ public class ResponseFinderTest {
 
   @Before
   public void initialize() {
-    messageRelais = new ResponseFinder(urlFinder, titleFinder, spotifyUriFinder, spotifyTrackTitleFinder);
+    messageRelais = new ResponseFinder(urlFinder, titleFinder,
+        spotifyUriFinder, spotifyTrackTitleFinder);
   }
 
   @Test
@@ -43,7 +44,8 @@ public class ResponseFinderTest {
   public void fetchTitleOfExtractedUrl() {
     String messageContainingAUrl = "Hi, check this out www.foobar.org";
     given(urlFinder.urlExtractableIn(messageContainingAUrl)).willReturn(true);
-    given(urlFinder.extractUrlIn(messageContainingAUrl)).willReturn("www.foobar.org");
+    given(urlFinder.extractUrlIn(messageContainingAUrl)).willReturn(
+        "www.foobar.org");
 
     messageRelais.decideResponseTo(messageContainingAUrl);
 

@@ -11,59 +11,55 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.HandleChannelMessages;
-import org.xorrr.bot.config.BotConfig;
 import org.xorrr.bot.util.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConfigurationTest {
 
-    @Mock
-    HandleChannelMessages handler;
+  @Mock
+  HandleChannelMessages handler;
 
-    private Configuration<PircBotX> configuration;
+  private Configuration<PircBotX> configuration;
 
-    private String get(String var) {
-        return System.getenv(var);
-    }
+  private String get(String var) {
+    return System.getenv(var);
+  }
 
-    @Before
-    public void setUp() {
-        BotConfig conf = new BotConfig(handler);
-        this.configuration = conf.createConfig();
-    }
+  @Before
+  public void setUp() {
+    BotConfig conf = new BotConfig(handler);
+    this.configuration = conf.createConfig();
+  }
 
-    @Test
-    public void nameIsSet() {
-        assertEquals(get(EnvironmentVars.NAME),
-                configuration.getName());
-    }
+  @Test
+  public void nameIsSet() {
+    assertEquals(get(EnvironmentVars.NAME), configuration.getName());
+  }
 
-    @Test
-    public void serverHostnameIsSet() {
-        assertEquals(get(EnvironmentVars.SERVER),
-                configuration.getServerHostname());
-    }
+  @Test
+  public void serverHostnameIsSet() {
+    assertEquals(get(EnvironmentVars.SERVER), configuration.getServerHostname());
+  }
 
-    @Test
-    public void channelIsSet() {
-        assertTrue(configuration.getAutoJoinChannels().asMultimap()
-                .containsKey(get(EnvironmentVars.CHANNEL)));
-    }
+  @Test
+  public void channelIsSet() {
+    assertTrue(configuration.getAutoJoinChannels().asMultimap()
+        .containsKey(get(EnvironmentVars.CHANNEL)));
+  }
 
-    @Test
-    public void listenerIsSet() {
-        assertTrue(configuration.getListenerManager().listenerExists(handler));
-    }
+  @Test
+  public void listenerIsSet() {
+    assertTrue(configuration.getListenerManager().listenerExists(handler));
+  }
 
-    @Test
-    public void loginIsSet() {
-        assertEquals(get(EnvironmentVars.IDENT),
-                configuration.getLogin());
-    }
+  @Test
+  public void loginIsSet() {
+    assertEquals(get(EnvironmentVars.IDENT), configuration.getLogin());
+  }
 
-    @Test
-    public void nickservPasswordIsSet() {
-        assertEquals(get(EnvironmentVars.PASSWORD),
-                configuration.getNickservPassword());
-    }
+  @Test
+  public void nickservPasswordIsSet() {
+    assertEquals(get(EnvironmentVars.PASSWORD),
+        configuration.getNickservPassword());
+  }
 }
