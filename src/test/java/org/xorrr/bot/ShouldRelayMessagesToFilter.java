@@ -1,17 +1,15 @@
 package org.xorrr.bot;
 
+import static org.mockito.BDDMockito.given;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Matchers.isA;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.never;
-import static org.mockito.Matchers.anyString;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.isA;
-
 import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
@@ -37,21 +35,21 @@ public class ShouldRelayMessagesToFilter {
   }
 
   @Test
-  public void postResponseToChannel() {
+  public void postResponseToChannel() throws Exception {
     String messageByUser = prepareMessageEventFromChannel();
     given(messageFilter.decideResponseTo(messageByUser)).willReturn("response");
 
-    onMessageHandler.onMessageReplacement(messageEvent);
+    onMessageHandler.onMessage(messageEvent);
 
     verify(channelResponder).respondWith(channelWhereMessageWasSentFrom, "response");
   }
 
   @Test
-  public void dontRespondToChannelIfNoResponseAvailable() {
+  public void dontRespondToChannelIfNoResponseAvailable() throws Exception {
     String messageByUser = prepareMessageEventFromChannel();
     given(messageFilter.decideResponseTo(messageByUser)).willReturn("");
 
-    onMessageHandler.onMessageReplacement(messageEvent);
+    onMessageHandler.onMessage(messageEvent);
 
     verify(channelResponder, never()).respondWith(isA(Channel.class), anyString());
   }
