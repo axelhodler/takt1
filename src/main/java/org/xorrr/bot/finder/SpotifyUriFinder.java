@@ -7,11 +7,23 @@ public class SpotifyUriFinder {
 
     private String urlPattern = "spotify:track:\\w{22}";
 
-    public String findUri(String message) {
-        Pattern p = Pattern.compile(urlPattern);
-        Matcher m = p.matcher(message);
+    public boolean isUriExtractableIn(String message) {
+      Matcher m = findMatchesIn(message);
 
-        return getMatch(m);
+      return foundUri(m);
+    }
+
+    public String findUri(String message) {
+      Matcher m = findMatchesIn(message);
+
+      return getMatch(m);
+    }
+
+    private Matcher findMatchesIn(String message) {
+      Pattern p = Pattern.compile(urlPattern);
+      Matcher m = p.matcher(message);
+
+      return m;
     }
 
     private String getMatch(Matcher m) {
