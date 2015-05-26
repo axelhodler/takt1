@@ -10,7 +10,7 @@ import org.xorrr.bot.helpers.IntegrationTest;
 public class SpotifyTrackTitleFinderIT {
 
     private final String URI_TRACK = "spotify:track:47vFyxAv24QxAOfdMuE3oV";
-    private final String TITLE = "Unearthed by E.S. Posthumus on Spotify";
+    private final String TITLE = "Nara (Theme to Cold Case), a song by E.S. Posthumus on Spotify";
 
     @Test
     public void canGetTrackId() {
