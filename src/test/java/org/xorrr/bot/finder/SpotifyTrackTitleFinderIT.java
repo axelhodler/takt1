@@ -14,7 +14,7 @@ public class SpotifyTrackTitleFinderIT {
 
     @Test
     public void canGetTrackId() {
-        SpotifyTrackTitleFinder finder = new SpotifyTrackTitleFinder();
+        SpotifyTrackTitleFinder finder = new SpotifyTrackTitleFinder(new HtmlTitleFetcher());
 
         String title = finder.fetchTitleFrom(URI_TRACK);
 
