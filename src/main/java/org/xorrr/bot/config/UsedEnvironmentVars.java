@@ -1,8 +1,8 @@
-package org.xorrr.bot.util;
+package org.xorrr.bot.config;
 
-public final class EnvironmentVars {
+public final class UsedEnvironmentVars {
 
-  private EnvironmentVars() {
+  private UsedEnvironmentVars() {
   }
 
   public static final String PORT = "PORT";

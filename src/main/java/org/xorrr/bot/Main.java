@@ -5,8 +5,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.config.BotConfig;
+import org.xorrr.bot.config.UsedEnvironmentVars;
 import org.xorrr.bot.di.Module;
-import org.xorrr.bot.util.EnvironmentVars;
 import org.xorrr.bot.webapp.BotWebInterface;
 import org.xorrr.bot.webapp.BotWebInterfaceRunner;
 
@@ -47,7 +47,7 @@ public class Main {
   }
 
   private static Integer getPort() {
-    return Integer.valueOf(System.getenv(EnvironmentVars.PORT));
+    return Integer.valueOf(System.getenv(UsedEnvironmentVars.PORT));
   }
 
   private static Configuration<PircBotX> createConfig() {

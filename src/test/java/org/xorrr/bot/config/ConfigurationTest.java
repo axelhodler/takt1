@@ -11,7 +11,6 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.HandleChannelMessages;
-import org.xorrr.bot.util.EnvironmentVars;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ConfigurationTest {
@@ -33,18 +32,18 @@ public class ConfigurationTest {
 
   @Test
   public void nameIsSet() {
-    assertEquals(get(EnvironmentVars.NAME), configuration.getName());
+    assertEquals(get(UsedEnvironmentVars.NAME), configuration.getName());
   }
 
   @Test
   public void serverHostnameIsSet() {
-    assertEquals(get(EnvironmentVars.SERVER), configuration.getServerHostname());
+    assertEquals(get(UsedEnvironmentVars.SERVER), configuration.getServerHostname());
   }
 
   @Test
   public void channelIsSet() {
     assertTrue(configuration.getAutoJoinChannels().asMultimap()
-        .containsKey(get(EnvironmentVars.CHANNEL)));
+        .containsKey(get(UsedEnvironmentVars.CHANNEL)));
   }
 
   @Test
@@ -54,12 +53,12 @@ public class ConfigurationTest {
 
   @Test
   public void loginIsSet() {
-    assertEquals(get(EnvironmentVars.IDENT), configuration.getLogin());
+    assertEquals(get(UsedEnvironmentVars.IDENT), configuration.getLogin());
   }
 
   @Test
   public void nickservPasswordIsSet() {
-    assertEquals(get(EnvironmentVars.PASSWORD),
+    assertEquals(get(UsedEnvironmentVars.PASSWORD),
         configuration.getNickservPassword());
   }
 }
