@@ -1,10 +1,12 @@
-package org.xorrr.bot.finder;
+package org.xorrr.bot.messageextraction;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.xorrr.bot.helpers.IntegrationTest;
+import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 @Category(IntegrationTest.class)
 public class SpotifyTrackTitleFinderIT {
@@ -14,7 +16,7 @@ public class SpotifyTrackTitleFinderIT {
 
   @Test
   public void canGetTrackId() {
-    SpotifyTrackTitleFinder finder = new SpotifyTrackTitleFinder(
+    SpotifyTrackTitleFetcher finder = new SpotifyTrackTitleFetcher(
         new HtmlTitleFetcher());
 
     String title = finder.fetchTitleFrom(URI_TRACK);

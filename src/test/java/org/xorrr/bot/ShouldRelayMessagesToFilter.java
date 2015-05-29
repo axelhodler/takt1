@@ -14,6 +14,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.pircbotx.Channel;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.events.MessageEvent;
+import org.xorrr.bot.messageextraction.ChannelResponseFinder;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ShouldRelayMessagesToFilter {
@@ -23,7 +24,7 @@ public class ShouldRelayMessagesToFilter {
   @Mock
   Channel channelWhereMessageWasSentFrom;
   @Mock
-  ResponseFinder messageFilter;
+  ChannelResponseFinder messageFilter;
   @Mock
   ChannelResponder channelResponder;
 

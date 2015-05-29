@@ -1,4 +1,4 @@
-package org.xorrr.bot.finder;
+package org.xorrr.bot.messageextraction;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -7,17 +7,18 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.xorrr.bot.messageextraction.SpotifyUriExtractor;
 
-public class SpotifyUriFinderTest {
+public class SpotifyUriExtractorTest {
 
   private static final String URI_TRACK = "spotify:track:47vFyxAv24QxAOfdMuE3oV";
   private static final String MESSAGE = "hey check " + URI_TRACK + " this out!";
 
-  private SpotifyUriFinder finder;
+  private SpotifyUriExtractor finder;
 
   @Before
   public void initialize() {
-    finder = new SpotifyUriFinder();
+    finder = new SpotifyUriExtractor();
   }
 
   @Test

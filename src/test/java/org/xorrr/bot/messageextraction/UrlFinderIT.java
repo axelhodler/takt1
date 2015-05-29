@@ -1,4 +1,4 @@
-package org.xorrr.bot.finder;
+package org.xorrr.bot.messageextraction;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.xorrr.bot.helpers.IntegrationTest;
+import org.xorrr.bot.messageextraction.UrlExtractor;
 
 @Category(IntegrationTest.class)
 public class UrlFinderIT {
@@ -19,11 +20,11 @@ public class UrlFinderIT {
   private final String TEST_SENTENCE_TWO = "foo bar " + TEST_URL_TWO + " baz";
   private final String NOURL = "foo bar baz";
 
-  private UrlFinder urlFinder;
+  private UrlExtractor urlFinder;
 
   @Before
   public void setUpTests() {
-    urlFinder = new UrlFinder();
+    urlFinder = new UrlExtractor();
   }
 
   @Test

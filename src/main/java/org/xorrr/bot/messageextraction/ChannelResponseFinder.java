@@ -1,23 +1,21 @@
-package org.xorrr.bot;
+package org.xorrr.bot.messageextraction;
 
-import org.xorrr.bot.finder.HtmlTitleFetcher;
-import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
-import org.xorrr.bot.finder.SpotifyUriFinder;
-import org.xorrr.bot.finder.UrlFinder;
+import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 import com.google.inject.Inject;
 
-public class ResponseFinder {
+public class ChannelResponseFinder {
 
-  private UrlFinder urlFinder;
+  private UrlExtractor urlFinder;
   private HtmlTitleFetcher titleFinder;
-  private SpotifyUriFinder spotifyUriFinder;
-  private SpotifyTrackTitleFinder trackTitleFinder;
+  private SpotifyUriExtractor spotifyUriFinder;
+  private SpotifyTrackTitleFetcher trackTitleFinder;
 
   @Inject
-  public ResponseFinder(UrlFinder urlFinder, HtmlTitleFetcher titleFinder,
-      SpotifyUriFinder spotifyUriFinder,
-      SpotifyTrackTitleFinder trackTitleFinder) {
+  public ChannelResponseFinder(UrlExtractor urlFinder, HtmlTitleFetcher titleFinder,
+      SpotifyUriExtractor spotifyUriFinder,
+      SpotifyTrackTitleFetcher trackTitleFinder) {
     this.urlFinder = urlFinder;
     this.titleFinder = titleFinder;
     this.spotifyUriFinder = spotifyUriFinder;

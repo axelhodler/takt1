@@ -1,4 +1,4 @@
-package org.xorrr.bot.finder;
+package org.xorrr.bot.titlefinder;
 
 import java.io.IOException;
 import java.net.UnknownHostException;

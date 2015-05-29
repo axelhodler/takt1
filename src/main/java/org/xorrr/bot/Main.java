@@ -5,8 +5,8 @@ import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.xorrr.bot.config.BotConfig;
+import org.xorrr.bot.config.DependencyInjectionModule;
 import org.xorrr.bot.config.UsedEnvironmentVars;
-import org.xorrr.bot.di.Module;
 import org.xorrr.bot.webapp.BotWebInterface;
 import org.xorrr.bot.webapp.BotWebInterfaceRunner;
 
@@ -51,7 +51,7 @@ public class Main {
   }
 
   private static Configuration<PircBotX> createConfig() {
-    Injector injector = Guice.createInjector(new Module());
+    Injector injector = Guice.createInjector(new DependencyInjectionModule());
     BotConfig botConfig = new BotConfig(
         injector.getInstance(HandleChannelMessages.class));
     Configuration<PircBotX> config = botConfig.createConfig();

@@ -1,9 +1,9 @@
-package org.xorrr.bot.finder;
+package org.xorrr.bot.messageextraction;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UrlFinder {
+public class UrlExtractor {
 
   private String urlPattern = "((https?):((//)|(\\\\))+[\\w\\d:#@%/;$()"
       + "~_?\\+-=\\\\\\.&]*)";

@@ -3,16 +3,17 @@ package org.xorrr.bot;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
+import org.xorrr.bot.messageextraction.ChannelResponseFinder;
 
 import com.google.inject.Inject;
 
 public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
 
-  private ResponseFinder messageRelais;
+  private ChannelResponseFinder messageRelais;
   private ChannelResponder channelResponder;
 
   @Inject
-  public HandleChannelMessages(ResponseFinder messageRelais,
+  public HandleChannelMessages(ChannelResponseFinder messageRelais,
       ChannelResponder channelResponder) {
     this.messageRelais = messageRelais;
     this.channelResponder = channelResponder;

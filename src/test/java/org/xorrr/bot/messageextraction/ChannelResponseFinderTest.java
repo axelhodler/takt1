@@ -1,4 +1,4 @@
-package org.xorrr.bot;
+package org.xorrr.bot.messageextraction;
 
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
@@ -8,28 +8,29 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.finder.HtmlTitleFetcher;
-import org.xorrr.bot.finder.SpotifyTrackTitleFinder;
-import org.xorrr.bot.finder.SpotifyUriFinder;
-import org.xorrr.bot.finder.UrlFinder;
+import org.xorrr.bot.messageextraction.ChannelResponseFinder;
+import org.xorrr.bot.messageextraction.SpotifyUriExtractor;
+import org.xorrr.bot.messageextraction.UrlExtractor;
+import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ResponseFinderTest {
+public class ChannelResponseFinderTest {
 
   @Mock
-  UrlFinder urlFinder;
+  UrlExtractor urlFinder;
   @Mock
   HtmlTitleFetcher titleFinder;
   @Mock
-  SpotifyUriFinder spotifyUriFinder;
+  SpotifyUriExtractor spotifyUriFinder;
   @Mock
-  SpotifyTrackTitleFinder spotifyTrackTitleFinder;
+  SpotifyTrackTitleFetcher spotifyTrackTitleFinder;
 
-  private ResponseFinder messageRelais;
+  private ChannelResponseFinder messageRelais;
 
   @Before
   public void initialize() {
-    messageRelais = new ResponseFinder(urlFinder, titleFinder,
+    messageRelais = new ChannelResponseFinder(urlFinder, titleFinder,
         spotifyUriFinder, spotifyTrackTitleFinder);
   }
 

@@ -1,8 +1,8 @@
-package org.xorrr.bot.di;
+package org.xorrr.bot.config;
 
 import com.google.inject.AbstractModule;
 
-public class Module extends AbstractModule {
+public class DependencyInjectionModule extends AbstractModule {
 
   @Override
   protected void configure() {

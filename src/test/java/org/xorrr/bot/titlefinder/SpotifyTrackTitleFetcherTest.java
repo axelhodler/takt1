@@ -1,4 +1,4 @@
-package org.xorrr.bot.finder;
+package org.xorrr.bot.titlefinder;
 
 import static org.mockito.Mockito.verify;
 
@@ -6,9 +6,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
-public class SpotifyTrackTitleFinderTest {
+public class SpotifyTrackTitleFetcherTest {
 
   @Mock
   HtmlTitleFetcher titleFetcher;
@@ -19,7 +20,7 @@ public class SpotifyTrackTitleFinderTest {
 
   @Test
   public void usesHtmlTitleFetcherToFetchTitle() {
-    SpotifyTrackTitleFinder trackNameFinder = new SpotifyTrackTitleFinder(
+    SpotifyTrackTitleFetcher trackNameFinder = new SpotifyTrackTitleFetcher(
         titleFetcher);
 
     trackNameFinder.fetchTitleFrom(SPOTIFY_TRACK_URI);
