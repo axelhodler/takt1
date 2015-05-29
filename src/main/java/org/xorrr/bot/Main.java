@@ -21,8 +21,8 @@ public class Main {
     createBot().start();
   }
 
-  private static Bot createBot() {
-    Bot bot = new Bot(createPircBotXWithConfig());
+  private static BotStarter createBot() {
+    BotStarter bot = new BotStarter(createPircBotXWithConfig());
     return bot;
   }
 

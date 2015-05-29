@@ -13,16 +13,16 @@ import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BotTest {
+public class BotStarterTest {
 
   @Mock
   PircBotX pircbotx;
 
-  private Bot bot;
+  private BotStarter bot;
 
   @Before
   public void setUp() {
-    bot = new Bot(pircbotx);
+    bot = new BotStarter(pircbotx);
   }
 
   @Test
