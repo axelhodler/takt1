@@ -10,14 +10,14 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 
-public class WebApp extends HttpServlet {
+public class BotWebInterface extends HttpServlet {
 
     private static final long serialVersionUID = -7961354394795268555L;
 
     private Server server;
     private ServletContextHandler context;
 
-    public WebApp(Server server, ServletContextHandler context) {
+    public BotWebInterface(Server server, ServletContextHandler context) {
         this.server = server;
         this.context = context;
     }

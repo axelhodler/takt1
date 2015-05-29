@@ -8,14 +8,14 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
-public class WebAppRunnableTest {
+public class BotWebInterfaceRunnerTest {
 
   @Mock
-  WebApp app;
+  BotWebInterface app;
 
   @Test
   public void test() {
-    WebAppRunnable thread = new WebAppRunnable(app);
+    BotWebInterfaceRunner thread = new BotWebInterfaceRunner(app);
 
     thread.run();
 

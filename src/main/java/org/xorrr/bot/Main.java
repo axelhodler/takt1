@@ -7,8 +7,8 @@ import org.pircbotx.PircBotX;
 import org.xorrr.bot.config.BotConfig;
 import org.xorrr.bot.di.Module;
 import org.xorrr.bot.util.EnvironmentVars;
-import org.xorrr.bot.webapp.WebApp;
-import org.xorrr.bot.webapp.WebAppRunnable;
+import org.xorrr.bot.webapp.BotWebInterface;
+import org.xorrr.bot.webapp.BotWebInterfaceRunner;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -31,13 +31,18 @@ public class Main {
     return pircbotx;
   }
 
+  /**
+   * By running a webapp on the server we can allow the bot to stay active
+   * on heroku without going to sleep after an hour of inactivity by
+   * pinging the webapp each hour
+   */
   private static Thread createWebAppThread() {
     Server server = new Server(getPort());
     ServletContextHandler context = new ServletContextHandler(
         ServletContextHandler.SESSIONS);
-    WebApp webapp = new WebApp(server, context);
+    BotWebInterface webapp = new BotWebInterface(server, context);
 
-    Thread thread = new Thread(new WebAppRunnable(webapp));
+    Thread thread = new Thread(new BotWebInterfaceRunner(webapp));
     return thread;
   }
 
