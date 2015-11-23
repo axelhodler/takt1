@@ -21,7 +21,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <jetty.version>7.6.0.v20120127</jetty.version>
-    <jsoup.version>1.7.2</jsoup.version>
+    <jsoup.version>1.8.3</jsoup.version>
     <httpclient.version>4.3</httpclient.version>
     <httpasyncclient.version>4.0-beta4</httpasyncclient.version>
     <httpmime.version>4.3</httpmime.version>
