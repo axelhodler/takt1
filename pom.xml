@@ -35,6 +35,7 @@
     <coveralls.plugin.version>4.0.0</coveralls.plugin.version>
     <cobertura.plugin.version>2.7</cobertura.plugin.version>
 
+    <jetty.plugin.version>8.1.16.v20140903</jetty.plugin.version>
     <dependency.plugin.version>2.10</dependency.plugin.version>
     <maven-release.plugin.version>3.0-r1585899</maven-release.plugin.version>
     <maven-scm.plugin.version>1.9.4</maven-scm.plugin.version>
@@ -126,6 +127,7 @@
       <plugin>
         <groupId>org.mortbay.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>
+        <version>${jetty.plugin.version}</version>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
