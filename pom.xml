@@ -20,11 +20,11 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <jetty.version>7.6.0.v20120127</jetty.version>
+    <jetty.version>9.3.6.v20151106</jetty.version>
     <jsoup.version>1.8.3</jsoup.version>
-    <httpclient.version>4.3</httpclient.version>
-    <httpasyncclient.version>4.0-beta4</httpasyncclient.version>
-    <httpmime.version>4.3</httpmime.version>
+    <httpclient.version>4.5.1</httpclient.version>
+    <httpasyncclient.version>4.1.1</httpasyncclient.version>
+    <httpmime.version>4.5.1</httpmime.version>
     <guice.version>4.0</guice.version>
     <pircbotx.version>2.0.1</pircbotx.version>
 
