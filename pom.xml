@@ -21,7 +21,6 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
     <jetty.version>7.6.0.v20120127</jetty.version>
-    <servlet-api.version>2.5</servlet-api.version>
     <jsoup.version>1.7.2</jsoup.version>
     <httpclient.version>4.3</httpclient.version>
     <httpasyncclient.version>4.0-beta4</httpasyncclient.version>
@@ -34,23 +33,11 @@
     <commons-io.version>2.4</commons-io.version>
   </properties>
 
-  <repositories>
-    <repository>
-      <id>mashape-releases</id>
-      <url>http://maven.mashape.com/releases</url>
-    </repository>
-  </repositories>
-
   <dependencies>
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-servlet</artifactId>
       <version>${jetty.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>${servlet-api.version}</version>
     </dependency>
 
     <dependency>
