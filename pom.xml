@@ -25,7 +25,7 @@
     <httpclient.version>4.3</httpclient.version>
     <httpasyncclient.version>4.0-beta4</httpasyncclient.version>
     <httpmime.version>4.3</httpmime.version>
-    <guice.version>3.0</guice.version>
+    <guice.version>4.0</guice.version>
     <pircbotx.version>2.0.1</pircbotx.version>
 
     <powermock.version>1.6.3</powermock.version>
