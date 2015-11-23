@@ -42,7 +42,6 @@
   </repositories>
 
   <dependencies>
-    <!--needs to offer some webapp stuff and bind to a port to work -->
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
       <artifactId>jetty-servlet</artifactId>
@@ -55,12 +54,10 @@
     </dependency>
 
     <dependency>
-      <!-- jsoup HTML parser library @ http://jsoup.org/ -->
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
       <version>${jsoup.version}</version>
     </dependency>
-
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
