@@ -8,7 +8,6 @@ public class EnvVarsTest {
 
   @Test
   public void constantsForConfigEnvVars() {
-    assertNotNull(UsedEnvironmentVars.PORT);
     assertNotNull(UsedEnvironmentVars.NAME);
     assertNotNull(UsedEnvironmentVars.SERVER);
     assertNotNull(UsedEnvironmentVars.CHANNEL);
