@@ -20,11 +20,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <jetty.version>9.3.6.v20151106</jetty.version>
     <jsoup.version>1.8.3</jsoup.version>
-    <httpclient.version>4.5.1</httpclient.version>
-    <httpasyncclient.version>4.1.1</httpasyncclient.version>
-    <httpmime.version>4.5.1</httpmime.version>
     <guice.version>4.0</guice.version>
     <pircbotx.version>2.0.1</pircbotx.version>
 
@@ -46,30 +42,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-servlet</artifactId>
-      <version>${jetty.version}</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
       <version>${jsoup.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpclient</artifactId>
-      <version>${httpclient.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpasyncclient</artifactId>
-      <version>${httpasyncclient.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.httpcomponents</groupId>
-      <artifactId>httpmime</artifactId>
-      <version>${httpmime.version}</version>
     </dependency>
     <dependency>
       <groupId>com.google.inject</groupId>

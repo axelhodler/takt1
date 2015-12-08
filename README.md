@@ -7,7 +7,6 @@ I found other bot functions and modules rather annoying and wanted to create one
 The values are set in `/bin/run.sh` and the other scripts if used
 
 Required values:
-* `PORT`          The port in which to run the bot
 * `NAME`          The name of the bot
 * `SERVER`        The irc-server on which to connect (e.g. irc.freenode.org)
 * `CHANNEL`       The channel which to join (e.g. #foobar)
@@ -27,19 +26,9 @@ Run the tests via:
     ./bin/run_tests.sh
 
 ## Deploy
-The Bot contains a simple webapp so it can be deployed on [heroku](https://heroku.com).
-
-To set the necessary env vars for heroku invoke the script:
-
-    ./bin/set_heroku_env_vars.sh
-
-To prevent the webapp from sleeping you can for example use [uptimerobot](http://uptimerobot.com/) or any of the other multiple solutions.
+I run the bot on the smallest EC2 instance of AWS.
 
 ## Release
-Source the environment variables for testing
-
-    . ./bin/set_testing_env_vars.sh
-
 Invoke the maven-release-plugin
 
     maven release:prepare-with-pom

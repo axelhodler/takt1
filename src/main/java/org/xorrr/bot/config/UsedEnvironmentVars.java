@@ -5,7 +5,6 @@ public final class UsedEnvironmentVars {
   private UsedEnvironmentVars() {
   }
 
-  public static final String PORT = "PORT";
   public static final String NAME = "NAME";
   public static final String SERVER = "SERVER";
   public static final String CHANNEL = "CHANNEL";
