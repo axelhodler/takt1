@@ -85,7 +85,6 @@
   </dependencies>
 
   <build>
-    <!-- necessary for travis-ci to use the jdk7 -->
     <pluginManagement>
       <plugins>
         <plugin>
