@@ -1,5 +1,6 @@
 package org.xorrr.bot;
 
+import org.xorrr.bot.config.IrcBotConfiguration;
 import org.xorrr.bot.pircbotx.PircBotXMessageListener;
 
 public interface IrcBot {

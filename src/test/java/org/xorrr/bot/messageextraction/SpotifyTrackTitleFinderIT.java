@@ -1,14 +1,11 @@
 package org.xorrr.bot.messageextraction;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.xorrr.bot.helpers.IntegrationTest;
 import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
-@Category(IntegrationTest.class)
+import static org.junit.Assert.assertEquals;
+
 public class SpotifyTrackTitleFinderIT {
 
   private final String URI_TRACK = "spotify:track:47vFyxAv24QxAOfdMuE3oV";

@@ -4,7 +4,7 @@ import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
 import org.xorrr.bot.IrcBot;
-import org.xorrr.bot.IrcBotConfiguration;
+import org.xorrr.bot.config.IrcBotConfiguration;
 
 import java.io.IOException;
 
