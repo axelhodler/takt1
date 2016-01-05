@@ -2,7 +2,7 @@
 
 export NAME=takt1
 export SERVER=irc.quakenet.org
-export CHANNEL=#takt1
+export CHANNEL='#takt1'
 
 # Optional:
 export IDENT=test
