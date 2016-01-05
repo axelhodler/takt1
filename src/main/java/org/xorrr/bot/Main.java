@@ -12,7 +12,7 @@ public class Main {
     IrcBotConfiguration ircBotConfig = new IrcBotConfiguration();
     ircBotConfig.initFromEnvironmentVars();
     Injector injector = Guice.createInjector(new DependencyInjectionModule());
-    pircBot.start(ircBotConfig, injector.getInstance(HandleChannelMessages.class));
+    pircBot.start(ircBotConfig, injector.getInstance(PircBotXMessageListener.class));
   }
 
 }

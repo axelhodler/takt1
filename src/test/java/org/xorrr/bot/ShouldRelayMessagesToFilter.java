@@ -28,11 +28,11 @@ public class ShouldRelayMessagesToFilter {
   @Mock
   ChannelResponder channelResponder;
 
-  private HandleChannelMessages onMessageHandler;
+  private PircBotXMessageListener onMessageHandler;
 
   @Before
   public void setUp() {
-    onMessageHandler = new HandleChannelMessages(messageFilter,
+    onMessageHandler = new PircBotXMessageListener(messageFilter,
         channelResponder);
   }
 

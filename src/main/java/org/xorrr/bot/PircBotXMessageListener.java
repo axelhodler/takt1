@@ -7,14 +7,14 @@ import org.xorrr.bot.messageextraction.ChannelResponseFinder;
 
 import com.google.inject.Inject;
 
-public class HandleChannelMessages extends ListenerAdapter<PircBotX> {
+public class PircBotXMessageListener extends ListenerAdapter<PircBotX> {
 
   private ChannelResponseFinder messageRelais;
   private ChannelResponder channelResponder;
 
   @Inject
-  public HandleChannelMessages(ChannelResponseFinder messageRelais,
-      ChannelResponder channelResponder) {
+  public PircBotXMessageListener(ChannelResponseFinder messageRelais,
+                                 ChannelResponder channelResponder) {
     this.messageRelais = messageRelais;
     this.channelResponder = channelResponder;
   }

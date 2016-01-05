@@ -9,7 +9,7 @@ import java.io.IOException;
 public class PircBot implements IrcBot {
 
   @Override
-  public void start(IrcBotConfiguration config, HandleChannelMessages handleChannelMessages) {
+  public void start(IrcBotConfiguration config, PircBotXMessageListener handleChannelMessages) {
     Configuration<PircBotX> pircBotConfig = new Configuration.Builder<>()
             .setName(config.getBotName())
             .setServerHostname(config.getServerAddress())
