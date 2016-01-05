@@ -9,23 +9,15 @@ import com.google.inject.Inject;
 
 public class PircBotXMessageListener extends ListenerAdapter<PircBotX> {
 
-  private ChannelResponseFinder messageRelais;
-  private ChannelResponder channelResponder;
+  private HandleChannelMessage handleChannelMessage;
 
-  @Inject
-  public PircBotXMessageListener(ChannelResponseFinder messageRelais,
-                                 ChannelResponder channelResponder) {
-    this.messageRelais = messageRelais;
-    this.channelResponder = channelResponder;
+  public PircBotXMessageListener(HandleChannelMessage handleChannelMessage) {
+    this.handleChannelMessage = handleChannelMessage;
   }
 
   @Override
   public void onMessage(MessageEvent<PircBotX> messageEvent) throws Exception {
-    String responseMessage = messageRelais.decideResponseTo(messageEvent
-        .getMessage());
-
-    if (!responseMessage.isEmpty()) {
-      channelResponder.respondWith(messageEvent.getChannel(), responseMessage);
-    }
+    handleChannelMessage.handle(new PircBotXIrcChannel(messageEvent.getChannel()),
+            new IrcMessage(messageEvent.getMessage()));
   }
 }
