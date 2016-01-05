@@ -1,6 +1,8 @@
-package org.xorrr.bot;
+package org.xorrr.bot.pircbotx;
 
 import org.pircbotx.Channel;
+import org.xorrr.bot.IrcChannel;
+import org.xorrr.bot.IrcMessage;
 
 public class PircBotXIrcChannel implements IrcChannel {
   private final Channel channel;

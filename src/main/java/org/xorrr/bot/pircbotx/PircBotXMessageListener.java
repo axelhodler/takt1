@@ -1,11 +1,11 @@
-package org.xorrr.bot;
+package org.xorrr.bot.pircbotx;
 
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.events.MessageEvent;
-import org.xorrr.bot.messageextraction.ChannelResponseFinder;
 
-import com.google.inject.Inject;
+import org.xorrr.bot.HandleChannelMessage;
+import org.xorrr.bot.IrcMessage;
 
 public class PircBotXMessageListener extends ListenerAdapter<PircBotX> {
 
