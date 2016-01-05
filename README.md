@@ -18,12 +18,11 @@ Optional:
 ## Execute
 To run locally:
 
-    ./bin/run.sh
+    ./run.sh
 
 ## Testing
-Run the tests via:
 
-    ./bin/run_tests.sh
+    mvn test
 
 ## Deploy
 I run the bot on the smallest EC2 instance of AWS.
