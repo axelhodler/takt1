@@ -1,7 +1,7 @@
 package org.xorrr.bot.titlefinder;
 
 import com.google.inject.Inject;
-import org.xorrr.bot.jsoup.HtmlTitleFetcher;
+import org.xorrr.bot.boundaries.impl.HtmlTitleFetcher;
 
 public class SpotifyTrackTitleFetcher {
 

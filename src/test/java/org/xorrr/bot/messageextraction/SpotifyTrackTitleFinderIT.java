@@ -1,7 +1,7 @@
 package org.xorrr.bot.messageextraction;
 
 import org.junit.Test;
-import org.xorrr.bot.jsoup.HtmlTitleFetcher;
+import org.xorrr.bot.boundaries.impl.HtmlTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 import static org.junit.Assert.assertEquals;

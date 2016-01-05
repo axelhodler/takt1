@@ -1,4 +1,4 @@
-package org.xorrr.bot.jsoup;
+package org.xorrr.bot.boundaries.impl;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -6,7 +6,7 @@ import java.net.UnknownHostException;
 import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
-import org.xorrr.bot.titlefinder.TitleFetcher;
+import org.xorrr.bot.boundaries.TitleFetcher;
 
 public class HtmlTitleFetcher implements TitleFetcher {
 

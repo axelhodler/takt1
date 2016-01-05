@@ -1,4 +1,4 @@
-package org.xorrr.bot.pircbotx;
+package org.xorrr.bot.boundaries.impl;
 
 import org.pircbotx.Channel;
 import org.xorrr.bot.IrcChannel;

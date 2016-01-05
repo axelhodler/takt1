@@ -1,9 +1,9 @@
-package org.xorrr.bot.pircbotx;
+package org.xorrr.bot.boundaries.impl;
 
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
-import org.xorrr.bot.IrcBot;
+import org.xorrr.bot.boundaries.IrcBot;
 import org.xorrr.bot.config.IrcBotConfiguration;
 
 import java.io.IOException;
