@@ -1,6 +1,6 @@
 package org.xorrr.bot.messageextraction;
 
-import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.jsoup.HtmlTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 import com.google.inject.Inject;

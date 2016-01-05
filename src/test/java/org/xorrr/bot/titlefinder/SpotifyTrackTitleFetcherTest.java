@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
+import org.xorrr.bot.jsoup.HtmlTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SpotifyTrackTitleFetcherTest {

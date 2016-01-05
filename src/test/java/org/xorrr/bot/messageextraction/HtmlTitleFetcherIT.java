@@ -2,7 +2,7 @@ package org.xorrr.bot.messageextraction;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.jsoup.HtmlTitleFetcher;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

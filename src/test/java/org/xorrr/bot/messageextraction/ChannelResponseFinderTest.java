@@ -8,10 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.messageextraction.ChannelResponseFinder;
-import org.xorrr.bot.messageextraction.SpotifyUriExtractor;
-import org.xorrr.bot.messageextraction.UrlExtractor;
-import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.jsoup.HtmlTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
