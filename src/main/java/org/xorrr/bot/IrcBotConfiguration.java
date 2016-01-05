@@ -1,5 +1,7 @@
 package org.xorrr.bot;
 
+import org.xorrr.bot.config.UsedEnvironmentVars;
+
 public class IrcBotConfiguration {
 
   private String botName;
@@ -9,7 +11,11 @@ public class IrcBotConfiguration {
   private String password;
 
   public void initFromEnvironmentVars() {
-
+    this.botName = readEnvVar(UsedEnvironmentVars.NAME);
+    this.serverAddress = readEnvVar(UsedEnvironmentVars.SERVER);
+    this.channelName = readEnvVar(UsedEnvironmentVars.CHANNEL);
+    this.ident = readEnvVar(UsedEnvironmentVars.IDENT);
+    this.password = readEnvVar(UsedEnvironmentVars.PASSWORD);
   }
 
   public String getBotName() {
@@ -30,5 +36,9 @@ public class IrcBotConfiguration {
 
   public String getPassword() {
     return password;
+  }
+
+  private String readEnvVar(String name) {
+    return System.getenv(name);
   }
 }
