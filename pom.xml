@@ -119,32 +119,7 @@
           <includes>
             <include>**/*.class</include>
           </includes>
-          <excludedGroups>org.xorrr.bot.helpers.IntegrationTest</excludedGroups>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-failsafe-plugin</artifactId>
-        <version>${failsafe.plugin.version}</version>
-        <dependencies>
-          <dependency>
-            <groupId>org.apache.maven.surefire</groupId>
-            <artifactId>surefire-junit47</artifactId>
-            <version>${surefire.plugin.version}</version>
-          </dependency>
-        </dependencies>
-        <executions>
-          <execution>
-            <goals>
-              <goal>integration-test</goal>
-            </goals>
-            <configuration>
-              <includes>
-                <include>**/*.class</include>
-              </includes>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -186,7 +161,15 @@
         <version>${cobertura.plugin.version}</version>
         <configuration>
           <format>xml</format>
+          <format>html</format>
           <maxmem>256m</maxmem>
+          <instrumentation>
+            <excludes>
+              <exclude>org/xorrr/bot/Main.class</exclude>
+              <exclude>org/xorrr/bot/config/*.class</exclude>
+              <exclude>org/xorrr/bot/pircbotx/*.class</exclude>
+            </excludes>
+          </instrumentation>
         </configuration>
       </plugin>
     </plugins>

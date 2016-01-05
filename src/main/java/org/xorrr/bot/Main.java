@@ -4,6 +4,7 @@ import org.xorrr.bot.config.DependencyInjectionModule;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import org.xorrr.bot.config.IrcBotConfiguration;
 import org.xorrr.bot.pircbotx.PircBot;
 import org.xorrr.bot.pircbotx.PircBotXMessageListener;
 

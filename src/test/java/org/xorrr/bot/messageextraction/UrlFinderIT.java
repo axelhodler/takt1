@@ -1,17 +1,10 @@
 package org.xorrr.bot.messageextraction;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.xorrr.bot.helpers.IntegrationTest;
-import org.xorrr.bot.messageextraction.UrlExtractor;
 
-@Category(IntegrationTest.class)
+import static org.junit.Assert.*;
+
 public class UrlFinderIT {
   private final String TEST_URL = "http://en.wikipedia.org/wiki/Regex";
   private final String TEST_URL_TWO = "http://en.wikipedia.org/wiki/"

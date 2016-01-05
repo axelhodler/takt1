@@ -1,16 +1,13 @@
 package org.xorrr.bot.messageextraction;
 
+import org.junit.Before;
+import org.junit.Test;
+import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNull;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.experimental.categories.Category;
-import org.xorrr.bot.helpers.IntegrationTest;
-import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
-
-@Category(IntegrationTest.class)
 public class HtmlTitleFetcherIT {
 
   private final String TITLE = "Regular expression - Wikipedia, the "

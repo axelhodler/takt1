@@ -1,4 +1,4 @@
-package org.xorrr.bot;
+package org.xorrr.bot.config;
 
 import org.xorrr.bot.config.UsedEnvironmentVars;
 
