@@ -160,14 +160,16 @@
         <artifactId>cobertura-maven-plugin</artifactId>
         <version>${cobertura.plugin.version}</version>
         <configuration>
-          <format>xml</format>
-          <format>html</format>
+          <formats>
+            <format>xml</format>
+            <format>html</format>
+          </formats>
           <maxmem>256m</maxmem>
           <instrumentation>
             <excludes>
               <exclude>org/xorrr/bot/Main.class</exclude>
               <exclude>org/xorrr/bot/config/*.class</exclude>
-              <exclude>org/xorrr/bot/pircbotx/*.class</exclude>
+              <exclude>org/xorrr/bot/boundaries/impl/*.class</exclude>
             </excludes>
           </instrumentation>
         </configuration>
