@@ -2,6 +2,7 @@ package org.xorrr.bot.messageextraction;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.xorrr.bot.boundaries.TitleFetcher;
 import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -18,7 +19,7 @@ public class HtmlTitleFetcherIT {
       + "/thumb/8/8e/Thompson-kleene-star.svg/503px-Thompson-kleene-"
       + "star.svg.png";
 
-  private JsoupTitleFetcher finder;
+  private TitleFetcher finder;
 
   @Before
   public void setUp() {

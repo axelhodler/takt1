@@ -1,5 +1,6 @@
 package org.xorrr.bot.messageextraction;
 
+import org.xorrr.bot.boundaries.TitleFetcher;
 import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
@@ -8,12 +9,12 @@ import com.google.inject.Inject;
 public class ChannelResponseFinder {
 
   private UrlExtractor urlFinder;
-  private JsoupTitleFetcher titleFinder;
+  private TitleFetcher titleFinder;
   private SpotifyUriExtractor spotifyUriFinder;
   private SpotifyTrackTitleFetcher trackTitleFinder;
 
   @Inject
-  public ChannelResponseFinder(UrlExtractor urlFinder, JsoupTitleFetcher titleFinder,
+  public ChannelResponseFinder(UrlExtractor urlFinder, TitleFetcher titleFinder,
       SpotifyUriExtractor spotifyUriFinder,
       SpotifyTrackTitleFetcher trackTitleFinder) {
     this.urlFinder = urlFinder;
