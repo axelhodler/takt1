@@ -8,10 +8,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.messageextraction.ChannelResponseFinder;
-import org.xorrr.bot.messageextraction.SpotifyUriExtractor;
-import org.xorrr.bot.messageextraction.UrlExtractor;
-import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.boundaries.TitleFetcher;
+import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -20,7 +18,7 @@ public class ChannelResponseFinderTest {
   @Mock
   UrlExtractor urlFinder;
   @Mock
-  HtmlTitleFetcher titleFinder;
+  TitleFetcher titleFinder;
   @Mock
   SpotifyUriExtractor spotifyUriFinder;
   @Mock

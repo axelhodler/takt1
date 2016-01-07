@@ -1,4 +1,4 @@
-package org.xorrr.bot.titlefinder;
+package org.xorrr.bot.boundaries;
 
 public interface TitleFetcher {
 

@@ -1,4 +1,4 @@
-package org.xorrr.bot.pircbotx;
+package org.xorrr.bot.boundaries.impl;
 
 import com.google.inject.Inject;
 import org.pircbotx.PircBotX;
@@ -7,6 +7,7 @@ import org.pircbotx.hooks.events.MessageEvent;
 
 import org.xorrr.bot.HandleChannelMessage;
 import org.xorrr.bot.IrcMessage;
+import org.xorrr.bot.boundaries.impl.PircBotXIrcChannel;
 
 public class PircBotXMessageListener extends ListenerAdapter<PircBotX> {
 

@@ -1,7 +1,7 @@
 package org.xorrr.bot.messageextraction;
 
 import org.junit.Test;
-import org.xorrr.bot.titlefinder.HtmlTitleFetcher;
+import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 import static org.junit.Assert.assertEquals;
@@ -14,7 +14,7 @@ public class SpotifyTrackTitleFinderIT {
   @Test
   public void canGetTrackId() {
     SpotifyTrackTitleFetcher finder = new SpotifyTrackTitleFetcher(
-        new HtmlTitleFetcher());
+        new JsoupTitleFetcher());
 
     String title = finder.fetchTitleFrom(URI_TRACK);
 

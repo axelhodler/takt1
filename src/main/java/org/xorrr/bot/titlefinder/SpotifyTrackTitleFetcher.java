@@ -1,15 +1,17 @@
 package org.xorrr.bot.titlefinder;
 
 import com.google.inject.Inject;
+import org.xorrr.bot.boundaries.TitleFetcher;
+import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 
 public class SpotifyTrackTitleFetcher {
 
   private final String URL_BASE = "http://open.spotify.com/track/";
 
-  private HtmlTitleFetcher titleFetcher;
+  private TitleFetcher titleFetcher;
 
   @Inject
-  public SpotifyTrackTitleFetcher(HtmlTitleFetcher titleFetcher) {
+  public SpotifyTrackTitleFetcher(TitleFetcher titleFetcher) {
     this.titleFetcher = titleFetcher;
   }
 
