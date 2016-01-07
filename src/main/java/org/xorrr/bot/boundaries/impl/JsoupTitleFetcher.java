@@ -8,7 +8,7 @@ import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
 import org.xorrr.bot.boundaries.TitleFetcher;
 
-public class HtmlTitleFetcher implements TitleFetcher {
+public class JsoupTitleFetcher implements TitleFetcher {
 
   @Override
   public String fetchTitleFrom(String url) {

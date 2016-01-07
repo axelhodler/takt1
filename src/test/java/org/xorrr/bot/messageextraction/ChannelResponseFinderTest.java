@@ -8,7 +8,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.boundaries.impl.HtmlTitleFetcher;
+import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -17,7 +17,7 @@ public class ChannelResponseFinderTest {
   @Mock
   UrlExtractor urlFinder;
   @Mock
-  HtmlTitleFetcher titleFinder;
+  JsoupTitleFetcher titleFinder;
   @Mock
   SpotifyUriExtractor spotifyUriFinder;
   @Mock

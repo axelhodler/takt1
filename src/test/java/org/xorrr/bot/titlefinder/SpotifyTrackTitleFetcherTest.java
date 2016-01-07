@@ -6,13 +6,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.xorrr.bot.boundaries.impl.HtmlTitleFetcher;
+import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 
 @RunWith(MockitoJUnitRunner.class)
 public class SpotifyTrackTitleFetcherTest {
 
   @Mock
-  HtmlTitleFetcher titleFetcher;
+  JsoupTitleFetcher titleFetcher;
 
   private final String SPOTIFY_TRACK_ID = "4MYBNI0m7Ot8Llm2OsjzXQ";
   private final String SPOTIFY_TRACK_URI = "spotify:track:" + SPOTIFY_TRACK_ID;
