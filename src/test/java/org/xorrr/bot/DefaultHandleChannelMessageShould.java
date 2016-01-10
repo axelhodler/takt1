@@ -7,6 +7,8 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.xorrr.bot.messageextraction.ChannelResponseFinder;
 
+import java.util.Optional;
+
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -28,7 +30,7 @@ public class DefaultHandleChannelMessageShould {
 
   @Test
   public void postResponseToChannel() {
-    given(responseFinder.decideResponseTo("hallo")).willReturn("hi");
+    given(responseFinder.decideResponseTo("hallo")).willReturn(Optional.of("hi"));
 
     handleChannelMessage.handle(ircChannel, new IrcMessage("hallo"));
 
@@ -37,7 +39,7 @@ public class DefaultHandleChannelMessageShould {
 
   @Test
   public void dontRespondToChannelIfNoResponseAvailable() {
-    given(responseFinder.decideResponseTo("hallo")).willReturn("");
+    given(responseFinder.decideResponseTo("hallo")).willReturn(Optional.empty());
 
     handleChannelMessage.handle(ircChannel, new IrcMessage("hallo"));
 

@@ -6,6 +6,8 @@ import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 import com.google.inject.Inject;
 
+import java.util.Optional;
+
 public class ChannelResponseFinder {
 
   private UrlExtractor urlFinder;
@@ -23,8 +25,9 @@ public class ChannelResponseFinder {
     this.trackTitleFinder = trackTitleFinder;
   }
 
-  public String decideResponseTo(String message) {
-    String channelResponse = "";
+  public Optional<String> decideResponseTo(String message) {
+    String channelResponse = null;
+    Optional<String> response = Optional.ofNullable(channelResponse);
 
     if (urlFinder.urlExtractableIn(message)) {
       String extractedUrl = urlFinder.extractUrlIn(message);
@@ -34,7 +37,7 @@ public class ChannelResponseFinder {
       channelResponse = trackTitleFinder.fetchTitleFrom(foundUri);
     }
 
-    return channelResponse;
+    return response;
   }
 
 }
