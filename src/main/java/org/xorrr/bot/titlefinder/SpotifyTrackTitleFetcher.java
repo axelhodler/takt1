@@ -4,6 +4,8 @@ import com.google.inject.Inject;
 import org.xorrr.bot.boundaries.TitleFetcher;
 import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 
+import java.util.Optional;
+
 public class SpotifyTrackTitleFetcher {
 
   private final String URL_BASE = "http://open.spotify.com/track/";
@@ -15,7 +17,7 @@ public class SpotifyTrackTitleFetcher {
     this.titleFetcher = titleFetcher;
   }
 
-  public String fetchTitleFrom(String uriTrack) {
+  public Optional<String> fetchTitleFrom(String uriTrack) {
     String id = getTrackId(uriTrack);
     return titleFetcher.fetchTitleFrom(URL_BASE + id);
   }

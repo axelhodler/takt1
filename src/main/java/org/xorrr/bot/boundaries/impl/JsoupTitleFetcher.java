@@ -2,6 +2,7 @@ package org.xorrr.bot.boundaries.impl;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.Optional;
 
 import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
@@ -11,7 +12,7 @@ import org.xorrr.bot.boundaries.TitleFetcher;
 public class JsoupTitleFetcher implements TitleFetcher {
 
   @Override
-  public String fetchTitleFrom(String url) {
+  public Optional<String> fetchTitleFrom(String url) {
     String title = null;
     try {
       title = getTitle(url);
@@ -22,7 +23,7 @@ public class JsoupTitleFetcher implements TitleFetcher {
     } catch (IOException e) {
       e.printStackTrace();
     }
-    return title;
+    return Optional.ofNullable(title);
   }
 
   private String getTitle(String url) throws IOException {
