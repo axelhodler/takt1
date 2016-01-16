@@ -2,7 +2,6 @@ package org.xorrr.bot.titlefinder;
 
 import com.google.inject.Inject;
 import org.xorrr.bot.boundaries.TitleFetcher;
-import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 
 import java.util.Optional;
 
@@ -24,7 +23,6 @@ public class SpotifyTrackTitleFetcher {
 
   private String getTrackId(String uriTrack) {
     String[] parts = uriTrack.split(":");
-    String id = parts[2];
-    return id;
+    return parts[2];
   }
 }
