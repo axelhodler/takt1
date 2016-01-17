@@ -2,11 +2,11 @@ package org.xorrr.bot.titlefinder;
 
 import com.google.inject.Inject;
 import org.xorrr.bot.boundaries.TitleFetcher;
-import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
+import org.xorrr.bot.model.SpotifyTrackUri;
+
+import java.util.Optional;
 
 public class SpotifyTrackTitleFetcher {
-
-  private final String URL_BASE = "http://open.spotify.com/track/";
 
   private TitleFetcher titleFetcher;
 
@@ -15,14 +15,10 @@ public class SpotifyTrackTitleFetcher {
     this.titleFetcher = titleFetcher;
   }
 
-  public String fetchTitleFrom(String uriTrack) {
-    String id = getTrackId(uriTrack);
-    return titleFetcher.fetchTitleFrom(URL_BASE + id);
+  public Optional<String> fetchTitleFrom(String uriTrack) {
+    return titleFetcher.fetchTitleFrom(
+            "http://open.spotify.com/track/"
+                    + new SpotifyTrackUri(uriTrack).trackId());
   }
 
-  private String getTrackId(String uriTrack) {
-    String[] parts = uriTrack.split(":");
-    String id = parts[2];
-    return id;
-  }
 }

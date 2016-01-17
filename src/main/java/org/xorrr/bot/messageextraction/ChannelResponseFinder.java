@@ -26,8 +26,7 @@ public class ChannelResponseFinder {
   }
 
   public Optional<String> decideResponseTo(String message) {
-    String channelResponse = null;
-    Optional<String> response = Optional.ofNullable(channelResponse);
+    Optional<String> channelResponse = null;
 
     if (urlFinder.urlExtractableIn(message)) {
       String extractedUrl = urlFinder.extractUrlIn(message);
@@ -37,7 +36,7 @@ public class ChannelResponseFinder {
       channelResponse = trackTitleFinder.fetchTitleFrom(foundUri);
     }
 
-    return response;
+    return channelResponse;
   }
 
 }
