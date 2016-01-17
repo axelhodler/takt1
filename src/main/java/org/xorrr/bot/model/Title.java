@@ -2,14 +2,17 @@ package org.xorrr.bot.model;
 
 public class Title {
 
-  private final String title;
+  private final String value;
 
   public Title(String title) {
-    this.title = title;
+    if (title == null) {
+      throw new IllegalArgumentException("value cant be null");
+    }
+    this.value = title;
   }
 
   public String stringValue() {
-    return this.title;
+    return this.value;
   }
 
   @Override
@@ -19,11 +22,11 @@ public class Title {
 
     Title title1 = (Title) o;
 
-    return title != null ? title.equals(title1.title) : title1.title == null;
+    return value != null ? value.equals(title1.value) : title1.value == null;
   }
 
   @Override
   public int hashCode() {
-    return title != null ? title.hashCode() : 0;
+    return value != null ? value.hashCode() : 0;
   }
 }
