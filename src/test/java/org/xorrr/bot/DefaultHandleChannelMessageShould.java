@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.xorrr.bot.messageextraction.ChannelResponseFinder;
+import org.xorrr.bot.model.Title;
 
 import java.util.Optional;
 
@@ -30,7 +31,7 @@ public class DefaultHandleChannelMessageShould {
 
   @Test
   public void postResponseToChannel() {
-    given(responseFinder.decideResponseTo("hallo")).willReturn(Optional.of("hi"));
+    given(responseFinder.decideResponseTo("hallo")).willReturn(Optional.of(new Title("hi")));
 
     handleChannelMessage.handle(ircChannel, new IrcMessage("hallo"));
 

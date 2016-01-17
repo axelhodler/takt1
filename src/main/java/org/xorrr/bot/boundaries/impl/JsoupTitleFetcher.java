@@ -8,14 +8,15 @@ import org.jsoup.Jsoup;
 import org.jsoup.UnsupportedMimeTypeException;
 import org.jsoup.nodes.Document;
 import org.xorrr.bot.boundaries.TitleFetcher;
+import org.xorrr.bot.model.Title;
 
 public class JsoupTitleFetcher implements TitleFetcher {
 
   @Override
-  public Optional<String> fetchTitleFrom(String url) {
-    String title = null;
+  public Optional<Title> fetchTitleFrom(String url) {
+    Title title = null;
     try {
-      title = getTitle(url);
+      title = new Title(getTitle(url));
     } catch (Exception e) {
       /**
        We dont care if the url is malformed, a link to an image or sth else
