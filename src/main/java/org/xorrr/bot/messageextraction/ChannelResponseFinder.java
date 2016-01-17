@@ -2,6 +2,7 @@ package org.xorrr.bot.messageextraction;
 
 import org.xorrr.bot.boundaries.TitleFetcher;
 import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
+import org.xorrr.bot.model.Title;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
 import com.google.inject.Inject;
@@ -25,8 +26,8 @@ public class ChannelResponseFinder {
     this.trackTitleFinder = trackTitleFinder;
   }
 
-  public Optional<String> decideResponseTo(String message) {
-    Optional<String> channelResponse = null;
+  public Optional<Title> decideResponseTo(String message) {
+    Optional<Title> channelResponse = null;
 
     if (urlFinder.urlExtractableIn(message)) {
       String extractedUrl = urlFinder.extractUrlIn(message);

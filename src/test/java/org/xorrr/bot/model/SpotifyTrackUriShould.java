@@ -23,4 +23,10 @@ public class SpotifyTrackUriShould {
 
     assertThat(trackUri.trackId(), is("foobarbaz1234"));
   }
+
+  @Test
+  public void handleEquals() {
+    assertThat(new SpotifyTrackUri("spotify:track:foobarbaz1234"),
+            is(new SpotifyTrackUri("spotify:track:foobarbaz1234")));
+  }
 }
