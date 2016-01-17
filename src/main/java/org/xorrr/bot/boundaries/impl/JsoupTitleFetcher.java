@@ -26,7 +26,6 @@ public class JsoupTitleFetcher implements TitleFetcher {
   }
 
   private String getTitle(String url) throws IOException {
-    Document doc = Jsoup.connect(url).userAgent("Mozilla").get();
-    return doc.title();
+    return Jsoup.connect(url).userAgent("Mozilla").get().title();
   }
 }
