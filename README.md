@@ -30,7 +30,7 @@ I run the bot on the smallest EC2 instance of AWS.
 ## Release
 Invoke the maven-release-plugin
 
-    maven release:prepare-with-pom
+    mvn release:prepare-with-pom
 
 ## Troubleshooting
 ### Deal with german umlauts etc in the title-tag of the HTML page
