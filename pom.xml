@@ -1,10 +1,9 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>earth.xor</groupId>
   <artifactId>takt1</artifactId>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.2-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>takt1</name>
@@ -34,7 +33,7 @@
 
     <jetty.plugin.version>8.1.16.v20140903</jetty.plugin.version>
     <dependency.plugin.version>2.10</dependency.plugin.version>
-    <maven-release.plugin.version>3.0-r1585899</maven-release.plugin.version>
+    <maven-release.plugin.version>2.5.3</maven-release.plugin.version>
     <maven-scm.plugin.version>1.9.4</maven-scm.plugin.version>
     <maven-compiler.plugin.version>3.3</maven-compiler.plugin.version>
     <surefire.plugin.version>2.19</surefire.plugin.version>
