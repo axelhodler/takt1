@@ -15,7 +15,7 @@ Optional:
 * `IDENT`         The nickserv ident
 * `PASSWORD`      The password for the nickserv ident
 
-## Execute
+## Usage
 To run locally:
 
     ./run.sh
@@ -25,6 +25,10 @@ To run locally:
     mvn test
 
 ## Deploy
+Create a deployable uber-jar via
+
+    mvn package
+
 I run the bot on the smallest EC2 instance of AWS.
 
 ## Release
