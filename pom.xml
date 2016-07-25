@@ -36,6 +36,7 @@
     <maven-release.plugin.version>2.5.3</maven-release.plugin.version>
     <maven-scm.plugin.version>1.9.4</maven-scm.plugin.version>
     <maven-compiler.plugin.version>3.3</maven-compiler.plugin.version>
+    <shade.plugin.version>2.4.3</shade.plugin.version>
     <surefire.plugin.version>2.19</surefire.plugin.version>
     <failsafe.plugin.version>2.19</failsafe.plugin.version>
   </properties>
@@ -137,7 +138,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>2.4.3</version>
+        <version>${shade.plugin.version}</version>
         <executions>
           <execution>
             <phase>package</phase>
