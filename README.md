@@ -15,7 +15,7 @@ Optional:
 * `IDENT`         The nickserv ident
 * `PASSWORD`      The password for the nickserv ident
 
-## Execute
+## Usage
 To run locally:
 
     ./run.sh
@@ -25,6 +25,10 @@ To run locally:
     mvn test
 
 ## Deploy
+Create a deployable uber-jar via
+
+    mvn package
+
 I run the bot on the smallest EC2 instance of AWS.
 
 ## Release
@@ -34,10 +38,18 @@ Invoke the maven-release-plugin
 
 ## Troubleshooting
 ### Deal with german umlauts etc in the title-tag of the HTML page
+#### Heroku
 Use UTF-8 as LANG environment variable:
 
     heroku config:add LANG=en_US.UTF-8
 
+#### AWS EC2
+Add the following to `/etc/environment`
+
+```shell
+LANG=en_US.utf-8
+LC_ALL=en_US.utf-8
+```
 ## License
 
 pircbotx is GPL so this project is GPL too
