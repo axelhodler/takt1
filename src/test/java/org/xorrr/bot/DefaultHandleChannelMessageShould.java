@@ -11,8 +11,9 @@ import org.xorrr.bot.model.Title;
 import java.util.Optional;
 
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.only;
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyZeroInteractions;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultHandleChannelMessageShould {
@@ -35,7 +36,7 @@ public class DefaultHandleChannelMessageShould {
 
     handleChannelMessage.handle(ircChannel, new IrcMessage("hallo"));
 
-    verify(ircChannel).send(new IrcMessage("hi"));
+    verify(ircChannel, only()).send(new IrcMessage("hi"));
   }
 
   @Test
@@ -44,6 +45,6 @@ public class DefaultHandleChannelMessageShould {
 
     handleChannelMessage.handle(ircChannel, new IrcMessage("hallo"));
 
-    verify(ircChannel, never()).send(new IrcMessage(""));
+    verifyZeroInteractions(ircChannel);
   }
 }

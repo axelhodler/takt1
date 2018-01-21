@@ -2,9 +2,6 @@ package org.xorrr.bot;
 
 import com.google.inject.Inject;
 import org.xorrr.bot.messageextraction.ChannelResponseFinder;
-import org.xorrr.bot.model.Title;
-
-import java.util.Optional;
 
 public class DefaultHandleChannelMessage implements HandleChannelMessage {
 
@@ -17,10 +14,7 @@ public class DefaultHandleChannelMessage implements HandleChannelMessage {
 
   @Override
   public void handle(IrcChannel ircChannel, IrcMessage ircMessage) {
-    Optional<Title> title = channelResponseFinder.decideResponseTo(ircMessage.value());
-
-    if (title.isPresent()) {
-      ircChannel.send(new IrcMessage(title.get().stringValue()));
-    }
+    channelResponseFinder.decideResponseTo(ircMessage.value())
+            .ifPresent(t -> ircChannel.send(new IrcMessage(t.stringValue())));
   }
 }
