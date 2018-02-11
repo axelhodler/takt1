@@ -1,0 +1,12 @@
+[Unit]
+Description=takt1 - IRC bot posting titles of urls to the channel
+After=syslog.target
+
+[Service]
+User=takt1
+ExecStart=/var/takt1/takt1.jar
+SuccessExitStatus=143
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
