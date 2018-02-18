@@ -16,7 +16,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyZeroInteractions;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DefaultHandleChannelMessageShould {
+public class DefaultHandleChannelMessageTest {
 
   @Mock
   ChannelResponseFinder responseFinder;

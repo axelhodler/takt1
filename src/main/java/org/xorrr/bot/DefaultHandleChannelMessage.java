@@ -1,13 +1,13 @@
 package org.xorrr.bot;
 
-import com.google.inject.Inject;
+import org.springframework.stereotype.Service;
 import org.xorrr.bot.messageextraction.ChannelResponseFinder;
 
+@Service
 public class DefaultHandleChannelMessage implements HandleChannelMessage {
 
   private ChannelResponseFinder channelResponseFinder;
 
-  @Inject
   public DefaultHandleChannelMessage(ChannelResponseFinder channelResponseFinder) {
     this.channelResponseFinder = channelResponseFinder;
   }

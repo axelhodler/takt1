@@ -1,17 +1,17 @@
 package org.xorrr.bot.titlefinder;
 
-import com.google.inject.Inject;
+import org.springframework.stereotype.Service;
 import org.xorrr.bot.boundaries.TitleFetcher;
 import org.xorrr.bot.model.SpotifyTrackUri;
 import org.xorrr.bot.model.Title;
 
 import java.util.Optional;
 
+@Service
 public class SpotifyTrackTitleFetcher {
 
   private TitleFetcher titleFetcher;
 
-  @Inject
   public SpotifyTrackTitleFetcher(TitleFetcher titleFetcher) {
     this.titleFetcher = titleFetcher;
   }

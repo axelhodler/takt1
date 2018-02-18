@@ -1,14 +1,13 @@
 package org.xorrr.bot.messageextraction;
 
+import org.springframework.stereotype.Service;
 import org.xorrr.bot.boundaries.TitleFetcher;
-import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 import org.xorrr.bot.model.Title;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
 
-import com.google.inject.Inject;
-
 import java.util.Optional;
 
+@Service
 public class ChannelResponseFinder {
 
   private UrlExtractor urlFinder;
@@ -16,7 +15,6 @@ public class ChannelResponseFinder {
   private SpotifyUriExtractor spotifyUriFinder;
   private SpotifyTrackTitleFetcher trackTitleFinder;
 
-  @Inject
   public ChannelResponseFinder(UrlExtractor urlFinder, TitleFetcher titleFinder,
       SpotifyUriExtractor spotifyUriFinder,
       SpotifyTrackTitleFetcher trackTitleFinder) {

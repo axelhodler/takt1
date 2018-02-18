@@ -1,21 +1,13 @@
 package org.xorrr.bot;
 
-import org.xorrr.bot.config.DependencyInjectionModule;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-import org.xorrr.bot.config.IrcBotConfiguration;
-import org.xorrr.bot.boundaries.impl.PircBot;
-import org.xorrr.bot.boundaries.impl.PircBotXMessageListener;
-
+@SpringBootApplication
 public class Main {
 
-  public static void main(String[] args) throws Exception {
-    PircBot pircBot = new PircBot();
-    IrcBotConfiguration ircBotConfig = new IrcBotConfiguration();
-    ircBotConfig.initFromEnvironmentVars();
-    Injector injector = Guice.createInjector(new DependencyInjectionModule());
-    pircBot.start(ircBotConfig, injector.getInstance(PircBotXMessageListener.class));
+  public static void main(String[] args) {
+    SpringApplication.run(Main.class, args);
   }
 
 }

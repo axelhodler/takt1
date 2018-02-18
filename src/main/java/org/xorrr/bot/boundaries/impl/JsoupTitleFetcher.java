@@ -1,15 +1,14 @@
 package org.xorrr.bot.boundaries.impl;
 
-import java.io.IOException;
-import java.net.UnknownHostException;
-import java.util.Optional;
-
 import org.jsoup.Jsoup;
-import org.jsoup.UnsupportedMimeTypeException;
-import org.jsoup.nodes.Document;
+import org.springframework.stereotype.Service;
 import org.xorrr.bot.boundaries.TitleFetcher;
 import org.xorrr.bot.model.Title;
 
+import java.io.IOException;
+import java.util.Optional;
+
+@Service
 public class JsoupTitleFetcher implements TitleFetcher {
 
   @Override
