@@ -22,9 +22,9 @@ public class PircBot implements CommandLineRunner {
 
   public void start() {
     Configuration<PircBotX> pircBotConfig = new Configuration.Builder<>()
-            .setName(config.getBotName())
-            .setServerHostname(config.getServerAddress())
-            .addAutoJoinChannel(config.getChannelName()).addListener(handleChannelMessages)
+            .setName(config.getName())
+            .setServerHostname(config.getAddress())
+            .addAutoJoinChannel(config.getChannel()).addListener(handleChannelMessages)
             .setLogin(config.getIdent())
             .setNickservPassword(config.getPassword()).buildConfiguration();
     PircBotX pircbot = new PircBotX(pircBotConfig);

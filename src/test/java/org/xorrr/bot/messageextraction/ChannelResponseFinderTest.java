@@ -1,26 +1,20 @@
 package org.xorrr.bot.messageextraction;
 
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import org.xorrr.bot.boundaries.TitleFetcher;
-import org.xorrr.bot.boundaries.impl.JsoupTitleFetcher;
 import org.xorrr.bot.titlefinder.SpotifyTrackTitleFetcher;
+
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ChannelResponseFinderTest {
 
   @Mock
-  UrlExtractor urlFinder;
-  @Mock
   TitleFetcher titleFinder;
-  @Mock
-  SpotifyUriExtractor spotifyUriFinder;
   @Mock
   SpotifyTrackTitleFetcher spotifyTrackTitleFinder;
 
@@ -28,45 +22,24 @@ public class ChannelResponseFinderTest {
 
   @Before
   public void initialize() {
-    messageRelais = new ChannelResponseFinder(urlFinder, titleFinder,
-        spotifyUriFinder, spotifyTrackTitleFinder);
-  }
-
-  @Test
-  public void checksForHttpUrls() {
-    messageRelais.decideResponseTo("message");
-
-    verify(urlFinder).urlExtractableIn("message");
+    messageRelais = new ChannelResponseFinder(titleFinder, spotifyTrackTitleFinder);
   }
 
   @Test
   public void fetchTitleOfExtractedUrl() {
-    String messageContainingAUrl = "Hi, check this out www.foobar.org";
-    given(urlFinder.urlExtractableIn(messageContainingAUrl)).willReturn(true);
-    given(urlFinder.extractUrlIn(messageContainingAUrl)).willReturn(
-        "www.foobar.org");
+    String messageContainingAUrl = "Hi, check this out http://www.foobar.org";
 
     messageRelais.decideResponseTo(messageContainingAUrl);
 
-    verify(titleFinder).fetchTitleFrom("www.foobar.org");
+    verify(titleFinder).fetchTitleFrom("http://www.foobar.org");
   }
 
   @Test
-  public void checkForSpotifyUrisInMessage() {
-    given(urlFinder.urlExtractableIn("message")).willReturn(false);
+  public void fetchTitleOfExtractedTrack() {
+    String messageContainingTrackId = "Foo spotify:track:47vFyxAv24QxAOfdMuE3oV bar";
 
-    messageRelais.decideResponseTo("message");
+    messageRelais.decideResponseTo(messageContainingTrackId);
 
-    verify(spotifyUriFinder).isUriExtractableIn("message");
-  }
-
-  @Test
-  public void getTitleOfSpotifyUriIfUriWasFound() {
-    given(urlFinder.urlExtractableIn("message")).willReturn(false);
-    given(spotifyUriFinder.isUriExtractableIn("message")).willReturn(true);
-
-    messageRelais.decideResponseTo("message");
-
-    verify(spotifyUriFinder).findUri("message");
+    verify(spotifyTrackTitleFinder).fetchTitleFrom("spotify:track:47vFyxAv24QxAOfdMuE3oV");
   }
 }
