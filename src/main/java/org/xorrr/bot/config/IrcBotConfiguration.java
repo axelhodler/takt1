@@ -1,42 +1,53 @@
 package org.xorrr.bot.config;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "bot")
 public class IrcBotConfiguration {
 
-  private String botName;
-  private String serverAddress;
-  private String channelName;
-  private String ident;
-  private String password;
+  String name;
+  String address;
+  String channel;
+  String ident;
+  String password;
 
-  public void initFromEnvironmentVars() {
-    this.botName = readEnvVar("NAME");
-    this.serverAddress = readEnvVar("SERVER");
-    this.channelName = readEnvVar("CHANNEL");
-    this.ident = readEnvVar("IDENT");
-    this.password = readEnvVar("PASSWORD");
+  public String getName() {
+    return name;
   }
 
-  public String getBotName() {
-    return botName;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public String getServerAddress() {
-    return serverAddress;
+  public String getAddress() {
+    return address;
   }
 
-  public String getChannelName() {
-    return channelName;
+  public void setAddress(String address) {
+    this.address = address;
+  }
+
+  public String getChannel() {
+    return channel;
+  }
+
+  public void setChannel(String channel) {
+    this.channel = channel;
   }
 
   public String getIdent() {
     return ident;
   }
 
+  public void setIdent(String ident) {
+    this.ident = ident;
+  }
+
   public String getPassword() {
     return password;
   }
 
-  private String readEnvVar(String name) {
-    return System.getenv(name);
+  public void setPassword(String password) {
+    this.password = password;
   }
 }
