@@ -8,26 +8,10 @@ I found other bot functions and modules rather annoying and wanted to create one
     mvn test
 
 ## Deploy
-Create a deployable uber-jar via
+I run the bot on the smallest EC2 instance of AWS using ansible.
 
-    mvn package
+Add your host to `config/ansible/hosts` and run `./build_then_deploy.sh <HOST_IP>`
 
-I run the bot on the smallest EC2 instance of AWS.
-
-## Troubleshooting
-### Deal with german umlauts etc in the title-tag of the HTML page
-#### Heroku
-Use UTF-8 as LANG environment variable:
-
-    heroku config:add LANG=en_US.UTF-8
-
-#### AWS EC2
-Add the following to `/etc/environment`
-
-```shell
-LANG=en_US.utf-8
-LC_ALL=en_US.utf-8
-```
 ## License
 
 pircbotx is GPL so this project is GPL too
