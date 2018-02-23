@@ -39,7 +39,8 @@
   - name: start takt1 app
     systemd:
       name: takt1
-      state: started
+      state: restarted
+      daemon_reload: yes
       enabled: True
 
 
