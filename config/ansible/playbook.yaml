@@ -1,0 +1,45 @@
+---
+- hosts: '{{ host }}'
+  become: yes
+  tasks:
+  - name: install the latest version of java8
+    yum:
+      name: java-1.8.0
+      state: latest
+  - name: Create a user account for the application
+    user:
+      name: takt1
+      shell: /bin/false
+  - name: Set up locale (LANG) so the bot can deal with e.g. german umlauts
+    lineinfile:
+      path: /etc/environment
+      line: LANG=en_US.utf-8
+      state: present
+  - name: Set up locale (LC_ALL) so the bot can deal with e.g. german umlauts
+    lineinfile:
+      path: /etc/environment
+      line: LC_ALL=en_US.utf-8
+      state: present
+  - name: create directory where we put the Java app
+    file:
+      path: /var/www/takt1
+      state: directory
+      owner: takt1
+      group: takt1
+  - name: provide the Java code
+    copy:
+      src: ../../target/takt1.jar
+      dest: /var/www/takt1
+      owner: takt1
+      group: takt1
+  - name: provide systemd unit file
+    copy:
+      src: ../systemd/takt1.service
+      dest: /lib/systemd/system
+  - name: start takt1 app
+    systemd:
+      name: takt1
+      state: started
+      enabled: True
+
+

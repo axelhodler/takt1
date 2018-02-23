@@ -4,7 +4,7 @@ After=syslog.target
 
 [Service]
 User=takt1
-ExecStart=/var/takt1/takt1.jar
+ExecStart=/usr/bin/java -jar /var/www/takt1/takt1.jar
 SuccessExitStatus=143
 Restart=on-failure
 
